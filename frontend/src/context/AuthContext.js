@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../utils/constants";
 const AuthContext = createContext();
 
 export default AuthContext;
@@ -29,8 +30,8 @@ export const AuthProvider = ({ children }) => {
   let loginUser = async (e) => {
     e.preventDefault();
     console.log("Form Submitted");
-
-    let response = await fetch("http://44.202.3.146/api/token/", {
+    let url = API_BASE_URL + "/api/token/";
+    let response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +64,8 @@ export const AuthProvider = ({ children }) => {
   //called every 9 minutes
   let updateToken = async () => {
     console.log("updateToken called");
-    let response = await fetch("http://44.202.3.146/api/token/refresh/", {
+    let url = API_BASE_URL + "/api/token/refresh/";
+    let response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -89,7 +91,7 @@ export const AuthProvider = ({ children }) => {
 
   let getTopicStorys = async () => {
     let url =
-      "http://44.202.3.146/StoryListByTopic/?topicID=" + String(currentTopicId);
+      API_BASE_URL + "/StoryListByTopic/?topicID=" + String(currentTopicId);
     let response = await fetch(url, {
       method: "GET",
       headers: {
@@ -111,7 +113,7 @@ export const AuthProvider = ({ children }) => {
 
   let postStory = async (e) => {
     e.preventDefault();
-    let storyUrl = "http://44.202.3.146/Storys/";
+    let storyUrl = API_BASE_URL + "/Storys/";
 
     let response = await fetch(storyUrl, {
       method: "POST",

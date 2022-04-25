@@ -3,7 +3,7 @@ import AuthContext from "../../context/AuthContext";
 import Storylist from "../../components/Story/Storylist/Storylist";
 import NavbarComp from "../../components/Header/NavbarComp";
 import PopupPost from "../../components/Popup/PopupPost";
-
+import { API_BASE_URL } from "../../utils/constants";
 import "./TopicPage.css";
 
 const TopicPage = () => {
@@ -26,7 +26,7 @@ const TopicPage = () => {
   }, []);
 
   let getTopicInfo = async () => {
-    let url = "http://44.202.3.146/Topics/" + String(currentTopicId) + "/";
+    let url = API_BASE_URL + "/Topics/" + String(currentTopicId) + "/";
     let response = await fetch(url, {
       method: "GET",
       headers: {
