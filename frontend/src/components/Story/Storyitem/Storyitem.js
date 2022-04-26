@@ -5,6 +5,7 @@ import comment from "./../../../images/comment.png";
 import share from "./../../../images/share.png";
 import heart from "./../../../images/heart.png";
 import anymHead from "./../../../images/profilepics/anymHead.png";
+import default_prof from "./../../../images/profilepics/default_prof.png";
 // import darkred from "./../../../images/profilepics/#8B0000.png"
 
 const Storyitem = (props) => {
@@ -46,9 +47,15 @@ const Storyitem = (props) => {
       <div className="row">
         <div className="story-item">
           <div>
-            <img src={anymHead} className="profile-pic" alt="profile"></img>
+            {props.items.anonymous == 0 ? (
+              <img src={default_prof} className="profile-pic" alt="profile" />
+            ) : (
+              <img src={anymHead} className="profile-pic" alt="profile" />
+            )}
             <span className="username">
-              {props.items.anonymous == 0 ? props.items.username : "匿名"}
+              {props.items.anonymous == 0
+                ? "@" + props.items.username
+                : "@匿名"}
             </span>
             <span className="time"> {getTimeBefore()}</span>
           </div>
@@ -58,7 +65,7 @@ const Storyitem = (props) => {
               {props.items.location}-{props.items.Exist}-{getDate()}
             </div>
             {props.items.content}
-            <span className="hashtag"> #纽约市的某地有关于我的记忆"</span>
+            <span className="hashtag"> #纽约市的某地有关于我的记忆</span>
           </div>
 
           <div className="reactions">

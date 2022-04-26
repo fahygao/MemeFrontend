@@ -29,7 +29,9 @@ function PopupPost({ setOpenModal }) {
             <input
               className="form-control margin-right"
               id="location"
-              placeholder="发生地点"
+              placeholder="回忆发生的具体地点"
+              maxlength="30"
+              minlength="1"
             />
 
             <input
@@ -45,9 +47,9 @@ function PopupPost({ setOpenModal }) {
               id="EXIST"
             >
               <option selected value="EXIST">
-                EXIST
+                EXIST: “具体地点仍然存在”
               </option>
-              <option value="EXISTED">EXISTED</option>
+              EXISTED:“具体地点已消失”
             </select>
           </div>
           <div className="form-group">
@@ -55,7 +57,7 @@ function PopupPost({ setOpenModal }) {
               className="form-control textarea"
               id="storyContent"
               rows="4"
-              placeholder="发布你的动态～ (200-1000字）"
+              placeholder="欢迎用任何题材和形式来分享属于你的那份回忆～字数限制(200-1000）"
               maxlength="1000"
               minlength="200"
             ></textarea>

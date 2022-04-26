@@ -7,17 +7,14 @@
   text-align: center;
 }
 
-.date{
+.date {
+  font-family: "Source Han Sans CN";
+  font-style: bold;
+  font-weight: 100;
+  font-size: 15px;
+  line-height: 35px;
 
-font-family: 'Source Han Sans CN';
-font-style: bold;
-font-weight: 100;
-font-size: 15px;
-line-height: 35px;
-
-color: #333333;
-
-
+  color: #333333;
 }
 
 .border {
