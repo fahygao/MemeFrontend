@@ -35,7 +35,7 @@ function PopupPost({ setOpenModal }) {
             <input
               className="form-control"
               id="DateHappened"
-              placeholder="发生时间 (yyyy-mm-dd)"
+              placeholder="发生时间 (yyyy-mm)"
             />
           </div>
           <div class="form-group form-row">

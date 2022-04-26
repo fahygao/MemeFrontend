@@ -10,9 +10,34 @@ import default_prof from "./../../../images/profilepics/default_prof.png";
 
 const Storyitem = (props) => {
   const getDate = () => {
-    let temp = props.items.DateHappened.substring(0, 7);
+    let temp = props.items.DateHappened;
+    if (temp === null || temp.length == 0) {
+      return "";
+    }
+    temp = temp.substring(0, 7);
     temp = temp.split("-");
-    let ret = temp[0] + "年" + temp[1] + "月";
+    let ret = temp[0] + "年";
+    if (temp[1] != null) {
+      ret = ret + temp[1] + "月";
+    }
+    return ret;
+  };
+
+  const renderTitle = () => {
+    let ret = "";
+    let location = props.items.location;
+    let existed = props.items.Exist;
+    let date = getDate();
+    if (location !== null && location.length > 0) {
+      ret = ret + location + "-" + existed;
+      if (date.length > 0) {
+        ret = ret + "-" + date;
+        return ret;
+      }
+    }
+    if (date.length > 0 && ret == "") {
+      return date;
+    }
     return ret;
   };
 
@@ -61,9 +86,7 @@ const Storyitem = (props) => {
           </div>
 
           <div className="story-content">
-            <div className="story-header">
-              {props.items.location}-{props.items.Exist}-{getDate()}
-            </div>
+            <div className="story-header">{renderTitle()}</div>
             {props.items.content}
             <span className="hashtag"> #纽约市的某地有关于我的记忆</span>
           </div>
