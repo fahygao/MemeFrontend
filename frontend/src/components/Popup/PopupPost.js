@@ -30,8 +30,6 @@ function PopupPost({ setOpenModal }) {
               className="form-control margin-right"
               id="location"
               placeholder="回忆发生的具体地点"
-              maxlength="30"
-              minlength="1"
             />
 
             <input
@@ -49,7 +47,7 @@ function PopupPost({ setOpenModal }) {
               <option selected value="EXIST">
                 EXIST: “具体地点仍然存在”
               </option>
-              EXISTED:“具体地点已消失”
+              <option value="EXISTED">EXISTED:“具体地点已消失”</option>
             </select>
           </div>
           <div className="form-group">
