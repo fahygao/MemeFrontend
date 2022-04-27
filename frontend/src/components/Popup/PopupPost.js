@@ -40,9 +40,9 @@ function PopupPost({ setOpenModal }) {
               placeholder="发生时间 (yyyy-mm)"
             />
           </div>
-          <div class="form-group form-row">
+          <div class="form-group form-row custom-input margin-left">
             <select
-              class="form-select form-select"
+              className="form-select form-select"
               aria-label=".form-select-sm example"
               id="EXIST"
             >
@@ -52,7 +52,7 @@ function PopupPost({ setOpenModal }) {
               <option value="EXISTED">EXISTED:“具体地点已消失”</option>
             </select>
           </div>
-          <div className="form-group">
+          <div className="form-group margin-left">
             <textarea
               className="form-control textarea"
               id="storyContent"
@@ -63,7 +63,7 @@ function PopupPost({ setOpenModal }) {
           </div>
 
           <div className="footer">
-            <div className="form-check">
+            <div className="form-check  anonymous-logo">
               <input
                 className="form-check-input"
                 type="checkbox"

@@ -3,12 +3,31 @@ import AuthContext from "../../../context/AuthContext";
 import "./Storyitem.css";
 import comment from "./../../../images/comment.png";
 import share from "./../../../images/share.png";
-import heart from "./../../../images/heart.png";
+import unfilled_heart from "./../../../images/unfilled_heart.png";
+import filled_heart from "./../../../images/filled_heart.png";
 import anymHead from "./../../../images/profilepics/anymHead.png";
 import default_prof from "./../../../images/profilepics/default_prof.png";
+import { useEffect } from "react";
 // import darkred from "./../../../images/profilepics/#8B0000.png"
 
 const Storyitem = (props) => {
+  const [liked, setLiked] = useState(false); //default set to datebase records
+  const [numLikes, setNumLikes] = useState(props.items.num_likes);
+
+  const likePost = () => {
+    setLiked(true);
+    setNumLikes((prev) => {
+      return prev + 1;
+    });
+  };
+
+  const unlikePost = () => {
+    setLiked(false);
+    setNumLikes((prev) => {
+      return prev - 1;
+    });
+  };
+
   const getDate = () => {
     let temp = props.items.DateHappened;
     if (temp === null || temp.length == 0) {
@@ -63,7 +82,10 @@ const Storyitem = (props) => {
     if (d > 0) {
       ret = String(d) + "天";
     }
-    ret = ret + h + "小时" + m + "分钟前";
+    if (h > 0) {
+      ret = ret + h + "小时";
+    }
+    ret = ret + m + "分钟前";
     return ret;
   };
 
@@ -100,7 +122,24 @@ const Storyitem = (props) => {
               <img src={share} alt="share" /> 0
             </span> */}
             <span className="emoji_nums">
-              <img src={heart} alt="heart" /> {props.items.num_likes}
+              {liked ? (
+                <img
+                  src={filled_heart}
+                  alt="filled_heart"
+                  onClick={() => {
+                    unlikePost();
+                  }}
+                />
+              ) : (
+                <img
+                  src={unfilled_heart}
+                  alt="heart"
+                  onClick={() => {
+                    likePost();
+                  }}
+                />
+              )}{" "}
+              {numLikes}
             </span>
           </div>
         </div>

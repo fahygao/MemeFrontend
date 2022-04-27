@@ -9,6 +9,18 @@
   z-index: 1000;
 }
 
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+}
+
+.border-radius {
+  border-radius: 0;
+  border-style: solid;
+  border-color: black;
+}
+
 .modalContainer {
   width: 500px;
   height: 400px;
@@ -72,6 +84,10 @@
 .margin-right {
   margin-right: 20px;
 }
+.margin-left {
+  width: 90%;
+  margin-left: 45px;
+}
 
 .modalContainer .footer button {
   width: 150px;
@@ -86,4 +102,8 @@
 
 .textarea {
   resize: none;
+}
+
+.anonymous-logo {
+  margin-left: 45px;
 }
