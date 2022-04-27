@@ -1,19 +1,17 @@
 .navLogo {
-  font-family: Roboto;
-  font-size: 50px;
-  font-weight: 500;
-  line-height: 35px;
+  font-size: 30px;
+  font-family: "Montserrat-light", sans-serif;
+  font-weight: 700;
   letter-spacing: 0em;
   text-align: center;
 }
 
 .date {
-  font-family: "Source Han Sans CN";
-  font-style: bold;
-  font-weight: 100;
   font-size: 15px;
+  font-family: "Montserrat-light", sans-serif;
+  font-weight: 700;
   line-height: 35px;
-
+  margin-left: 10px;
   color: #333333;
 }
 

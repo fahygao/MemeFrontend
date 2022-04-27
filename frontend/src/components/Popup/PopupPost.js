@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
+import user_prof from "./../../images/profilepics/default_prof.png";
 import "./PopupPost.css";
 
 function PopupPost({ setOpenModal }) {
@@ -26,6 +27,7 @@ function PopupPost({ setOpenModal }) {
         </div>
         <form onSubmit={handleOnSubmit}>
           <div class="form-group form-row">
+            <img src={user_prof} className="profile-pic"></img>
             <input
               className="form-control margin-right"
               id="location"
@@ -55,9 +57,8 @@ function PopupPost({ setOpenModal }) {
               className="form-control textarea"
               id="storyContent"
               rows="4"
-              placeholder="欢迎用任何题材和形式来分享属于你的那份回忆～字数限制(200-1000）"
+              placeholder="欢迎用任何题材和形式来分享属于你的那份回忆～字数限制(1000以内）"
               maxlength="1000"
-              minlength="200"
             ></textarea>
           </div>
 

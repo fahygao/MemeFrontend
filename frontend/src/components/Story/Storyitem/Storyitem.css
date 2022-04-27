@@ -1,4 +1,4 @@
-.story-item {
+/* .story-item {
   margin: 1rem 0;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -7,6 +7,18 @@
   border-color: black;
   border-width: 3px;
   border-radius: 5px;
+  cursor: pointer;
+  width: 80%;
+} */
+
+.story-item {
+  margin: 1rem 0;
+  background: white;
+  border-style: solid;
+  color: black;
+  padding: 1rem 2rem;
+  border-color: black;
+  border-width: 1px;
   cursor: pointer;
   width: 80%;
 }
