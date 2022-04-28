@@ -9,7 +9,7 @@
 @font-face {
 	font-family: "Source Han Sans CN";
 	src: 
-		url('../../fonts/CN/SourceHanSansCN-Normal.otf') 
+		url('../../fonts/CN/SourceHanSansCN-Medium.otf') 
 		format('opentype');
 	font-weight: normal;
 }
@@ -17,14 +17,14 @@
 .navLogo {
   font-size: 30px;
   font-family: "Roboto";
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0em;
 }
 
 .date {
   font-size: 15px;
   font-family: "Source Han Sans CN";
-  font-weight: 700;
+  font-weight: normal;
   line-height: 26.06px;
   margin-left: 1%;
   color: #333333;
@@ -33,7 +33,7 @@
 .navbar {
   border-bottom: 2px solid #000000;
   padding: 0;
-  background-color: white;
+  background-color:  #FAFAFA;
   /* margin-bottom: 10px; */
 }
 
@@ -41,7 +41,7 @@
   .navLogo {
     font-size: 30px;
     font-family: "Roboto";
-    font-weight: 500;
+    font-weight: bold;
     letter-spacing: 0em;
     padding-left: 4%;
   }
@@ -60,7 +60,7 @@
   .navLogo {
     font-size: 30px;
     font-family: "Roboto";
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: 0em;
     padding-left: 7%;
   }
@@ -68,7 +68,7 @@
   .date {
     font-size: 15px;
     font-family: "Source Han Sans CN";
-    font-weight: 700;
+    font-weight: normal;
     line-height: 26.06px;
     margin-left: -15%;
     color: #333333;
