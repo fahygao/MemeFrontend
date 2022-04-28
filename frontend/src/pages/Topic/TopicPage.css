@@ -73,7 +73,6 @@
 
 /* main page */
 .main-page {
-  /* width: 80%; */
   height: 100vh;
   display: grid;
   grid-template-columns: 30% 70%;
@@ -97,7 +96,7 @@
   grid-row: 1 / 2;
   position: relative;
   height: 100vh;
-  padding-right: 30%;
+  padding-right: 20%;
   padding-left: 0;
   overflow-y: scroll;
 }
@@ -119,7 +118,7 @@
   }
 
   .right {
-    width: 100%;
+    width: 80%;
     margin-left: 50px;
     margin-right: 50px;
     position: relative;
