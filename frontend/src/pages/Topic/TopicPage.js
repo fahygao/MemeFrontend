@@ -16,7 +16,7 @@ const TopicPage = () => {
     getTopicStorys,
     topicStorys,
     currentTopicId,
-    user,
+    getUserLiked,
   } = useContext(AuthContext);
 
   const [postModalOpen, setPostModalOpen] = useState(false);
@@ -33,6 +33,7 @@ const TopicPage = () => {
     getTopicStorys();
     getTopicInfo();
     getTotalUser();
+    getUserLiked();
   }, []);
 
   let getTotalUser = async () => {

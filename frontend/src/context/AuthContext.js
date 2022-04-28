@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   let [currentTopicId, setCurrentTopicId] = useState(3);
   let [currentTopicName, setCurrentTopicName] = useState("Null");
   let [topicStorys, setTopicStorys] = useState([]);
-
+  let [userLikedStorys, setUserLikedStorys] = useState([]);
   let [loading, setLoading] = useState(true);
 
   let navigate = useNavigate();
@@ -111,6 +111,28 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  let getUserLiked = async () => {
+    let url = API_BASE_URL + "/StoryLikedByUser/?userID=" + user.user_id;
+    let response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+
+    if (response.status === 200) {
+      setUserLikedStorys(data.results);
+
+      //   console.log(data.results);
+    } else if (response.statusText === "Unauthorized") {
+      alert("user is unauthorized; can't load geruserliked");
+    } else {
+      alert("error contact eric");
+    }
+  };
+
   let postStory = async (e) => {
     e.preventDefault();
     let storyUrl = API_BASE_URL + "/Storys/";
@@ -143,7 +165,7 @@ export const AuthProvider = ({ children }) => {
     });
 
     let data = await response.json();
-    console.log(data);
+
     //we want to set it in our state (and local storage) to be used for private routes later
     if (
       response.status === 200 ||
@@ -165,6 +187,9 @@ export const AuthProvider = ({ children }) => {
     currentTopicId: currentTopicId,
     getTopicStorys: getTopicStorys,
     topicStorys: topicStorys,
+    userLikedStorys: userLikedStorys,
+    getUserLiked: getUserLiked,
+    setUserLikedStorys: setUserLikedStorys,
   };
 
   useEffect(() => {

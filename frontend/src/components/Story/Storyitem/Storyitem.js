@@ -7,25 +7,99 @@ import unfilled_heart from "./../../../images/unfilled_heart.png";
 import filled_heart from "./../../../images/filled_heart.png";
 import anymHead from "./../../../images/profilepics/anymHead.png";
 import default_prof from "./../../../images/profilepics/default_prof.png";
+import { API_BASE_URL } from "./../../../utils/constants";
 import { useEffect } from "react";
 // import darkred from "./../../../images/profilepics/#8B0000.png"
 
 const Storyitem = (props) => {
-  const [liked, setLiked] = useState(false); //default set to datebase records
-  const [numLikes, setNumLikes] = useState(props.items.num_likes);
+  //default set to datebase records
+  const { authTokens, userLikedStorys, user } = useContext(AuthContext);
+  const [numLikes, setNumLikes] = useState(0);
+  const [liked, setLiked] = useState(false);
+  let checkLiked = () => {
+    for (let i = 0; i < userLikedStorys.length; i++) {
+      if (userLikedStorys[i]["story_id"] === props.items.id) {
+        setLiked(true);
+        console.log(props.items.id);
+      }
+    }
+  };
+  let getLikesAPI = async () => {
+    let storyUrl =
+      API_BASE_URL + "/StoryLikedByStory/?storyID=" + props.items.id;
+    let response = await fetch(storyUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+    setNumLikes(data.count);
+  };
+
+  let likeStory = async () => {
+    let likeUrl = API_BASE_URL + "/likeStoryViewSet/";
+
+    let response = await fetch(likeUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+      body: JSON.stringify({
+        id: null,
+        story_id: props.items.id,
+        user_id: user.user_id,
+      }),
+    });
+    let data = await response.json();
+    console.log(data);
+    if (
+      response.status === 200 ||
+      response.status === 202 ||
+      response.status === 201
+    ) {
+      alert("post submitted successfully! ");
+    } else {
+      alert("something went wrong");
+    }
+  };
+
+  //post updated new relations
+  const setLikesAPI = () => {
+    let exist = false;
+    for (let i = 0; i < userLikedStorys.length; i++) {
+      if (userLikedStorys[i]["story_id"] === props.items.id) {
+        exist = true;
+        break;
+      }
+    }
+    if (!exist) {
+      let likeUrl = API_BASE_URL + "/likeStoryViewSet/";
+      console.log(likeUrl);
+      likeStory();
+    }
+  };
 
   const likePost = () => {
-    setLiked(true);
-    setNumLikes((prev) => {
-      return prev + 1;
-    });
+    if (!liked) {
+      setLiked(true);
+      setNumLikes((prev) => {
+        return prev + 1;
+      });
+      setLikesAPI();
+    }
   };
 
   const unlikePost = () => {
-    setLiked(false);
-    setNumLikes((prev) => {
-      return prev - 1;
-    });
+    if (liked) {
+      setLiked(false);
+      setNumLikes((prev) => {
+        return prev - 1;
+      });
+      //   setLikesAPI();
+    }
   };
 
   const getDate = () => {
@@ -88,6 +162,11 @@ const Storyitem = (props) => {
     ret = ret + m + "分钟前";
     return ret;
   };
+
+  useEffect(() => {
+    getLikesAPI();
+    checkLiked();
+  }, []);
 
   return (
     <li className="list">
