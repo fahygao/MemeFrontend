@@ -1,19 +1,7 @@
-/* .story-item {
-  margin: 1rem 0;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  color: black;
-  padding: 1rem 2rem;
-  border-color: black;
-  border-width: 3px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 80%;
-} */
 
 .story-item {
   margin: 1rem 0;
-  background: white;
+  background: #FAFAFA;
   border-style: solid;
   color: black;
   padding: 1rem 2rem;
@@ -24,41 +12,44 @@
 }
 
 .username {
-  font-family: Source Han Sans CN;
+  font-family: "Source Han Sans CN";
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
   letter-spacing: 0.05em;
   text-align: left;
+  margin-right: 15px;
 }
 
 .story-header {
   font-size: 18px;
-  font-family: "Montserrat-light", sans-serif;
+  font-family: "Source Han Sans CN";
   font-weight: 700;
   height: 70%;
   margin-bottom: 5px;
 }
 
 .time {
-  font-family: Source Han Sans CN;
+  font-family: "Source Han Sans CN";
   font-size: 12px;
   font-weight: 400;
   line-height: 21px;
   letter-spacing: 0em;
   text-align: left;
   color: #9d9d9d;
+  margin-right: 15px;
 }
 
 .story-content {
-  font-family: Source Han Sans CN;
+  font-family: "Source Han Sans CN";
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.025em;
   text-align: left;
-  margin-left: 8%;
-  margin-right: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .reactions {
@@ -72,7 +63,7 @@
 .profile-pic {
   height: 40px;
   width: 40px;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 .row {
@@ -85,7 +76,7 @@
 }
 
 .emoji_nums {
-  font-family: "Roboto";
+  font-family: "Source Han Sans CN";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
