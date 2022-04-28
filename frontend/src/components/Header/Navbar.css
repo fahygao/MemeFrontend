@@ -3,7 +3,8 @@
   font-family: "Roboto";
   font-weight: 500;
   letter-spacing: 0em;
-  padding-left:1%}
+  padding-left: 1%;
+}
 
 .date {
   font-size: 15px;
@@ -15,46 +16,49 @@
 }
 
 .border {
-  border-bottom: 5px solid #000000;
+  border-bottom: 10px solid #000000;
   padding: 0;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
-
 
 @media only screen and (max-width: 1000px) {
-	.navLogo {
-  	font-size: 30px;
- 	font-family: "Roboto";
-  	font-weight: 500;
- 	letter-spacing: 0em;
- 	 padding-left:4%
- 	 }
- 	 
- 	 .date {
- 	 font-size: 15px;
-  	font-family: "Source Han Sans CN";
-  	font-weight: 700;
- 	 line-height: 26.06px;
- 	   margin-left: -40%;
-  	color: #333333;
+  .navLogo {
+    font-size: 30px;
+    font-family: "typeface-roboto";
+    font-weight: 500;
+    letter-spacing: 0em;
+    padding-left: 4%;
+  }
+
+  .date {
+    font-size: 15px;
+    font-family: "Source Han Sans CN";
+    font-weight: 700;
+    line-height: 26.06px;
+    margin-left: -40%;
+    color: #333333;
+  }
 }
-}
-	
+
 @media only screen and (max-width: 600px) {
-	.navLogo {
-  	font-size: 30px;
- 	font-family: "Roboto";
-  	font-weight: 500;
- 	letter-spacing: 0em;
- 	 padding-left:7%
- 	 }
- 	 
- 	 .date {
- 	 font-size: 15px;
-  	font-family: "Source Han Sans CN";
-  	font-weight: 700;
- 	 line-height: 26.06px;
- 	   margin-left: -15%;
-  	color: #333333;
+  .navLogo {
+    font-size: 30px;
+    font-family: "Roboto";
+    font-weight: 500;
+    letter-spacing: 0em;
+    padding-left: 7%;
+  }
+
+  .date {
+    font-size: 15px;
+    font-family: "Source Han Sans CN";
+    font-weight: 700;
+    line-height: 26.06px;
+    margin-left: -15%;
+    color: #333333;
+  }
 }
+
+.navbar-inner {
+  background-color: white;
 }

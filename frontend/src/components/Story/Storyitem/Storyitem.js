@@ -119,12 +119,11 @@ const Storyitem = (props) => {
   const renderTitle = () => {
     let ret = "";
     let location = props.items.location;
-    let existed = props.items.Exist;
     let date = getDate();
     if (location !== null && location.length > 0) {
-      ret = ret + location + "-" + existed;
+      ret = ret + location;
       if (date.length > 0) {
-        ret = ret + "-" + date;
+        ret = ret + " - " + "🕙" + date;
         return ret;
       }
     }
@@ -183,11 +182,14 @@ const Storyitem = (props) => {
                 ? "@" + props.items.username
                 : "@匿名"}
             </span>
-            <span className="time"> {getTimeBefore()}</span>
+            <span className="time">{getTimeBefore()}</span>
           </div>
 
           <div className="story-content">
-            <div className="story-header">{renderTitle()}</div>
+            <div className="story-header">
+              <span>📍</span>
+              {renderTitle()}
+            </div>
             {props.items.content}
             <span className="hashtag"> #纽约市的某地有关于我的记忆</span>
           </div>

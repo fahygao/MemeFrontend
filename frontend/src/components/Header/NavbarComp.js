@@ -17,14 +17,15 @@ const NavbarComp = () => {
       sticky="top"
       className="border"
     >
-      <Container>
+      <Container className="navbar-inner">
         <Navbar.Brand className="navLogo" href="#">
           MĒMĒ
         </Navbar.Brand>
 
         <div className="date">
-          {`${state.date.getFullYear()}年 ${state.date.getMonth() + 1
-            } 月  ${state.date.getDate()} 日`}
+          {`${state.date.getFullYear()}年 ${
+            state.date.getMonth() + 1
+          } 月  ${state.date.getDate()} 日`}
         </div>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

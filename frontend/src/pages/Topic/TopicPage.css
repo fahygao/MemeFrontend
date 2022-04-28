@@ -4,9 +4,16 @@
   margin: 2rem auto;
 }
 
+.topic-body {
+  overflow-y: hidden;
+}
+
+.body {
+  background: #fafafa;
+}
 
 .header {
-  font-family: "Source Han Sans CN";
+  font-family: Source Han Sans CN;
   font-size: 14px;
   font-weight: 700;
   line-height: 21px;
@@ -18,41 +25,45 @@
   margin: 1.5rem auto;
   display: flex;
   flex-direction: column;
+  /*   padding-right:120px; */
 }
 
 .topicName {
   font-family: "XiQuezhaopaiti";
+  /*   font-style: normal; */
   font-weight: 400;
-  font-size:40px;
+  font-size: 40px;
   line-height: 52px;
   text-align: justify;
+  /*   letter-spacing: 0.1em; */
   margin-bottom: 30px;
   color: #ffb469;
 }
 
 .topicAbstract {
   font-family: "Source Han Sans CN";
-font-size: 14px;
-font-weight: 400;
-line-height: 24px;
-letter-spacing: 0.025em;
-text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.025em;
+  text-align: left;
   margin-bottom: 30px;
   color: #666666;
 }
 
 .btn {
-border-radius: 0.1rem;
+  border-radius: 0.1rem;
 }
 
 .topicOther {
   /* 主要内容 */
-font-family: "Source Han Sans CN";
-font-size: 14px;
-font-weight: 400;
-line-height: 24px;
-letter-spacing: 0.025em;
-text-align: left;
+
+  font-family: "Source Han Sans CN";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.025em;
+  text-align: left;
   color: #666666;
 }
 
@@ -61,7 +72,6 @@ text-align: left;
   flex-direction: row;
   justify-content: left;
   margin-top: 20px;
-  
 }
 
 .buttonWidth {
@@ -75,19 +85,17 @@ text-align: left;
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 1fr min-content;
-    background-color:#FAFAFA;
 }
 
 /* left */
 .left {
   grid-column: 1 /2;
   grid-row: 1 / 2;
-  padding-right:20%;
-  padding-left: 20%;
+  padding-right: 100px;
+  padding-left: 70px;
   display: flex;
   justify-content: left;
   overflow: hidden;
-
 }
 
 /* right */
@@ -101,73 +109,63 @@ text-align: left;
   overflow-y: scroll;
 }
 
-ol, ul {
-    padding: 5%;
-}
-
 @media only screen and (max-width: 1000px) {
   .main-page {
     width: 100%;
-    height:100%;
     display: flex;
     flex-wrap: wrap;
     text-align: left;
     justify-content: center;
-      background-color:#FAFAFA;
   }
 
   .left {
-    padding: 12%;
+    padding: 15%;
+    margin-left: 20px;
     overflow: hidden;
     position: relative;
-      padding-right:0;
-      
   }
 
   .right {
-    margin-right: 5%;
+    margin-left: 50px;
+    margin-right: 50px;
     position: relative;
     padding-right: 0;
-    overflow-y: scroll;
+    overflow-y: visible;
   }
   .topicContainer {
-  margin: 1.5rem auto;
-  display: flex;
-  flex-direction: column;
-  padding-right:15%;
-}
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+    padding-right: 100px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   .main-page {
     width: 100%;
-    height:100%;
     display: flex;
     flex-wrap: wrap;
     text-align: left;
     justify-content: center;
-      background-color:#FAFAFA;
   }
 
   .left {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 10%;
+    /*     margin-left: px; */
     overflow: hidden;
     position: relative;
- padding-right:0;
   }
 
   .right {
-    margin-right: 5%;
+    margin-left: 10px;
+    margin-right: 50px;
     position: relative;
-    overflow-y: scroll;
-    
+    padding-right: 0;
+    overflow-y: visible;
   }
   .topicContainer {
-  margin: 1.5rem auto;
-  display: flex;
-  flex-direction: column;
-  
-
-}
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+  }
 }
