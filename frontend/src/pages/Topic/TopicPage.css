@@ -21,17 +21,14 @@
   margin: 1.5rem auto;
   display: flex;
   flex-direction: column;
-  /*   padding-right:120px; */
 }
 
 .topicName {
   font-family: "XiQuezhaopaiti";
-  /*   font-style: normal; */
   font-weight: 400;
   font-size: 40px;
   line-height: 52px;
   text-align: justify;
-  /*   letter-spacing: 0.1em; */
   margin-bottom: 30px;
   color: #ffb469;
 }
