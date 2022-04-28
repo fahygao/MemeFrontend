@@ -2,7 +2,13 @@
 @font-face {
 	font-family: "Source Han Sans CN";
 	src: 
-		url('../../fonts/CN/SourceHanSansCN-Normal.otf') 
+		url('../../fonts/CN/SourceHanSansCN-Bold.otf') format('opentype'),
+		url('../../fonts/CN/SourceHanSansCN-ExtraLight.otf') format('opentype'),
+		url('../../fonts/CN/SourceHanSansCN-Normal.otf') format('opentype'),
+		url('../../fonts/CN/SourceHanSansCN-Heavy.otf') format('opentype'),
+		url('../../fonts/CN/SourceHanSansCN-Light.otf') format('opentype'),
+		url('../../fonts/CN/SourceHanSansCN-Medium.otf') format('opentype'),
+		url('../../fonts/CN/SourceHanSansCN-Regular.otf')
 		format('opentype');
 	font-weight: normal;
 }
