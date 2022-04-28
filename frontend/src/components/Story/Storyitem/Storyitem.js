@@ -20,7 +20,7 @@ const Storyitem = (props) => {
     for (let i = 0; i < userLikedStorys.length; i++) {
       if (userLikedStorys[i]["story_id"] === props.items.id) {
         setLiked(true);
-        console.log(props.items.id);
+        // console.log(props.items.id);
       }
     }
   };
@@ -54,16 +54,16 @@ const Storyitem = (props) => {
       }),
     });
     let data = await response.json();
-    console.log(data);
-    if (
-      response.status === 200 ||
-      response.status === 202 ||
-      response.status === 201
-    ) {
-      alert("post submitted successfully! ");
-    } else {
-      alert("something went wrong");
-    }
+    // console.log(data);
+    // if (
+    //   response.status === 200 ||
+    //   response.status === 202 ||
+    //   response.status === 201
+    // ) {
+    //   alert("post submitted successfully! ");
+    // } else {
+    //   alert("something went wrong");
+    // }
   };
 
   //post updated new relations
@@ -77,7 +77,7 @@ const Storyitem = (props) => {
     }
     if (!exist) {
       let likeUrl = API_BASE_URL + "/likeStoryViewSet/";
-      console.log(likeUrl);
+      //   console.log(likeUrl);
       likeStory();
     }
   };
