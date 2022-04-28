@@ -4,6 +4,10 @@
   margin: 2rem auto;
 }
 
+.body{
+  background:#FAFAFA;
+}
+
 .header {
   font-family: Source Han Sans CN;
   font-size: 14px;
@@ -17,49 +21,54 @@
   margin: 1.5rem auto;
   display: flex;
   flex-direction: column;
+/*   padding-right:120px; */
 }
 
 .topicName {
-  font-family: "Source Han Sans CN";
-  font-style: normal;
+  font-family: "XiQuezhaopaiti";
+/*   font-style: normal; */
   font-weight: 400;
-  font-size: 36px;
+  font-size:40px;
   line-height: 52px;
   text-align: justify;
-  letter-spacing: 0.3em;
-  margin-bottom: 10px;
+/*   letter-spacing: 0.1em; */
+  margin-bottom: 30px;
   color: #ffb469;
 }
 
 .topicAbstract {
-  font-family: "Source Han Sans SC";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 23px;
-  margin-bottom: 10px;
-  white-space: pre-line;
-  color: #333333;
+  font-family: "Source Han Sans CN";
+font-size: 14px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0.025em;
+text-align: left;
+  margin-bottom: 30px;
+  color: #666666;
+}
+
+.btn {
+border-radius: 0.1rem;
 }
 
 .topicOther {
   /* 主要内容 */
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  margin-bottom: 10px;
-
-  color: #9d9d9d;
+  font-family: "Source Han Sans CN";
+font-size: 14px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0.025em;
+text-align: left;
+  color: #666666;
 }
 
 .buttons {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   margin-top: 20px;
+  
 }
 
 .buttonWidth {
@@ -71,16 +80,16 @@
   /* width: 80%; */
   height: 100vh;
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 30% 70%;
   grid-template-rows: 1fr min-content;
 }
 
 /* left */
 .left {
-  grid-column: 1 / 2;
+  grid-column: 1 /2;
   grid-row: 1 / 2;
-  padding-right: 100px;
-  padding-left: 200px;
+  padding-right:100px;
+  padding-left: 70px;
   display: flex;
   justify-content: left;
   overflow: hidden;
@@ -108,7 +117,7 @@
 
   .left {
     padding: 15%;
-    margin-left: 50px;
+    margin-left: 20px;
     overflow: hidden;
     position: relative;
   }
@@ -120,4 +129,42 @@
     padding-right: 0;
     overflow-y: scroll;
   }
+  .topicContainer {
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  padding-right:100px;
 }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-page {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: center;
+  }
+
+  .left {
+    padding: 10%;
+/*     margin-left: px; */
+    overflow: hidden;
+    position: relative;
+  }
+
+  .right {
+    margin-left: 10px;
+    margin-right: 50px;
+    position: relative;
+    padding-right: 0;
+    overflow-y: scroll;
+  }
+  .topicContainer {
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+
+}
+}
+
