@@ -15,7 +15,7 @@ const NavbarComp = () => {
       bg="none"
       variant="light"
       sticky="top"
-      className="border"
+      className="navbar"
     >
       <Container className="navbar-inner">
         <Navbar.Brand className="navLogo" href="#">

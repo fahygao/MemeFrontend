@@ -3,7 +3,6 @@
   font-family: "Roboto";
   font-weight: 500;
   letter-spacing: 0em;
-  padding-left: 1%;
 }
 
 .date {
@@ -15,9 +14,10 @@
   color: #333333;
 }
 
-.border {
-  border-bottom: 10px solid #000000;
+.navbar {
+  border-bottom: 2px solid #000000;
   padding: 0;
+  background-color: white;
   /* margin-bottom: 10px; */
 }
 
@@ -60,5 +60,6 @@
 }
 
 .navbar-inner {
-  background-color: white;
+  /* background-color: white; */
+  z-index: 1000;
 }

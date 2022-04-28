@@ -4,10 +4,6 @@
   margin: 2rem auto;
 }
 
-.topic-body {
-  overflow-y: hidden;
-}
-
 .body {
   background: #fafafa;
 }
@@ -95,7 +91,6 @@
   padding-left: 70px;
   display: flex;
   justify-content: left;
-  overflow: hidden;
 }
 
 /* right */
