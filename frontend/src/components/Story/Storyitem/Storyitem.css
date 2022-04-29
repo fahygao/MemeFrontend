@@ -131,4 +131,7 @@
     font-size: 14px;
     /*   font-family: "Source Han Sans CN"; */
   }
+.profile-pic {
+  margin-left: 15px;
+}
 }
