@@ -17,6 +17,8 @@
 @font-face {
 	font-family: "XiQuezhaopaiti";
 	src: url('/../../fonts/喜鹊招牌体-Regular.ttf') format('truetype');
+	font-weight: bold;
+        font-style: normal;
 }
 
 
@@ -47,12 +49,14 @@
 
 .topicName {
   font-family: "XiQuezhaopaiti";
-  font-weight: 400;
+/*   font-weight: 400; */
   font-size: 40px;
   line-height: 52px;
   text-align: justify;
   margin-bottom: 30px;
   color: #ffb469;
+  font-weight: bold;
+  font-style: normal;
 }
 
 .topicAbstract {
