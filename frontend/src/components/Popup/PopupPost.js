@@ -112,7 +112,7 @@ function PopupPost({ setOpenModal }) {
           </div>
 
           <div>
-            <span class="word-count"> 字数：{count}/1000 </span>
+            <span class="word-count"> {count}/1000 </span>
           </div>
 
           <div className="footer">
