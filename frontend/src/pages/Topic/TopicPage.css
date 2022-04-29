@@ -109,7 +109,9 @@
 .left {
   grid-column: 1 /2;
   grid-row: 1 / 2;
-  padding: 10%;
+  padding-right: 10%;
+  padding-left: 20%;
+  padding-top: 10%;
   display: flex;
   justify-content: left;
 }
