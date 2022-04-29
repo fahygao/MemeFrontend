@@ -3,45 +3,22 @@ import AuthContext from "../../context/AuthContext";
 import user_prof from "./../../images/profilepics/default_prof.png";
 import anom_prof from "./../../images/profilepics/anymHead.png";
 import "./PopupPost.css";
+import AddressAutoComplete from "./AddressAutocomple";
 
 function PopupPost({ setOpenModal }) {
   let { postStory, getTopicStorys } = useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
 
   const [count, setCount] = useState(0);
-  React.useEffect(() => {
-    const wordCount = (event) => {
-      // 中文字判断
-      if (event.target.id == "storyContent") {
-        let Words = event.srcElement.value;
-        /*  let iTotal = 0;
-          // 数字判断
-          let inum = 0;
-          for (let i = 0; i < Words.length; i++) {
-            let c = Words.charAt(i);
-            //基本汉字
-            if (c.match(/[\u4e00-\u9fa5]/)) {
-              iTotal++;
-            }
-            //基本汉字补充
-            else if (c.match(/[\u9FA6-\u9fcb]/)) {
-              iTotal++;
-            }
-            else if (c.match(/[0-9]/)) {
-              inum++;
-            }
-          } */
-        setCount(Words.length);
-      };
-    };
 
-    window.addEventListener('input', wordCount);
+  const wordCount = (event) => {
+    let Words = event.target.value;
+    setCount(Words.length);
+  };
 
-    // cleanup this component
-    return () => {
-      window.removeEventListener('input', wordCount);
-    };
-  });
+  const fillAddress = (event) => {
+    AddressAutoComplete(event);
+  }
 
   let handleOnSubmit = (event) => {
     event.preventDefault();
@@ -79,11 +56,7 @@ function PopupPost({ setOpenModal }) {
               <img src={user_prof} className="profile-pic" />
             )}
 
-            <input
-              className="form-control margin-right"
-              id="location"
-              placeholder="* 回忆发生的具体地点"
-            />
+            <AddressAutoComplete id="location" className="form-control margin-right" />
 
             <input
               className="form-control"
@@ -103,13 +76,14 @@ function PopupPost({ setOpenModal }) {
               <option value="EXISTED">* 具体地点已消失</option>
             </select>
           </div>
-          <div className="form-group margin-left">
+          <div className="form-group margin-left" >
             <textarea
               className="form-control textarea"
               id="storyContent"
               rows="4"
               placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～(1000以内）"
               maxlength="1000"
+              onChange={wordCount}
             ></textarea>
           </div>
 
