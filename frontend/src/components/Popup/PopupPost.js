@@ -8,6 +8,41 @@ function PopupPost({ setOpenModal }) {
   let { postStory, getTopicStorys } = useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
 
+  const [count, setCount] = useState(0);
+  React.useEffect(() => {
+    const wordCount = (event) => {
+      // 中文字判断
+      let Words = event.srcElement.value;
+      console.log(Words);
+      let iTotal = 0;
+      // 数字判断
+      let inum = 0;
+      for (let i = 0; i < Words.length; i++) {
+        let c = Words.charAt(i);
+        //基本汉字
+        if (c.match(/[\u4e00-\u9fa5]/)) {
+          iTotal++;
+        }
+        //基本汉字补充
+        else if (c.match(/[\u9FA6-\u9fcb]/)) {
+          iTotal++;
+        }
+        else if (c.match(/[0-9]/)) {
+          inum++;
+        }
+      }
+      console.log(inum + iTotal);
+      setCount(inum + iTotal);
+    };
+
+    window.addEventListener('input', wordCount);
+
+    // cleanup this component
+    return () => {
+      window.removeEventListener('input', wordCount);
+    };
+  });
+
   let handleOnSubmit = (event) => {
     event.preventDefault();
     postStory(event);
@@ -76,6 +111,10 @@ function PopupPost({ setOpenModal }) {
               placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～(1000以内）"
               maxlength="1000"
             ></textarea>
+          </div>
+
+          <div>
+            <span class="word-count"> 字数：{count}/1000 </span>
           </div>
 
           <div className="footer">
