@@ -19,6 +19,7 @@
   font-family: "Roboto";
   font-weight: bold;
   letter-spacing: 0em;
+  margin-left: -5%;
 }
 
 .date {
@@ -63,7 +64,7 @@
     font-weight: bold;
     letter-spacing: 0em;
     margin: -5%;
-    padding-left: 7%;
+    padding-left: 15%;
   }
 
   .date {
