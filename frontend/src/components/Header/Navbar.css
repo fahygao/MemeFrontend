@@ -64,7 +64,7 @@
     font-weight: bold;
     letter-spacing: 0em;
     margin: -5%;
-    padding-left: 15%;
+    padding-left: 5%;
   }
 
   .date {
@@ -72,7 +72,7 @@
     font-family: "Source Han Sans CN";
     font-weight: normal;
     line-height: 26.06px;
-    margin-left: -15%;
+    margin-left: -10%;
     color: #333333;
   }
 }
