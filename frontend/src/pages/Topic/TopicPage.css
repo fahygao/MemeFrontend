@@ -183,5 +183,6 @@
     margin: 1.5rem auto;
     display: flex;
     flex-direction: column;
+    padding-right: 0;
   }
 }
