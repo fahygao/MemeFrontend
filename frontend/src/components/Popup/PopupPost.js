@@ -1,16 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 import user_prof from "./../../images/profilepics/default_prof.png";
+import anom_prof from "./../../images/profilepics/anymHead.png";
 import "./PopupPost.css";
 
 function PopupPost({ setOpenModal }) {
   let { postStory, getTopicStorys } = useContext(AuthContext);
+  const [isAnom, setIsAnom] = useState(false);
 
   let handleOnSubmit = (event) => {
     event.preventDefault();
     postStory(event);
     setOpenModal(false);
     getTopicStorys();
+  };
+
+  const toggle_prof = () => {
+    console.log("is running");
+    if (isAnom) {
+      setIsAnom(false);
+    } else {
+      setIsAnom(true);
+    }
   };
 
   return (
@@ -27,11 +38,16 @@ function PopupPost({ setOpenModal }) {
         </div>
         <form onSubmit={handleOnSubmit}>
           <div class="form-group form-row">
-            <img src={user_prof} className="profile-pic"></img>
+            {isAnom ? (
+              <img src={anom_prof} className="profile-pic" />
+            ) : (
+              <img src={user_prof} className="profile-pic" />
+            )}
+
             <input
               className="form-control margin-right"
               id="location"
-              placeholder="回忆发生的具体地点"
+              placeholder="* 回忆发生的具体地点"
             />
 
             <input
@@ -47,9 +63,9 @@ function PopupPost({ setOpenModal }) {
               id="EXIST"
             >
               <option selected value="EXIST">
-                EXIST: “具体地点仍然存在”
+                * 具体地点仍然存在
               </option>
-              <option value="EXISTED">EXISTED:“具体地点已消失”</option>
+              <option value="EXISTED">* 具体地点已消失</option>
             </select>
           </div>
           <div className="form-group margin-left">
@@ -57,13 +73,18 @@ function PopupPost({ setOpenModal }) {
               className="form-control textarea"
               id="storyContent"
               rows="4"
-              placeholder="欢迎用任何题材和形式来分享属于你的那份回忆～字数限制(1000以内）"
+              placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～(1000以内）"
               maxlength="1000"
             ></textarea>
           </div>
 
           <div className="footer">
-            <div className="form-check  anonymous-logo">
+            <div
+              className="form-check  anonymous-logo"
+              onClick={() => {
+                toggle_prof();
+              }}
+            >
               <input
                 className="form-check-input"
                 type="checkbox"

@@ -123,7 +123,7 @@ const Storyitem = (props) => {
     if (location !== null && location.length > 0) {
       ret = ret + location;
       if (date.length > 0) {
-        ret = ret + " - " + "🕙" + date;
+        ret = ret + " - " + "🕙 " + date;
         return ret;
       }
     }

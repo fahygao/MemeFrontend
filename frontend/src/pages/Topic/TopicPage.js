@@ -27,17 +27,15 @@ const TopicPage = () => {
     let ret = date[0] + "年" + date[1] + "月" + date[2] + "日";
     return ret;
   };
-  
 
-	
   useEffect(() => {
     let w = document.documentElement.clientWidth || window.innerWidth;
-	if (w <= 750) {
-	document.body.style.overflow = "auto";
-	} else {
-	 document.body.style.overflow = "hidden";
-	}
-   //  document.body.style.overflow = "hidden";
+    if (w <= 750) {
+      document.body.style.overflow = "auto";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+    //  document.body.style.overflow = "hidden";
     getTopicStorys();
     getTopicInfo();
     getTotalUser();
@@ -110,7 +108,7 @@ const TopicPage = () => {
 
             <div className="topicOther">
               已有{topicStorys.length}条 • {userCount}
-              个成员正在回忆纽约往事
+              位成员正在回忆纽约往事
             </div>
 
             <div className="buttons">

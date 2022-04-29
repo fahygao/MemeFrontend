@@ -107,3 +107,14 @@
 .anonymous-logo {
   margin-left: 45px;
 }
+
+@media only screen and (max-width: 1000px) {
+  ::placeholder {
+    font-size: small;
+  }
+}
+@media only screen and (max-width: 600px) {
+  ::placeholder {
+    font-size: small;
+  }
+}

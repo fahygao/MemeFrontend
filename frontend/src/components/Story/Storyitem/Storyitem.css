@@ -15,16 +15,15 @@
 }
  */
 
-
 .story-item {
   margin: 1rem 0;
-  background: #FAFAFA;
+  background: #fafafa;
   border-style: solid;
   color: black;
   padding: 1rem 2rem;
   border-color: black;
   border-width: 1px;
-  border-radius:0.15rem;
+  border-radius: 0.15rem;
   cursor: pointer;
   width: 80%;
 }
@@ -43,7 +42,7 @@
 
 .story-header {
   font-size: 18px;
-/*   font-family: "Source Han Sans CN"; */
+  /*   font-family: "Source Han Sans CN"; */
   font-weight: bold;
   height: 70%;
   margin-top: 5%;
@@ -64,13 +63,13 @@
 }
 
 .story-content {
-/*   font-family: "Source Han Sans CN"; */
+  /*   font-family: "Source Han Sans CN"; */
   font-style: normal;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.025em;
   text-align: left;
-/* 
+  /* 
   margin-left: 10%;
   margin-right: 10%;
  */
@@ -89,11 +88,11 @@
 }
 
 .profile-pic {
-    height: 100px;
-    width: 100px;
-    border: 1px solid #666666;
-    border-radius: 1rem;
-    margin-left: 20px;
+  height: 100px;
+  width: 100px;
+  border: 1px solid #666666;
+  border-radius: 1rem;
+  margin-left: 20px;
 }
 .row {
   display: flex;
@@ -117,7 +116,18 @@
 
 .hashtag {
   font-weight: bold;
+  color: #ffb469;
 }
 
-@media only screen and (max-width: 1000px) {}
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 1000px) {
+  .story-header {
+    font-size: 14px;
+    /*   font-family: "Source Han Sans CN"; */
+  }
+}
+@media only screen and (max-width: 600px) {
+  .story-header {
+    font-size: 14px;
+    /*   font-family: "Source Han Sans CN"; */
+  }
+}
