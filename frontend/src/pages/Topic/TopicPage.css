@@ -13,15 +13,12 @@
 	font-weight: normal;
 }
 /*Sans default version*/
-/* 
+
 @font-face {
 	font-family: "XiQuezhaopaiti";
-	src: 
-		url('/../../fonts/CN/喜鹊招牌体-Regular.ttf') 
-		format('truetype');
-	font-weight: normal;
+	src: url('/../../fonts/喜鹊招牌体-Regular.ttf') format('truetype');
 }
- */
+
 
 #topic-storys {
   width: 35rem;
