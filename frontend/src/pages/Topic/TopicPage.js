@@ -27,9 +27,17 @@ const TopicPage = () => {
     let ret = date[0] + "年" + date[1] + "月" + date[2] + "日";
     return ret;
   };
+  
 
+	
   useEffect(() => {
-    // document.body.style.overflow = "hidden";
+    let w = document.documentElement.clientWidth || window.innerWidth;
+	if (w <= 750) {
+	document.body.style.overflow = "auto";
+	} else {
+	 document.body.style.overflow = "hidden";
+	}
+   //  document.body.style.overflow = "hidden";
     getTopicStorys();
     getTopicInfo();
     getTotalUser();

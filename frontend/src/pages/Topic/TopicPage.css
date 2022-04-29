@@ -1,23 +1,27 @@
-/*  @font-face {
+/* 
+@font-face {
 	font-family: "Source Han Sans CN";
 	src: 
-		url('../../fonts/CN/SourceHanSansCN-Bold.otf') format('opentype'),
-		url('../../fonts/CN/SourceHanSansCN-ExtraLight.otf') format('opentype'),
-		url('../../fonts/CN/SourceHanSansCN-Normal.otf') format('opentype'),
-		url('../../fonts/CN/SourceHanSansCN-Heavy.otf') format('opentype'),
-		url('../../fonts/CN/SourceHanSansCN-Light.otf') format('opentype'),
-		url('../../fonts/CN/SourceHanSansCN-Medium.otf') format('opentype'),
-		url('../../fonts/CN/SourceHanSansCN-Regular.otf')
+		url('/../../fonts/CN/SourceHanSansCN-Bold.otf') format('opentype'),
+		url('/../../fonts/CN/SourceHanSansCN-ExtraLight.otf') format('opentype'),
+		url('/../../fonts/CN/SourceHanSansCN-Normal.otf') format('opentype'),
+		url('/../../fonts/CN/SourceHanSansCN-Heavy.otf') format('opentype'),
+		url('/../../fonts/CN/SourceHanSansCN-Light.otf') format('opentype'),
+		url('/../../fonts/CN/SourceHanSansCN-Medium.otf') format('opentype'),
+		url('/../../fonts/CN/SourceHanSansCN-Regular.otf')
 		format('opentype');
 	font-weight: normal;
 }
+/*Sans default version*/
+/* 
 @font-face {
 	font-family: "XiQuezhaopaiti";
 	src: 
-		url('../../fonts/CN/喜鹊招牌体-Regular.ttf') 
+		url('/../../fonts/CN/喜鹊招牌体-Regular.ttf') 
 		format('truetype');
 	font-weight: normal;
-}  */
+}
+ */
 
 #topic-storys {
   width: 35rem;
@@ -94,7 +98,7 @@
 
 /* main page */
 .main-page {
-  height: 100vh;
+  height: 90%;
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 1fr min-content;
@@ -109,6 +113,7 @@
   padding-left: 70px;
   display: flex;
   justify-content: left;
+  
 }
 
 /* right */
@@ -124,7 +129,7 @@
 
 @media only screen and (max-width: 1000px) {
   .main-page {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     text-align: left;
@@ -133,24 +138,26 @@
 
   .left {
     padding: 15%;
-    margin-left: 20px;
+    padding-top:10%;
+    padding-bottom:10%;
+/*     margin-left: 5%; */
     overflow: hidden;
     position: relative;
   }
 
   .right {
-    width: 80%;
-    margin-left: 50px;
-    margin-right: 50px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-right: 0%;
     position: relative;
-    padding-right: 0;
     overflow-y: visible;
   }
   .topicContainer {
     margin: 1.5rem auto;
     display: flex;
     flex-direction: column;
-    padding-right: 100px;
+/*     padding-right: 100px; */
   }
 }
 
@@ -164,24 +171,27 @@
   }
 
   .left {
-    padding: 10%;
+    padding: 8%;
+    padding-top:5%;
+    padding-bottom:0%;
     overflow: hidden;
     position: relative;
   }
 
   .right {
-    width: 70%;
-    max-width: 70%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 90%;
+    margin: 5%;
+    margin-top: 0%;
+    padding-top:0;
+    padding-right: 0%;
     position: relative;
-    height:100%;
     overflow-y: visible;
   }
   .topicContainer {
     width:90%;
-    margin: 1.5rem auto;
+    margin: 1rem auto;
     display: flex;
     flex-direction: column;
   }
+
 }
