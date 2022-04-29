@@ -13,7 +13,6 @@ function PopupPost({ setOpenModal }) {
     const wordCount = (event) => {
       // 中文字判断
       let Words = event.srcElement.value;
-      console.log(Words);
       let iTotal = 0;
       // 数字判断
       let inum = 0;
@@ -31,7 +30,6 @@ function PopupPost({ setOpenModal }) {
           inum++;
         }
       }
-      console.log(inum + iTotal);
       setCount(inum + iTotal);
     };
 
