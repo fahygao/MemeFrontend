@@ -1,5 +1,5 @@
 /*Sans default version*/
-@font-face {
+/* @font-face {
 	font-family: "Source Han Sans CN";
 	src: 
 		url('../../fonts/CN/SourceHanSansCN-Bold.otf') format('opentype'),
@@ -11,7 +11,7 @@
 		url('../../fonts/CN/SourceHanSansCN-Regular.otf')
 		format('opentype');
 	font-weight: normal;
-}
+} */
 
 
 .story-item {
