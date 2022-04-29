@@ -86,6 +86,13 @@
     margin-left: -10%;
     color: #333333;
   }
+	
+.navbar-light .navbar-toggler {
+    border-color: rgba(0,0,0,0);
+	}
+.navbar-toggler {
+	font-size: 1rem;
+	}
 }
 
 
