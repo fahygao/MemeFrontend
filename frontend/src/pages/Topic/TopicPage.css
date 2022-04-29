@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
 	font-family: "Source Han Sans CN";
 	src: 
 		url('../../fonts/CN/SourceHanSansCN-Bold.otf') format('opentype'),
@@ -18,7 +18,7 @@
 		url('../../fonts/CN/喜鹊招牌体-Regular.ttf') 
 		format('truetype');
 	font-weight: normal;
-}
+} */
 
 #topic-storys {
   width: 35rem;
