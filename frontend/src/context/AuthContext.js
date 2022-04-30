@@ -151,7 +151,7 @@ export const AuthProvider = ({ children }) => {
         story_id: currentStoryID,
         user_id: user.user_id,
         content: e.target.commentContent.value,
-        parent_id: 1,
+        parent_id: 17,
         anonymous: e.target.anonymous.checked,
         emoji: 1,
         username: user.username,
@@ -166,9 +166,9 @@ export const AuthProvider = ({ children }) => {
       response.status === 202 ||
       response.status === 201
     ) {
-      alert("post submitted successfully! ");
+      console.log("post submitted successfully! ");
     } else {
-      alert("something went wrong");
+      console.log("something went wrong");
     }
   };
 

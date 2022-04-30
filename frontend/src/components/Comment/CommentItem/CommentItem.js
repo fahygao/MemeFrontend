@@ -5,6 +5,7 @@ import default_prof from "./../../../images/profilepics/default_prof.png";
 import "./CommentItem.css";
 
 const CommentItem = (props) => {
+  let niming = "匿名";
   return (
     <li className="list">
       <div className="comment-content">
@@ -16,7 +17,8 @@ const CommentItem = (props) => {
 
         <span className="wrapper">
           <div className="username">
-            {props.items.username} : {props.items.content}
+            {props.items.anonymous ? niming : props.items.username} :{" "}
+            {props.items.content}
           </div>
           <div className="time">
             {" "}

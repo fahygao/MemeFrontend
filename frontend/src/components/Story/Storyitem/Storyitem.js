@@ -178,7 +178,7 @@ const Storyitem = (props) => {
     if (response.status === 200) {
       setComments(data.results);
     } else if (response.statusText === "Unauthorized") {
-      alert("cannot load comment info");
+      console.log(response.statusText);
     }
   }, [comments]);
 
@@ -226,8 +226,7 @@ const Storyitem = (props) => {
 
           <div className="reactions">
             <span className="emoji_nums" onClick={() => clickComment()}>
-              <img src={comment} /> {""}
-              {props.items.num_comments}
+              <img src={comment} />
             </span>
 
             <span className="emoji_nums">
