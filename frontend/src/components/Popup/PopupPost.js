@@ -7,7 +7,7 @@ import "./PopupPost.css";
 function PopupPost({ setOpenModal }) {
   let { postStory, getTopicStorys } = useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
-  const [numWords, setNumWords] = useState(0);
+  const [numWords, setNumWords] = useState(1000);
 
   let handleOnSubmit = (event) => {
     event.preventDefault();
@@ -76,10 +76,11 @@ function PopupPost({ setOpenModal }) {
               rows="4"
               placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～(1000以内）"
               maxlength="1000"
-              onChange={(e) => setNumWords(e.target.value.length)}
+              minlength="1"
+              onChange={(e) => setNumWords(1000 - e.target.value.length)}
             ></textarea>
           </div>
-          <span class="word-count"> {numWords}/1000 </span>
+          <span class="word-count"> {numWords} </span>
           <div className="footer">
             <div
               className="form-check  anonymous-logo"

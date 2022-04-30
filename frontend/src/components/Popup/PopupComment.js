@@ -6,7 +6,7 @@ import AuthContext from "../../context/AuthContext";
 
 const PopupComment = () => {
   const [isAnom, setIsAnom] = useState(false);
-  const [numWords, setNumWords] = useState(0);
+  const [numWords, setNumWords] = useState(300);
   const { setPostCommentOpen, postComment } = useContext(AuthContext);
 
   let handleOnSubmit = (event) => {
@@ -50,13 +50,13 @@ const PopupComment = () => {
               className="form-control textarea"
               id="commentContent"
               rows="4"
-              placeholder="*发布你的评论～(300以内）"
+              placeholder="*发布你的评论～"
               maxlength="300"
-              minlength="5"
-              onChange={(e) => setNumWords(e.target.value.length)}
+              minlength="1"
+              onChange={(e) => setNumWords(300 - e.target.value.length)}
             ></textarea>
           </div>
-          <span class="word-count"> {numWords}/300 </span>
+          <span class="word-count">{numWords} </span>
           <div className="footer">
             <div
               className="form-check  anonymous-logo"

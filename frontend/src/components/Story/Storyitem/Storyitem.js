@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useCallback } from "react";
 import AuthContext from "../../../context/AuthContext";
 import "./Storyitem.css";
 import comment from "./../../../images/comment.png";
@@ -161,7 +161,7 @@ const Storyitem = (props) => {
     return ret;
   };
 
-  let getComments = async () => {
+  let getComments = useCallback(async () => {
     console.log("this method is called");
 
     // let url = API_BASE_URL + "/StoryComments?storyID=" + props.items.id + "/";
@@ -180,7 +180,7 @@ const Storyitem = (props) => {
     } else if (response.statusText === "Unauthorized") {
       alert("cannot load comment info");
     }
-  };
+  }, [comments]);
 
   const clickComment = () => {
     getComments();
