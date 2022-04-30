@@ -1,0 +1,16 @@
+.comment-list {
+  list-style: none;
+  margin: 0;
+  padding-bottom: 50px;
+  padding: 5%;
+}
+
+.margin {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 8%;
+  width: 90% !important;
+}
+
+/* .margin input {
+} */
