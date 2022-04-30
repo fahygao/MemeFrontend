@@ -122,7 +122,7 @@ const TopicPage = () => {
                   setPostModalOpen(true);
                 }}
               >
-                发布
+                开始回忆
               </button>
             </div>
           </div>
