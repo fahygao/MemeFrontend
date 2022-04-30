@@ -3,6 +3,7 @@ import AuthContext from "../../context/AuthContext";
 import Storylist from "../../components/Story/Storylist/Storylist";
 import NavbarComp from "../../components/Header/NavbarComp";
 import PopupPost from "../../components/Popup/PopupPost";
+import PopupComment from "../../components/Popup/PopupComment";
 import { API_BASE_URL } from "../../utils/constants";
 import profile from "./../../images/profilepics/profile.png";
 import "./TopicPage.css";
@@ -17,6 +18,7 @@ const TopicPage = () => {
     topicStorys,
     currentTopicId,
     getUserLiked,
+    postCommentOpen,
   } = useContext(AuthContext);
 
   const [postModalOpen, setPostModalOpen] = useState(false);
@@ -81,6 +83,7 @@ const TopicPage = () => {
   return (
     <div>
       {postModalOpen && <PopupPost setOpenModal={setPostModalOpen} />}
+      {postCommentOpen && <PopupComment />}
       <NavbarComp />
       <section className="main-page">
         <div className="left">

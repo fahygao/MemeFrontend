@@ -1,19 +1,19 @@
-import React, { useContext, useState } from "react";
-import AuthContext from "../../context/AuthContext";
-import user_prof from "./../../images/profilepics/default_prof.png";
+import React, { useState, useContext } from "react";
+import "./PopupComment";
 import anom_prof from "./../../images/profilepics/anymHead.png";
-import "./PopupPost.css";
+import user_prof from "./../../images/profilepics/default_prof.png";
+import AuthContext from "../../context/AuthContext";
 
-function PopupPost({ setOpenModal }) {
-  let { postStory, getTopicStorys } = useContext(AuthContext);
+const PopupComment = () => {
   const [isAnom, setIsAnom] = useState(false);
-  const [numWords, setNumWords] = useState(1000);
+  const [numWords, setNumWords] = useState(300);
+  const { setPostCommentOpen, postComment } = useContext(AuthContext);
 
   let handleOnSubmit = (event) => {
     event.preventDefault();
-    postStory(event);
-    setOpenModal(false);
-    getTopicStorys();
+    postComment(event);
+    setPostCommentOpen(false);
+    // getTopicStorys();
   };
 
   const toggle_prof = () => {
@@ -26,12 +26,11 @@ function PopupPost({ setOpenModal }) {
 
   return (
     <div className="modalBackground">
-      {console.log("abc")}
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <button
             onClick={() => {
-              setOpenModal(false);
+              setPostCommentOpen(false);
             }}
           >
             X
@@ -44,43 +43,20 @@ function PopupPost({ setOpenModal }) {
             ) : (
               <img src={user_prof} className="profile-pic" />
             )}
-
-            <input
-              className="form-control margin-right"
-              id="location"
-              placeholder="* 回忆发生的具体地点"
-            />
-
-            <input
-              className="form-control"
-              id="DateHappened"
-              placeholder="发生时间 (yyyy-mm)"
-            />
           </div>
-          <div class="form-group form-row custom-input margin-left">
-            <select
-              className="form-select form-select"
-              aria-label=".form-select-sm example"
-              id="EXIST"
-            >
-              <option selected value="EXIST">
-                * 具体地点仍然存在
-              </option>
-              <option value="EXISTED">* 具体地点已消失</option>
-            </select>
-          </div>
+
           <div className="form-group margin-left">
             <textarea
               className="form-control textarea"
-              id="storyContent"
+              id="commentContent"
               rows="4"
-              placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～(1000以内）"
-              maxlength="1000"
+              placeholder="*发布你的评论～"
+              maxlength="300"
               minlength="1"
-              onChange={(e) => setNumWords(1000 - e.target.value.length)}
+              onChange={(e) => setNumWords(300 - e.target.value.length)}
             ></textarea>
           </div>
-          <span class="word-count"> {numWords} </span>
+          <span class="word-count">{numWords} </span>
           <div className="footer">
             <div
               className="form-check  anonymous-logo"
@@ -105,6 +81,6 @@ function PopupPost({ setOpenModal }) {
       </div>
     </div>
   );
-}
+};
 
-export default PopupPost;
+export default PopupComment;

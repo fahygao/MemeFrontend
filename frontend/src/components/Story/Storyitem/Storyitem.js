@@ -1,21 +1,32 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useCallback } from "react";
 import AuthContext from "../../../context/AuthContext";
 import "./Storyitem.css";
 import comment from "./../../../images/comment.png";
-import share from "./../../../images/share.png";
+// import share from "./../../../images/share.png";
 import unfilled_heart from "./../../../images/unfilled_heart.png";
 import filled_heart from "./../../../images/filled_heart.png";
 import anymHead from "./../../../images/profilepics/anymHead.png";
 import default_prof from "./../../../images/profilepics/default_prof.png";
+import Commentlist from "../../Comment/CommentList/Commentlist";
 import { API_BASE_URL } from "./../../../utils/constants";
 import { useEffect } from "react";
+
 // import darkred from "./../../../images/profilepics/#8B0000.png"
 
 const Storyitem = (props) => {
   //default set to datebase records
-  const { authTokens, userLikedStorys, user } = useContext(AuthContext);
+  const {
+    authTokens,
+    userLikedStorys,
+    user,
+    setCurrentStoryID,
+    postCommentOpen,
+  } = useContext(AuthContext);
   const [numLikes, setNumLikes] = useState(0);
   const [liked, setLiked] = useState(false);
+  const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState([]);
+
   let checkLiked = () => {
     for (let i = 0; i < userLikedStorys.length; i++) {
       if (userLikedStorys[i]["story_id"] === props.items.id) {
@@ -53,17 +64,7 @@ const Storyitem = (props) => {
         user_id: user.user_id,
       }),
     });
-    let data = await response.json();
-    // console.log(data);
-    // if (
-    //   response.status === 200 ||
-    //   response.status === 202 ||
-    //   response.status === 201
-    // ) {
-    //   alert("post submitted successfully! ");
-    // } else {
-    //   alert("something went wrong");
-    // }
+    // let data = await response.json();
   };
 
   //post updated new relations
@@ -76,8 +77,6 @@ const Storyitem = (props) => {
       }
     }
     if (!exist) {
-      let likeUrl = API_BASE_URL + "/likeStoryViewSet/";
-      //   console.log(likeUrl);
       likeStory();
     }
   };
@@ -162,6 +161,37 @@ const Storyitem = (props) => {
     return ret;
   };
 
+  let getComments = useCallback(async () => {
+    console.log("this method is called");
+
+    // let url = API_BASE_URL + "/StoryComments?storyID=" + props.items.id + "/";
+    let url = API_BASE_URL + "/StoryComments/?storyID=" + props.items.id;
+    let response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+
+    if (response.status === 200) {
+      setComments(data.results);
+    } else if (response.statusText === "Unauthorized") {
+      alert("cannot load comment info");
+    }
+  }, [comments]);
+
+  const clickComment = () => {
+    getComments();
+    setShowComments((prevState) => !prevState);
+    setCurrentStoryID(props.items.id);
+  };
+
+  useEffect(() => {
+    getComments();
+  }, [postCommentOpen]);
+
   useEffect(() => {
     getLikesAPI();
     checkLiked();
@@ -195,13 +225,11 @@ const Storyitem = (props) => {
           </div>
 
           <div className="reactions">
-            {/* <span className="emoji_nums">
-              <img src={comment} />
+            <span className="emoji_nums" onClick={() => clickComment()}>
+              <img src={comment} /> {""}
               {props.items.num_comments}
             </span>
-            <span className="emoji_nums">
-              <img src={share} alt="share" /> 0
-            </span> */}
+
             <span className="emoji_nums">
               {liked ? (
                 <img
@@ -223,6 +251,8 @@ const Storyitem = (props) => {
               {numLikes}
             </span>
           </div>
+
+          {showComments && <Commentlist items={comments} />}
         </div>
       </div>
     </li>

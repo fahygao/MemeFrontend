@@ -24,9 +24,11 @@ export const AuthProvider = ({ children }) => {
   let [topicStorys, setTopicStorys] = useState([]);
   let [userLikedStorys, setUserLikedStorys] = useState([]);
   let [loading, setLoading] = useState(true);
+  let [postCommentOpen, setPostCommentOpen] = useState(false);
+  let [currentStoryID, setCurrentStoryID] = useState(-1);
 
   let navigate = useNavigate();
-
+  // -----------------------------------------------------------------------------
   let loginUser = async (e) => {
     e.preventDefault();
     console.log("Form Submitted");
@@ -59,7 +61,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("authtokens");
     navigate("/login");
   };
-
+  // -----------------------------------------------------------------------------
   //When we login we get a access and refresh token, we send the refresh token to the backend to get a new access token
   //called every 9 minutes
   let updateToken = async () => {
@@ -89,6 +91,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // -----------------------------------------------------------------------------
   let getTopicStorys = async () => {
     let url =
       API_BASE_URL + "/StoryListByTopic/?topicID=" + String(currentTopicId);
@@ -110,7 +113,7 @@ export const AuthProvider = ({ children }) => {
       alert("error contact eric");
     }
   };
-
+  // -----------------------------------------------------------------------------
   let getUserLiked = async () => {
     let url = API_BASE_URL + "/StoryLikedByUser/?userID=" + user.user_id;
     let response = await fetch(url, {
@@ -133,6 +136,43 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  let postComment = async (e) => {
+    e.preventDefault();
+    let commentUrl = API_BASE_URL + "/StoryComments/";
+    console.log(currentStoryID);
+    let response = await fetch(commentUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+      body: JSON.stringify({
+        id: null,
+        story_id: currentStoryID,
+        user_id: user.user_id,
+        content: e.target.commentContent.value,
+        parent_id: 1,
+        anonymous: e.target.anonymous.checked,
+        emoji: 1,
+        username: user.username,
+      }),
+    });
+
+    let data = await response.json();
+
+    //we want to set it in our state (and local storage) to be used for private routes later
+    if (
+      response.status === 200 ||
+      response.status === 202 ||
+      response.status === 201
+    ) {
+      alert("post submitted successfully! ");
+    } else {
+      alert("something went wrong");
+    }
+  };
+
+  // -----------------------------------------------------------------------------
   let postStory = async (e) => {
     e.preventDefault();
     let storyUrl = API_BASE_URL + "/Storys/";
@@ -178,6 +218,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // -----------------------------------------------------------------------------
   let contextData = {
     user: user,
     authTokens: authTokens,
@@ -190,6 +231,10 @@ export const AuthProvider = ({ children }) => {
     userLikedStorys: userLikedStorys,
     getUserLiked: getUserLiked,
     setUserLikedStorys: setUserLikedStorys,
+    postCommentOpen: postCommentOpen,
+    setPostCommentOpen: setPostCommentOpen,
+    postComment: postComment,
+    setCurrentStoryID: setCurrentStoryID,
   };
 
   useEffect(() => {
