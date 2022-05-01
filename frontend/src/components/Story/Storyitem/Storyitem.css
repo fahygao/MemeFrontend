@@ -88,13 +88,13 @@
   justify-content: space-between;
 }
 
-.profile-pic {
-  height: 100px;
-  width: 100px;
+.profile-pic1 {
+  height: 40px;
+  width: 40px;
   border: 1px solid #666666;
   border-radius: 1.5rem;
-  margin-left: 5% !important;
-  margin-right: 0%;
+  margin-right: 5%;
+  margin-left: 15px;
 }
 .row {
   display: flex;
@@ -134,9 +134,6 @@
   .story-header {
     font-size: 14px;
     /*   font-family: "Source Han Sans CN"; */
-  }
-  .profile-pic {
-    margin-left: 15px;
   }
   .story-item {
     width: 100%;

@@ -17,7 +17,7 @@ const Commentlist = (props) => {
             autocomplete="off"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            placeholder="发布你的评论"
+            placeholder="说点什么..."
             onClick={() => {
               setPostCommentOpen(true);
             }}

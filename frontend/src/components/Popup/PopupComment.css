@@ -103,7 +103,6 @@
   justify-content: flex-end;
   opacity: 0.5;
 }
-
 @media only screen and (max-width: 1000px) {
   ::placeholder {
     font-size: small;
@@ -126,4 +125,6 @@
   .titleCloseBtn button {
     margin: -5% -5% 5% -5%;
   }
+
+
 }
