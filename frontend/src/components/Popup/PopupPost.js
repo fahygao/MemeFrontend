@@ -74,7 +74,7 @@ function PopupPost({ setOpenModal }) {
               className="form-control textarea"
               id="storyContent"
               rows="4"
-              placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～(1000以内）"
+              placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～"
               maxlength="1000"
               minlength="1"
               onChange={(e) => setNumWords(1000 - e.target.value.length)}
