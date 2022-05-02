@@ -179,7 +179,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   let decodeNewline = (txt) => {
-    let ret = txt.split("<nl>").map((str) => <p>{str}</p>);
+    let ret = String(txt)
+      .split("<nl>")
+      .map((str) => <p>{str}</p>);
     return ret;
   };
 
