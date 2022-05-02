@@ -172,10 +172,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // replace \n with <nl>
+  let encodeNewline = (txt) => {
+    let ret = txt.split("\n").join("<nl>");
+    return ret;
+  };
+
+  let decodeNewline = (txt) => {
+    let ret = txt.split("<nl>").map((str) => <p>{str}</p>);
+    return ret;
+  };
+
   // -----------------------------------------------------------------------------
   let postStory = async (e) => {
     e.preventDefault();
     let storyUrl = API_BASE_URL + "/Storys/";
+    console.log("values");
+    let content = encodeNewline(e.target.storyContent.value);
 
     let response = await fetch(storyUrl, {
       method: "POST",
@@ -186,7 +199,7 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify({
         id: null,
         title: "None",
-        content: e.target.storyContent.value,
+        content: content,
         visibility: "1",
         location: e.target.location.value,
         DateHappened: e.target.DateHappened.value,
@@ -214,7 +227,8 @@ export const AuthProvider = ({ children }) => {
     ) {
       alert("post submitted successfully! ");
     } else {
-      alert("something went wrong");
+      //   alert("something went wrong");
+      console.log("something went wrong");
     }
   };
 
@@ -235,13 +249,14 @@ export const AuthProvider = ({ children }) => {
     setPostCommentOpen: setPostCommentOpen,
     postComment: postComment,
     setCurrentStoryID: setCurrentStoryID,
+    decodeNewline: decodeNewline,
+    // encodeNewline: encodeNewline,
   };
 
   useEffect(() => {
     let nineMinutes = 1000 * 60 * 9;
 
     if (loading && localStorage.getItem("authtokens") !== null) {
-      console.log("hello");
       //if page is loaded/refreshed, get a new access token with the refresh token (i.e. access token may have expired, but refresh token has not)
       updateToken();
     } else if (loading) {

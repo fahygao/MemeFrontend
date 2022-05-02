@@ -26,7 +26,6 @@ function PopupPost({ setOpenModal }) {
 
   return (
     <div className="modalBackground">
-      {console.log("abc")}
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <button

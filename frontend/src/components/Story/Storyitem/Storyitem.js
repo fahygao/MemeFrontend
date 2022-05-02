@@ -21,6 +21,7 @@ const Storyitem = (props) => {
     user,
     setCurrentStoryID,
     postCommentOpen,
+    decodeNewline,
   } = useContext(AuthContext);
   const [numLikes, setNumLikes] = useState(0);
   const [liked, setLiked] = useState(false);
@@ -162,7 +163,7 @@ const Storyitem = (props) => {
   };
 
   let getComments = useCallback(async () => {
-    console.log("this method is called");
+    console.log("getcomment is called");
 
     // let url = API_BASE_URL + "/StoryComments?storyID=" + props.items.id + "/";
     let url = API_BASE_URL + "/StoryComments/?storyID=" + props.items.id;
@@ -178,7 +179,7 @@ const Storyitem = (props) => {
     if (response.status === 200) {
       setComments(data.results);
     } else if (response.statusText === "Unauthorized") {
-      console.log(response.statusText);
+      //   console.log(response.statusText);
     }
   }, [comments]);
 
@@ -220,7 +221,7 @@ const Storyitem = (props) => {
               <span>📍</span>
               {renderTitle()}
             </div>
-            {props.items.content}
+            {decodeNewline(props.items.content)}
             <span className="hashtag"> #纽约市的某地有关于我的记忆</span>
           </div>
 
