@@ -27,6 +27,9 @@ const Storyitem = (props) => {
   const [liked, setLiked] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
+  const [showRest, setShowRest] = useState(false);
+  const content = props.items.content;
+  const maxlen = 200;
 
   let checkLiked = () => {
     for (let i = 0; i < userLikedStorys.length; i++) {
@@ -198,6 +201,18 @@ const Storyitem = (props) => {
     checkLiked();
   }, []);
 
+  const getSubstring = (x) => {
+    if (x.length < maxlen) {
+      return x;
+    }
+    const set1 = new Set([",", ".", "。", "<", ">", "n", "l", " "]);
+    let cutoff = maxlen;
+    while (set1.has(String(x.charAt(cutoff - 1)))) {
+      cutoff = cutoff - 1;
+    }
+    return x.substring(0, cutoff);
+  };
+
   return (
     <li className="list">
       <div className="row">
@@ -221,7 +236,20 @@ const Storyitem = (props) => {
               <span>📍</span>
               {renderTitle()}
             </div>
-            {decodeNewline(props.items.content)}
+            <div>
+              {content.length < maxlen && decodeNewline(content)}
+              {content.length > maxlen && showRest && (
+                <span onClick={() => setShowRest(!showRest)}>
+                  {decodeNewline(content)}
+                </span>
+              )}
+              {content.length > maxlen && !showRest && (
+                <span onClick={() => setShowRest(!showRest)}>
+                  {decodeNewline(getSubstring(content) + "...")}
+                </span>
+              )}
+            </div>
+
             <span className="hashtag"> #纽约市的某地有关于我的记忆</span>
           </div>
 
