@@ -245,7 +245,7 @@ const Storyitem = (props) => {
               )}
               {content.length > maxlen && !showRest && (
                 <span onClick={() => setShowRest(!showRest)}>
-                  {decodeNewline(getSubstring(content) + "...")}
+                  {decodeNewline(getSubstring(content) + "  ...全文")}
                 </span>
               )}
             </div>

@@ -179,10 +179,23 @@ export const AuthProvider = ({ children }) => {
   };
 
   let decodeNewline = (txt) => {
-    let ret = String(txt)
-      .split("<nl>")
+    let ret = String(txt).split("<nl>");
+    let main = ret
+      .filter((s) => !s.includes("  ...全文"))
       .map((str) => <p>{str}</p>);
-    return ret;
+
+    console.log(main);
+    let suffix = ret
+      .filter((s) => s.includes("  ...全文"))
+      .map((str) => (
+        <p>
+          {str.substring(0, str.length - 7)}
+          <span style={{ color: "grey" }}> ...全文</span>
+        </p>
+      ));
+
+    main.push(suffix);
+    return main;
   };
 
   // -----------------------------------------------------------------------------
