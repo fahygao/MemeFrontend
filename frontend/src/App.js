@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import TopicPage from "./pages/Topic/TopicPage";
 import LoginPage from "./pages/Login/LoginPage";
+import AboutPage from "./pages/About/AboutPage";
 import PrivateRoute from "./utils/PrivateRoute";
 import React from "react";
 
@@ -18,6 +19,7 @@ function App() {
             </Route>
 
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/about" element={<AboutPage />} />
             {/* <Route path="*" element={<ErrorPage />} /> */}
           </Routes>
         </AuthProvider>

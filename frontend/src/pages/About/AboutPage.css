@@ -1,0 +1,395 @@
+@font-face {
+    font-family: "XiQuezhaopaiti";
+    src: url(喜鹊招牌体-Regular.ttf) format('truetype');
+}
+
+.about-page {
+    height: 90%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 1fr min-content;
+    background-color: #fafafa;
+}
+
+.body {
+    background: #fafafa;
+}
+
+.header {
+    font-family: "Source Han Sans CN";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0.3em;
+}
+
+.communityStandards {
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-family: "XiQuezhaopaiti";
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    position: relative;
+    left: 0px;
+    top: 20px;
+    margin-bottom: 30px;
+    color: #333333;
+}
+
+
+.content {
+    position: relative;
+    width: 318px;
+    height: 72px;
+    left: 0px;
+    top: 50px;
+
+    /* 主要内容 */
+
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+
+    letter-spacing: 0.025em;
+
+    color: #333333;
+}
+
+/* left */
+.left {
+    grid-column: 1 /2;
+    grid-row: 1 / 2;
+    padding-right: 5%;
+    padding-left: 25%;
+    padding-top: 8%;
+    display: flex;
+    justify-content: left;
+}
+
+/* right */
+.right {
+    grid-column: 2 / -2;
+    grid-row: 1 / 2;
+    position: relative;
+    height: 100vh;
+    padding-right: 20%;
+    padding-left: 0;
+    overflow-y: scroll;
+}
+
+.vl {
+    position: absolute;
+    left: 32%;
+    height: 90%;
+    top: 10%;
+
+
+    border-left: 1px solid #191B1F;
+}
+
+.title1 {
+    position: relative;
+    width: 62px;
+    height: 27px;
+    left: 84px;
+    top: 43px;
+
+    /* 标题二 */
+
+    font-family: '"XiQuezhaopaiti';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: 0.2em;
+
+    color: #333333;
+}
+
+.content1 {
+    position: relative;
+    width: 622px;
+    height: 120px;
+    left: 160px;
+    top: 13px;
+
+    /* 主要内容 */
+
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+
+    letter-spacing: 0.025em;
+
+    color: #333333;
+}
+
+.title2 {
+    position: relative;
+    width: 83px;
+    height: 27px;
+    left: 84px;
+    top: 100px;
+
+    /* 标题二 */
+
+    font-family: '"XiQuezhaopaiti';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: 0.2em;
+
+    color: #333333;
+}
+
+.content2 {
+    position: relative;
+    width: 605px;
+    height: 48px;
+    left: 180px;
+    top: 70px;
+
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+
+    letter-spacing: 0.025em;
+
+    color: #333333;
+}
+
+.title3 {
+    position: relative;
+    width: 83px;
+    height: 27px;
+    left: 84px;
+    top: 130px;
+
+    /* 标题二 */
+
+    font-family: '"XiQuezhaopaiti';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: 0.2em;
+
+    color: #333333;
+}
+
+.content3 {
+    position: relative;
+    width: 605px;
+    height: 48px;
+    left: 180px;
+    top: 100px;
+
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+
+    letter-spacing: 0.025em;
+
+    color: #333333;
+}
+
+.title4 {
+    position: relative;
+    width: 83px;
+    height: 27px;
+    left: 84px;
+    top: 160px;
+
+    /* 标题二 */
+
+    font-family: '"XiQuezhaopaiti';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: 0.2em;
+
+    color: #333333;
+}
+
+.content4 {
+    position: relative;
+    width: 605px;
+    height: 48px;
+    left: 180px;
+    top: 130px;
+
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+
+    letter-spacing: 0.025em;
+
+    color: #333333;
+}
+
+
+.title5 {
+    position: relative;
+    width: 83px;
+    height: 27px;
+    left: 84px;
+    top: 200px;
+
+    /* 标题二 */
+
+    font-family: '"XiQuezhaopaiti';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: 0.2em;
+
+    color: #333333;
+}
+
+.content5 {
+    position: relative;
+    width: 605px;
+    height: 48px;
+    left: 180px;
+    top: 170px;
+
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+
+    letter-spacing: 0.025em;
+
+    color: #333333;
+}
+
+.title6 {
+    position: relative;
+    width: 830px;
+    height: 27px;
+    left: 84px;
+    top: 230px;
+
+    /* 标题二 */
+
+    font-family: '"XiQuezhaopaiti';
+    font-style: bold;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: 0.2em;
+
+    color: #333333;
+}
+
+@media only screen and (max-width: 1000px) {
+    .main-page {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+        justify-content: center;
+    }
+
+    .left {
+        padding: 15%;
+        padding-top: 10%;
+        padding-bottom: 10%;
+        /*     margin-left: 5%; */
+        overflow: hidden;
+        position: relative;
+    }
+
+    .right {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-right: 0%;
+        position: relative;
+        overflow-y: visible;
+    }
+
+    .communityStandards {
+        margin: 1.5rem auto;
+        display: flex;
+        flex-direction: column;
+        /*     padding-right: 100px; */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main-page {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+        justify-content: center;
+    }
+
+    .left {
+        padding: 10%;
+        padding-top: 5%;
+        padding-bottom: 0%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .right {
+        width: 90%;
+        margin: 5%;
+        margin-top: 0%;
+        padding-top: 0;
+        padding-right: 0%;
+        position: relative;
+        overflow-y: visible;
+    }
+
+    .communityStandards {
+        width: 90%;
+        margin: 1rem auto;
+        display: flex;
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
