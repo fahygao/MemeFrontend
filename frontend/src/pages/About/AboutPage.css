@@ -3,6 +3,7 @@
     src: url(喜鹊招牌体-Regular.ttf) format('truetype');
 }
 
+
 .about-page {
     height: 90%;
     display: grid;
@@ -86,12 +87,8 @@
 }
 
 .vl {
-    position: absolute;
-    left: 32%;
+    position: relative;
     height: 90%;
-    top: 10%;
-
-
     border-left: 1px solid #191B1F;
 }
 
@@ -103,10 +100,8 @@
     top: 43px;
 
     /* 标题二 */
-
-    font-family: '"XiQuezhaopaiti';
-    font-style: normal;
-    font-weight: 900;
+    font-style: bold;
+    font-weight: 900 !important;
     font-size: 16px;
     line-height: 27px;
     /* identical to box height, or 150% */
@@ -146,9 +141,8 @@
 
     /* 标题二 */
 
-    font-family: '"XiQuezhaopaiti';
     font-style: bold;
-    font-weight: 700;
+    font-weight: 900 !important;
     font-size: 16px;
     line-height: 27px;
     /* identical to box height, or 150% */
@@ -186,9 +180,8 @@
 
     /* 标题二 */
 
-    font-family: '"XiQuezhaopaiti';
     font-style: bold;
-    font-weight: 700;
+    font-weight: 900 !important;
     font-size: 16px;
     line-height: 27px;
     /* identical to box height, or 150% */
@@ -226,9 +219,8 @@
 
     /* 标题二 */
 
-    font-family: '"XiQuezhaopaiti';
     font-style: bold;
-    font-weight: 700;
+    font-weight: 900 !important;
     font-size: 16px;
     line-height: 27px;
     /* identical to box height, or 150% */
@@ -266,10 +258,8 @@
     top: 200px;
 
     /* 标题二 */
-
-    font-family: '"XiQuezhaopaiti';
     font-style: bold;
-    font-weight: 700;
+    font-weight: 900 !important;
     font-size: 16px;
     line-height: 27px;
     /* identical to box height, or 150% */
@@ -284,11 +274,11 @@
     width: 605px;
     height: 48px;
     left: 180px;
-    top: 170px;
+    top: 175px;
 
     font-family: 'Source Han Sans CN';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     line-height: 24px;
     /* or 171% */
@@ -306,10 +296,8 @@
     top: 230px;
 
     /* 标题二 */
-
-    font-family: '"XiQuezhaopaiti';
     font-style: bold;
-    font-weight: 900;
+    font-weight: 900 !important;
     font-size: 16px;
     line-height: 27px;
     /* identical to box height, or 150% */
@@ -320,7 +308,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .main-page {
+    .about-page {
         width: 90%;
         display: flex;
         flex-wrap: wrap;
@@ -355,7 +343,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .main-page {
+    .about-page {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -371,6 +359,11 @@
         position: relative;
     }
 
+    .vl {
+        overflow: visible;
+        position: relative;
+    }
+
     .right {
         width: 90%;
         margin: 5%;
@@ -378,7 +371,7 @@
         padding-top: 0;
         padding-right: 0%;
         position: relative;
-        overflow-y: visible;
+        overflow-y: scroll;
     }
 
     .communityStandards {
@@ -387,9 +380,5 @@
         display: flex;
         flex-direction: column;
         padding-right: 0;
-    }
-
-    .buttons {
-        justify-content: center;
     }
 }
