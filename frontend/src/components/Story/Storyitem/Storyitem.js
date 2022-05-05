@@ -1,10 +1,11 @@
 import React, { useState, useContext, useCallback } from "react";
 import AuthContext from "../../../context/AuthContext";
 import "./Storyitem.css";
-import comment from "./../../../images/comment.png";
+import comment from "./../../../images/reply.svg";
 // import share from "./../../../images/share.png";
-import unfilled_heart from "./../../../images/unfilled_heart.png";
-import filled_heart from "./../../../images/filled_heart.png";
+import unfilled_heart from "./../../../images/unfilled_heart.svg";
+// import filled_heart from "./../../../images/filled_heart.png";
+import filled_heart from "./../../../images/filled_heart.svg";
 import anymHead from "./../../../images/profilepics/anymHead.png";
 import default_prof from "./../../../images/profilepics/default_prof.png";
 import Commentlist from "../../Comment/CommentList/Commentlist";
