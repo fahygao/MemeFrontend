@@ -5,7 +5,7 @@ import "./AboutPage.css";
 function About() {
 
   return (
-    <div className="background">
+    <div>
       <NavbarComp />
       <section className="about-page">
         <div className="left">
