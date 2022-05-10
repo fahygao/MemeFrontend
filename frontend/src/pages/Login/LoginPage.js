@@ -8,7 +8,7 @@ const LoginPage = () => {
     <div id="login-box">
       <form onSubmit={loginUser}>
         <div class="mb-3">
-          <label class="form-label">Username</label>
+          <label class="form-label">用户名</label>
           <input
             type="text"
             class="form-control"
@@ -17,12 +17,12 @@ const LoginPage = () => {
           />
         </div>
         <div class="mb-3">
-          <label class="form-label">Password</label>
+          <label class="form-label">密码</label>
           <input type="password" class="form-control" id="password" />
         </div>
 
         <button type="submit" class="btn btn-primary">
-          Login
+          登陆
         </button>
       </form>
     </div>

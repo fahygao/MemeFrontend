@@ -5,6 +5,7 @@ import TopicPage from "./pages/Topic/TopicPage";
 import LoginPage from "./pages/Login/LoginPage";
 import AboutPage from "./pages/About/AboutPage";
 import PrivateRoute from "./utils/PrivateRoute";
+import AboutPage from "./pages/About/AboutPage";
 import React from "react";
 
 //nav content exist for all pages

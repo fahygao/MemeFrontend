@@ -19,6 +19,7 @@ const TopicPage = () => {
     currentTopicId,
     getUserLiked,
     postCommentOpen,
+    decodeNewline,
   } = useContext(AuthContext);
 
   const [postModalOpen, setPostModalOpen] = useState(false);
@@ -91,18 +92,7 @@ const TopicPage = () => {
             <div className="topicName">{topicInfo.topicName}</div>
 
             <div className="topicAbstract">
-              <p>
-                纽约的特别不仅在于美食、美景和美人，更重要的是你与TA的交集。
-                我们相信对于每一位停留在纽约的人来说，都有几则属于你的故事。
-              </p>
-              <p>
-                或长或短、或悲伤或愉快、或久远或崭新，都有值得被记录的意义。
-              </p>
-              <p>
-                没准当你听到了更多的故事之后，
-                就会被治愈、会被感动、会被质疑、会被接受；
-                从而更懂身边的人和自己，为什么而来。
-              </p>
+              {decodeNewline(topicInfo.abstract)}
             </div>
             <div className="topicOther">
               By MēMē团队 •{" "}

@@ -15,13 +15,17 @@
 }
 
 .navLogo {
-  font-size: 30px;
+/*   font-size: 50px; */
   font-family: "Roboto";
   font-weight: bold;
   letter-spacing: 0em;
   margin-left: 3%;
 }
-
+.navbar-brand {
+  font-size: 30px!important;
+  padding-top: 0rem!important;
+  padding-bottom: 0rem!important;
+}
 .date {
   font-size: 15px;
   font-family: "Source Han Sans CN";
@@ -32,10 +36,11 @@
 }
 
 .navbar {
-  border-bottom: 2px solid #000000;
+  border-bottom: 3px solid #000000;
   padding: 0;
   background-color:  #FAFAFA;
-  /* margin-bottom: 10px; */
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
 }
 .navbar-inner {
   /* background-color: white; */
@@ -43,9 +48,21 @@
    padding:0;
 }
 
+.navbar-light .navbar-toggler {
+    border-color: rgba(0,0,0,0)!important;
+    color: rgba(0,0,0,.0)!important;
+	}
+.navbar-toggler-icon {
+	width:1em!important;
+	height:1em!important;
+}
+.navbar-toggler {
+	font-size: 1rem;
+	}
+
 @media only screen and (max-width: 1000px) {
   .navLogo {
-    font-size: 30px;
+    font-size: 80px;
     font-family: "Roboto";
     font-weight: bold;
     letter-spacing: 0em;
@@ -64,35 +81,37 @@
 
 @media only screen and (max-width: 600px) {
   .navLogo {
-    font-size: 30px;
+    font-size: 60px;
     font-family: "Roboto";
     font-weight: bold;
     letter-spacing: 0em;
-    margin: -5%;
-    padding-left: 5%;
+    margin-left: 2%;
+/*     padding-left: 5%; */
   }
 	
-.navbar-inner {
-  /* background-color: white; */
-  z-index: 1000;
-  padding:3%;
-}
+	.navbar-inner {
+     /* background-color: white; */
+     z-index: 1000;
+     padding:0%;
+	}
 
   .date {
     font-size: 15px;
     font-family: "Source Han Sans CN";
     font-weight: normal;
     line-height: 26.06px;
-    margin-left: -10%;
+    margin-left: -30%;
     color: #333333;
   }
+  .navbar {
+  border-bottom: 3px solid #000000;
+  padding: 0;
+  background-color:  #FAFAFA;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
 	
-.navbar-light .navbar-toggler {
-    border-color: rgba(0,0,0,0);
-	}
-.navbar-toggler {
-	font-size: 1rem;
-	}
+
 }
 
 

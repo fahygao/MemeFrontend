@@ -1,10 +1,11 @@
 import React, { useState, useContext, useCallback } from "react";
 import AuthContext from "../../../context/AuthContext";
 import "./Storyitem.css";
-import comment from "./../../../images/comment.png";
+import comment from "./../../../images/reply.svg";
 // import share from "./../../../images/share.png";
-import unfilled_heart from "./../../../images/unfilled_heart.png";
-import filled_heart from "./../../../images/filled_heart.png";
+import unfilled_heart from "./../../../images/unfilled_heart.svg";
+// import filled_heart from "./../../../images/filled_heart.png";
+import filled_heart from "./../../../images/filled_heart.svg";
 import anymHead from "./../../../images/profilepics/anymHead.png";
 import default_prof from "./../../../images/profilepics/default_prof.png";
 import Commentlist from "../../Comment/CommentList/Commentlist";
@@ -21,11 +22,15 @@ const Storyitem = (props) => {
     user,
     setCurrentStoryID,
     postCommentOpen,
+    decodeNewline,
   } = useContext(AuthContext);
   const [numLikes, setNumLikes] = useState(0);
   const [liked, setLiked] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
+  const [showRest, setShowRest] = useState(false);
+  const content = props.items.content;
+  const maxlen = 200;
 
   let checkLiked = () => {
     for (let i = 0; i < userLikedStorys.length; i++) {
@@ -162,7 +167,7 @@ const Storyitem = (props) => {
   };
 
   let getComments = useCallback(async () => {
-    console.log("this method is called");
+    console.log("getcomment is called");
 
     // let url = API_BASE_URL + "/StoryComments?storyID=" + props.items.id + "/";
     let url = API_BASE_URL + "/StoryComments/?storyID=" + props.items.id;
@@ -178,7 +183,7 @@ const Storyitem = (props) => {
     if (response.status === 200) {
       setComments(data.results);
     } else if (response.statusText === "Unauthorized") {
-      console.log(response.statusText);
+      //   console.log(response.statusText);
     }
   }, [comments]);
 
@@ -196,6 +201,18 @@ const Storyitem = (props) => {
     getLikesAPI();
     checkLiked();
   }, []);
+
+  const getSubstring = (x) => {
+    if (x.length < maxlen) {
+      return x;
+    }
+    const set1 = new Set([",", ".", "。", "<", ">", "n", "l", " "]);
+    let cutoff = maxlen;
+    while (set1.has(String(x.charAt(cutoff - 1)))) {
+      cutoff = cutoff - 1;
+    }
+    return x.substring(0, cutoff);
+  };
 
   return (
     <li className="list">
@@ -220,7 +237,20 @@ const Storyitem = (props) => {
               <span>📍</span>
               {renderTitle()}
             </div>
-            {props.items.content}
+            <div>
+              {content.length < maxlen && decodeNewline(content)}
+              {content.length > maxlen && showRest && (
+                <span onClick={() => setShowRest(!showRest)}>
+                  {decodeNewline(content)}
+                </span>
+              )}
+              {content.length > maxlen && !showRest && (
+                <span onClick={() => setShowRest(!showRest)}>
+                  {decodeNewline(getSubstring(content) + "  ...全文")}
+                </span>
+              )}
+            </div>
+
             <span className="hashtag"> #纽约市的某地有关于我的记忆</span>
           </div>
 
