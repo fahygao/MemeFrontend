@@ -12,11 +12,11 @@
     background-color: #fafafa;
 }
 
-.body {
+.body-about {
     background: #fafafa;
 }
 
-.header {
+.header-about {
     font-family: "Source Han Sans CN";
     font-size: 14px;
     font-weight: 700;
@@ -30,42 +30,30 @@
     flex-direction: column;
 }
 
-.title {
+.title-about {
     font-family: "XiQuezhaopaiti";
     font-weight: 400;
     font-size: 40px;
     line-height: 52px;
-    position: relative;
-    left: 0px;
-    top: 20px;
+    text-align: justify;
     margin-bottom: 30px;
     color: #333333;
 }
 
-
-.content {
-    position: relative;
-    width: 318px;
-    height: 72px;
-    left: 0px;
-    top: 50px;
-
-    /* 主要内容 */
-
-    font-family: 'Source Han Sans CN';
-    font-style: normal;
+.content-about {
+    font-family: "Source Han Sans CN";
+    font-size: 20px;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    /* or 171% */
-
+    line-height: 25px;
     letter-spacing: 0.025em;
-
-    color: #333333;
+    text-align: left;
+    margin-bottom: 30px;
+    color: #666666;
 }
 
+
 /* left */
-.left {
+.left-about {
     grid-column: 1 /2;
     grid-row: 1 / 2;
     padding-right: 5%;
@@ -76,34 +64,29 @@
 }
 
 /* right */
-.right {
+.right-about {
     grid-column: 2 / -2;
     grid-row: 1 / 2;
     position: relative;
     height: 100vh;
     padding-right: 20%;
     padding-left: 0;
-    overflow-y: scroll;
 }
 
-.vl {
+.title1-about {
+    /*  max-width: 50%;
+    /* margin: 2rem auto; */
     position: relative;
-    height: 90%;
-    border-left: 1px solid #191B1F;
-}
-
-.title1 {
-    position: relative;
-    width: 62px;
-    height: 27px;
-    left: 84px;
+    /* width: 62px;
+    height: 27px; */
+    left: 10%;
     top: 43px;
 
     /* 标题二 */
     font-style: bold;
     font-weight: 900 !important;
-    font-size: 16px;
-    line-height: 27px;
+    font-size: 20px;
+    /* line-height: 27px;
     /* identical to box height, or 150% */
 
     letter-spacing: 0.2em;
@@ -111,20 +94,23 @@
     color: #333333;
 }
 
-.content1 {
+.content1-about {
     position: relative;
-    width: 622px;
-    height: 120px;
-    left: 160px;
-    top: 13px;
+    /*  width: 622px;
+    height: 120px; */
+    left: 20%;
+    top: 8px;
+    /*  width: 35rem; */
+    /*  max-width: 50%;
+    /*  margin: 2rem auto;
 
     /* 主要内容 */
 
     font-family: 'Source Han Sans CN';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
+    /* line-height: 24px;
     /* or 171% */
 
     letter-spacing: 0.025em;
@@ -132,18 +118,18 @@
     color: #333333;
 }
 
-.title2 {
+.title2-about {
     position: relative;
-    width: 83px;
-    height: 27px;
-    left: 84px;
-    top: 100px;
+    /*width: 83px;
+    height: 27px; */
+    left: 10%;
+    top: 40px;
 
     /* 标题二 */
 
     font-style: bold;
     font-weight: 900 !important;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 27px;
     /* identical to box height, or 150% */
 
@@ -152,18 +138,18 @@
     color: #333333;
 }
 
-.content2 {
+.content2-about {
     position: relative;
-    width: 605px;
-    height: 48px;
-    left: 180px;
-    top: 70px;
+    /*  width: 605px;
+    height: 48px; */
+    left: 25%;
+    top: 13px;
 
     font-family: 'Source Han Sans CN';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
+    /* line-height: 24px;
     /* or 171% */
 
     letter-spacing: 0.025em;
@@ -171,18 +157,18 @@
     color: #333333;
 }
 
-.title3 {
+.title3-about {
     position: relative;
-    width: 83px;
-    height: 27px;
-    left: 84px;
-    top: 130px;
+    /*  width: 83px;
+    height: 27px; */
+    left: 10%;
+    top: 50px;
 
     /* 标题二 */
 
     font-style: bold;
     font-weight: 900 !important;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 27px;
     /* identical to box height, or 150% */
 
@@ -191,18 +177,18 @@
     color: #333333;
 }
 
-.content3 {
+.content3-about {
     position: relative;
-    width: 605px;
-    height: 48px;
-    left: 180px;
-    top: 100px;
+    /*   width: 605px;
+    height: 48px; */
+    left: 25%;
+    top: 20px;
 
     font-family: 'Source Han Sans CN';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
+    /* line-height: 24px;
     /* or 171% */
 
     letter-spacing: 0.025em;
@@ -210,18 +196,18 @@
     color: #333333;
 }
 
-.title4 {
+.title4-about {
     position: relative;
-    width: 83px;
-    height: 27px;
-    left: 84px;
-    top: 160px;
+    /*  width: 83px;
+    height: 27px; */
+    left: 10%;
+    top: 50px;
 
     /* 标题二 */
 
     font-style: bold;
     font-weight: 900 !important;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 27px;
     /* identical to box height, or 150% */
 
@@ -230,18 +216,18 @@
     color: #333333;
 }
 
-.content4 {
+.content4-about {
     position: relative;
-    width: 605px;
-    height: 48px;
-    left: 180px;
-    top: 130px;
+    /*  width: 605px;
+    height: 48px; */
+    left: 25%;
+    top: 20px;
 
     font-family: 'Source Han Sans CN';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
+    /*  line-height: 24px;
     /* or 171% */
 
     letter-spacing: 0.025em;
@@ -250,17 +236,17 @@
 }
 
 
-.title5 {
+.title5-about {
     position: relative;
-    width: 83px;
-    height: 27px;
-    left: 84px;
-    top: 200px;
+    /*   width: 83px;
+    height: 27px; */
+    left: 10%;
+    top: 45px;
 
     /* 标题二 */
     font-style: bold;
     font-weight: 900 !important;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 27px;
     /* identical to box height, or 150% */
 
@@ -269,18 +255,17 @@
     color: #333333;
 }
 
-.content5 {
+.content5-about {
     position: relative;
-    width: 605px;
-    height: 48px;
-    left: 180px;
-    top: 175px;
+    /*  width: 605px;
+    height: 48px; */
+    left: 25%;
+    top: 20px;
 
-    font-family: 'Source Han Sans CN';
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
+    /*  line-height: 24px;
     /* or 171% */
 
     letter-spacing: 0.025em;
@@ -288,17 +273,17 @@
     color: #333333;
 }
 
-.title6 {
+.title6-about {
     position: relative;
-    width: 830px;
-    height: 27px;
-    left: 84px;
-    top: 230px;
+    /*   width: 830px;
+    height: 27px; */
+    left: 10%;
+    top: 50px;
 
     /* 标题二 */
     font-style: bold;
     font-weight: 900 !important;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 27px;
     /* identical to box height, or 150% */
 
@@ -316,7 +301,8 @@
         justify-content: center;
     }
 
-    .left {
+
+    .left-about {
         padding: 15%;
         padding-top: 10%;
         padding-bottom: 10%;
@@ -325,21 +311,23 @@
         position: relative;
     }
 
-    .right {
+    .right-about {
+        opacity: 0;
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
         padding-right: 0%;
         position: relative;
-        overflow-y: visible;
+        overflow: hidden;
     }
 
     .communityStandards {
-        margin: 1.5rem auto;
+        margin-left: 5%;
         display: flex;
         flex-direction: column;
         /*     padding-right: 100px; */
     }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -351,7 +339,7 @@
         justify-content: center;
     }
 
-    .left {
+    .left-about {
         padding: 10%;
         padding-top: 5%;
         padding-bottom: 0%;
@@ -359,19 +347,16 @@
         position: relative;
     }
 
-    .vl {
-        overflow: visible;
-        position: relative;
-    }
 
-    .right {
+    .right-about {
+        opacity: 0;
         width: 90%;
         margin: 5%;
         margin-top: 0%;
         padding-top: 0;
         padding-right: 0%;
         position: relative;
-        overflow-y: scroll;
+        overflow-y: visible;
     }
 
     .communityStandards {
