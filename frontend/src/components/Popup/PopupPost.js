@@ -1,4 +1,8 @@
 import React, { useContext, useState } from "react";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
 import AuthContext from "../../context/AuthContext";
 import user_prof from "./../../images/profilepics/default_prof.png";
 import anom_prof from "./../../images/profilepics/anymHead.png";
@@ -8,6 +12,18 @@ function PopupPost({ setOpenModal }) {
   let { postStory, getTopicStorys } = useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
   const [numWords, setNumWords] = useState(1000);
+  const [address, setAddress] = React.useState("");
+  const [coordinates, setCoordinates] = React.useState({
+    lat: null,
+    lng: null,
+  });
+
+  const handleSelect = async (value) => {
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+    setAddress(value);
+    setCoordinates(latLng);
+  };
 
   let handleOnSubmit = (event) => {
     event.preventDefault();
@@ -43,29 +59,66 @@ function PopupPost({ setOpenModal }) {
             ) : (
               <img src={user_prof} className="profile-pic" />
             )}
+            <PlacesAutocomplete
+              value={address}
+              onChange={setAddress}
+              onSelect={handleSelect}
+            >
+              {({
+                getInputProps,
+                suggestions,
+                getSuggestionItemProps,
+                loading,
+              }) => (
+                <div>
+                  {/* <p>Latitude: {coordinates.lat}</p>
+                  <p>Longitude: {coordinates.lng}</p> */}
 
-            <input
-              className="form-control margin-right"
-              id="location"
-              placeholder="* 回忆发生的具体地点"
-            />
+                  <input
+                    {...getInputProps({
+                      placeholder: "* 回忆发生的具体地点",
+                      className: "form-control margin-right",
+                      id: "location",
+                    })}
+                  />
 
+                  <div className="dropdown">
+                    {loading ? <div>...loading</div> : null}
+                    {suggestions.map((suggestion) => {
+                      const style = suggestion.active
+                        ? { backgroundColor: "#c8c8c880", cursor: "pointer" }
+                        : { backgroundColor: "#ffffff", cursor: "pointer" };
+
+                      return (
+                        <div
+                          className="dropdownIten"
+                          {...getSuggestionItemProps(suggestion, { style })}
+                        >
+                          {suggestion.description}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </PlacesAutocomplete>
+          </div>
+
+          <div class="form-group form-row2 custom-input margin-left">
             <input
               className="form-control"
               id="DateHappened"
               placeholder="发生时间 (yyyy-mm)"
             />
-          </div>
-          <div class="form-group form-row custom-input margin-left">
             <select
               className="form-select form-select"
               aria-label=".form-select-sm example"
               id="EXIST"
             >
               <option selected value="EXIST">
-                * 具体地点仍然存在
+                * 地点仍然存在
               </option>
-              <option value="EXISTED">* 具体地点已消失</option>
+              <option value="EXISTED">* 地点已消失</option>
             </select>
           </div>
           <div className="form-group margin-left">

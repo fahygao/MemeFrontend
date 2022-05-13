@@ -10,7 +10,10 @@ const LeafMap = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={[40.7294, -73.9972]}>
-        <Popup>@Fahy 在这里留过言哦～</Popup>
+        <Popup>@Fahygaof 在这里留过言哦～</Popup>
+      </Marker>
+      <Marker position={[40.7303, -73.9953]}>
+        <Popup>@Eric 在这里留过言哦～</Popup>
       </Marker>
     </MapContainer>
   );
