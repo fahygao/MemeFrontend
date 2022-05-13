@@ -257,6 +257,7 @@ const Storyitem = (props) => {
           <div className="reactions">
             <span className="emoji_nums" onClick={() => clickComment()}>
               <img src={comment} />
+              {comments.length}
             </span>
 
             <span className="emoji_nums">
