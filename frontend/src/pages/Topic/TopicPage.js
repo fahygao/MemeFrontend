@@ -118,7 +118,7 @@ const TopicPage = () => {
               </button>
             </div>
             <div className="leafmap">
-              <LeafMap />
+              <LeafMap items={topicStorys} />
             </div>
           </div>
         </div>

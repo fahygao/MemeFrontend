@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import AuthContext from "../../context/AuthContext";
 import "./Navbar.css";
 // import profile from "./../../images/profilepics/#8B0000.png";
 import profile from "./../../images/profilepics/profile.png";
+import menu from "./../../images/menu.svg";
 
 const NavbarComp = () => {
   let { user, logoutUser } = useContext(AuthContext);
   let state = { date: new Date() };
-
+  const navDropdownTitle = (
+    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+  );
   return (
     <Navbar
       expand="lg"
@@ -34,7 +37,7 @@ const NavbarComp = () => {
             <Navbar.Brand href="">
               <img src={profile} alt="React Bootstrap logo" width="30px" />
             </Navbar.Brand>
-
+            {/* <Nav.Link href="About">About</Nav.Link> */}
             {user ? (
               <Nav.Link onClick={logoutUser}>Logout</Nav.Link>
             ) : (
