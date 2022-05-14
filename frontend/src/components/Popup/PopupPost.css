@@ -139,19 +139,12 @@
 .anonymous-logo {
   margin-left: 45px;
 }
-.dropdown {
+.dropdownDiv {
   z-index: 1001;
   position: absolute;
   left: 0;
   width: 68%;
   margin-left: 16%;
-  background-color: rgba(200, 200, 200, 0.5);
-}
-
-.dropdownItem {
-  position: absolute;
-  z-index: 2000;
-  width: 100%;
   background-color: rgba(200, 200, 200, 0.5);
 }
 

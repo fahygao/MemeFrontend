@@ -82,7 +82,7 @@ function PopupPost({ setOpenModal }) {
                     })}
                   />
 
-                  <div className="dropdown">
+                  <div className="dropdownDiv">
                     {loading ? <div>...loading</div> : null}
                     {suggestions.map((suggestion) => {
                       const style = suggestion.active
@@ -90,10 +90,7 @@ function PopupPost({ setOpenModal }) {
                         : { backgroundColor: "#ffffff", cursor: "pointer" };
 
                       return (
-                        <div
-                          className="dropdownIten"
-                          {...getSuggestionItemProps(suggestion, { style })}
-                        >
+                        <div {...getSuggestionItemProps(suggestion, { style })}>
                           {suggestion.description}
                         </div>
                       );
