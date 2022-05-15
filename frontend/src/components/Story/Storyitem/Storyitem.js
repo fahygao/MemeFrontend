@@ -125,6 +125,9 @@ const Storyitem = (props) => {
     let location = props.items.location;
     let date = getDate();
     if (location !== null && location.length > 0) {
+      if (location.includes(",")) {
+        location = location.split(",")[0];
+      }
       ret = ret + location;
       if (date.length > 0) {
         ret = ret + " - " + "🕙 " + date;
