@@ -34,7 +34,7 @@ const LeafMap = (props) => {
     <MapContainer center={[40.7294, -73.9972]} zoom={11} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://stadiamaps.com/">'
-        url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+        url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=997c57ab-80a0-4272-b23a-bee94473850b"
       />
 
       {/* {console.log(props.items)} */}
