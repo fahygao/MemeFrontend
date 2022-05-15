@@ -7136,6 +7136,11 @@
   dependencies:
     "language-subtag-registry" "~0.3.2"
 
+"leaflet.tilelayer.colorfilter@^1.2.5":
+  "integrity" "sha512-wUvqVlpEofDEDi0ocXApXAcz1l06RsNBEw3L/2ColaygDPERswgas2Jgv/DVrWrVd0HQAxDerwFqOtBI+zbw3w=="
+  "resolved" "https://registry.npmjs.org/leaflet.tilelayer.colorfilter/-/leaflet.tilelayer.colorfilter-1.2.5.tgz"
+  "version" "1.2.5"
+
 "leaflet@^1.8.0":
   "integrity" "sha512-gwhMjFCQiYs3x/Sf+d49f10ERXaEFCPr+nVTryhAW8DWbMGqJqt9G4XuIaHmFW08zYvhgdzqXGr8AlW8v8dQkA=="
   "resolved" "https://registry.npmjs.org/leaflet/-/leaflet-1.8.0.tgz"
