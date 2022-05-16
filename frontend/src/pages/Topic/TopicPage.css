@@ -160,6 +160,12 @@
     flex-direction: column;
     /*     padding-right: 100px; */
   }
+  .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-top: 20px;
+}
 }
 
 @media only screen and (max-width: 600px) {
@@ -196,6 +202,8 @@
     padding-right: 0;
   }
   .buttons {
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 }
