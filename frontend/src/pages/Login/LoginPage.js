@@ -28,11 +28,11 @@ const LoginPage = () => {
 
         <div className="buttons">
           {" "}
-          <button type="submit" class="btn btn-primary">
-            登陆
-          </button>
           <button onClick={routeChange} class="btn btn-primary">
             注册
+          </button>
+         <button type="submit" class="btn btn-primary">
+            登陆
           </button>
         </div>
       </form>
