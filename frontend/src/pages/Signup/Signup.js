@@ -102,7 +102,7 @@ const SignupPage = () => {
         </div>
 
         <div class="mb-3">
-          <label for="form-label">微信名ID/Instagram</label>
+          <label for="form-label">Instagram账号/微信ID</label>
           <input
             type="text"
             class="form-control"
