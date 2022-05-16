@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./LoginPage.css";
 
 const LoginPage = () => {
   let { loginUser } = useContext(AuthContext);
+  let navigate = useNavigate();
+  const routeChange = () => {
+    navigate("../signup", { replace: true });
+  };
   return (
     <div id="login-box">
       <form onSubmit={loginUser}>
@@ -21,9 +26,15 @@ const LoginPage = () => {
           <input type="password" class="form-control" id="password" />
         </div>
 
-        <button type="submit" class="btn btn-primary">
-          登陆
-        </button>
+        <div className="buttons">
+          {" "}
+          <button type="submit" class="btn btn-primary">
+            登陆
+          </button>
+          <button onClick={routeChange} class="btn btn-primary">
+            注册
+          </button>
+        </div>
       </form>
     </div>
   );

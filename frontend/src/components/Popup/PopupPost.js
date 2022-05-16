@@ -26,6 +26,10 @@ function PopupPost({ setOpenModal }) {
   };
 
   let handleOnSubmit = (event) => {
+    // e.target["lattitude"] = 1;
+    // e.target["longitude"] = 2;
+    // console.log(e.target.male.checked);
+    // console.log("lattitude is", e.target.lattitude);
     event.preventDefault();
     postStory(event);
     setOpenModal(false);

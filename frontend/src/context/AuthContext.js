@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
 
   let navigate = useNavigate();
   // -----------------------------------------------------------------------------
-  let loginUser = async (e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
     console.log("Form Submitted");
     let url = API_BASE_URL + "/api/token/";
@@ -55,12 +55,48 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const registerUser = async (e) => {
+    e.preventDefault();
+    console.log("user register form submitted");
+    let url = API_BASE_URL + "/createuser/";
+    let response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value,
+        email: e.target.email.value,
+        gender: e.target.male.checked,
+        social_media: e.target.social_media.value,
+      }),
+    });
+    let data = await response.json();
+    //we want to set it in our state (and local storage) to be used for private routes later
+
+    //we want to set it in our state (and local storage) to be used for private routes later
+    if (
+      response.status === 200 ||
+      response.status === 202 ||
+      response.status === 201
+    ) {
+      console.log("registration submitted successfully! ");
+      alert("注册成功！");
+      navigate("../login", { replace: true });
+    } else {
+      console.log("注册失败");
+      console.log(data);
+    }
+  };
+
   let logoutUser = () => {
     setAuthTokens(null);
     setUser(null);
     localStorage.removeItem("authtokens");
     navigate("/login");
   };
+
   // -----------------------------------------------------------------------------
   //When we login we get a access and refresh token, we send the refresh token to the backend to get a new access token
   //called every 9 minutes
@@ -265,6 +301,7 @@ export const AuthProvider = ({ children }) => {
     postComment: postComment,
     setCurrentStoryID: setCurrentStoryID,
     decodeNewline: decodeNewline,
+    registerUser: registerUser,
     // encodeNewline: encodeNewline,
   };
 

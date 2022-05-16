@@ -5,6 +5,7 @@ import TopicPage from "./pages/Topic/TopicPage";
 import LoginPage from "./pages/Login/LoginPage";
 import PrivateRoute from "./utils/PrivateRoute";
 import AboutPage from "./pages/About/AboutPage";
+import SignupPage from "./pages/Signup/Signup";
 import React from "react";
 
 //nav content exist for all pages
@@ -17,7 +18,7 @@ function App() {
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/" element={<TopicPage />} />
             </Route>
-
+            <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/about" element={<AboutPage />} />
             {/* <Route path="*" element={<ErrorPage />} /> */}
