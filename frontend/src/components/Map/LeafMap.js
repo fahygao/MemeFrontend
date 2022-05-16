@@ -4,12 +4,12 @@ import * as L from "leaflet";
 import "./LeafMap.css";
 // import markerIcon from "./../../images/markerIcon.png";
 import customIcon from "./../../images/markerIcon.png";
-import purpleIcon from "./../../images/location_purple.svg";
+// import orangeIcon from "./../../images/location_orange.svg";
 
 const LeafMap = (props) => {
   const DefaultIcon = L.icon({
-    iconUrl: purpleIcon,
-    iconSize: new L.Point(20, 25),
+    iconUrl: customIcon,
+    iconSize: new L.Point(20, 20),
   });
   L.Marker.prototype.options.icon = DefaultIcon;
 
