@@ -137,16 +137,14 @@ function PopupPost({ setOpenModal }) {
           </div>
           <span class="word-count"> {numWords} </span>
           <div className="footer">
-            <div
-              className="form-check  anonymous-logo"
-              onClick={() => {
-                toggle_prof();
-              }}
-            >
+            <div className="form-check  anonymous-logo">
               <input
                 className="form-check-input"
                 type="checkbox"
                 id="anonymous"
+                onClick={() => {
+                  toggle_prof();
+                }}
               />
               <label className="form-check-label" for="gridCheck">
                 匿名
