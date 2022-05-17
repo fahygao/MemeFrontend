@@ -7,12 +7,14 @@ import AuthContext from "../../context/AuthContext";
 const PopupComment = () => {
   const [isAnom, setIsAnom] = useState(false);
   const [numWords, setNumWords] = useState(300);
-  const { setPostCommentOpen, postComment } = useContext(AuthContext);
+  const { setPostCommentOpen, postComment, commentDefault, setCommentDefault } =
+    useContext(AuthContext);
 
   let handleOnSubmit = (event) => {
     event.preventDefault();
     postComment(event);
     setPostCommentOpen(false);
+    setCommentDefault("");
     // getTopicStorys();
   };
 
@@ -55,7 +57,9 @@ const PopupComment = () => {
               minlength="1"
               autoFocus="autofocus"
               onChange={(e) => setNumWords(300 - e.target.value.length)}
-            ></textarea>
+            >
+              {commentDefault}
+            </textarea>
           </div>
           <span class="word-count">{numWords} </span>
           <div className="footer">

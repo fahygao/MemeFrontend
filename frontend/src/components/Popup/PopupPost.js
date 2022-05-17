@@ -25,13 +25,15 @@ function PopupPost({ setOpenModal }) {
     setCoordinates(latLng);
   };
 
-  let handleOnSubmit = (event) => {
-    // e.target["lattitude"] = 1;
-    // e.target["longitude"] = 2;
-    // console.log(e.target.male.checked);
-    // console.log("lattitude is", e.target.lattitude);
-    event.preventDefault();
-    postStory(event);
+  let handleOnSubmit = (e) => {
+    e.preventDefault();
+    e.target["lat"] = null;
+    e.target["lng"] = null;
+    if (coordinates.lat != null && coordinates.lng != null) {
+      e.target["lat"] = coordinates.lat.toFixed(5);
+      e.target["lng"] = coordinates.lng.toFixed(5);
+    }
+    postStory(e);
     setOpenModal(false);
     getTopicStorys();
   };

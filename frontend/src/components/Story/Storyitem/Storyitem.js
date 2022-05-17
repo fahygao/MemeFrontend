@@ -258,12 +258,12 @@ const Storyitem = (props) => {
           </div>
 
           <div className="reactions">
-            <span className="emoji_nums" onClick={() => clickComment()}>
+            <span className="emoji_comments" onClick={() => clickComment()}>
               <img src={comment} />
               {comments.length}
             </span>
 
-            <span className="emoji_nums">
+            <span className="emoji_likes">
               {liked ? (
                 <img
                   src={filled_heart}

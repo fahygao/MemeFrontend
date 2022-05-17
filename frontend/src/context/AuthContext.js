@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }) => {
   let [loading, setLoading] = useState(true);
   let [postCommentOpen, setPostCommentOpen] = useState(false);
   let [currentStoryID, setCurrentStoryID] = useState(-1);
+  let [commentDefault, setCommentDefault] = useState("");
 
   let navigate = useNavigate();
   // -----------------------------------------------------------------------------
@@ -255,6 +256,8 @@ export const AuthProvider = ({ children }) => {
         location: e.target.location.value,
         DateHappened: e.target.DateHappened.value,
         anonymous: e.target.anonymous.checked,
+        lat: e.target.lat,
+        lon: e.target.lng,
         Exist: e.target.EXIST.value,
         username: user.username,
         view_count: 0,
@@ -302,6 +305,8 @@ export const AuthProvider = ({ children }) => {
     setCurrentStoryID: setCurrentStoryID,
     decodeNewline: decodeNewline,
     registerUser: registerUser,
+    commentDefault: commentDefault,
+    setCommentDefault: setCommentDefault,
     // encodeNewline: encodeNewline,
   };
 

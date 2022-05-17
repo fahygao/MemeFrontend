@@ -12,6 +12,8 @@
 .comment-content {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
 }
 .time {
   font-family: Roboto;
@@ -30,4 +32,11 @@
   line-height: 14px;
   letter-spacing: 0em;
   text-align: left;
+}
+
+.leftFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  width: 100%;
 }
