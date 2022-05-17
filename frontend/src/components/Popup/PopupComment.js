@@ -13,8 +13,9 @@ const PopupComment = () => {
   let handleOnSubmit = (event) => {
     event.preventDefault();
     postComment(event);
-    setPostCommentOpen(false);
     setCommentDefault("");
+    setPostCommentOpen(false);
+
     // getTopicStorys();
   };
 
@@ -33,6 +34,7 @@ const PopupComment = () => {
           <button
             onClick={() => {
               setPostCommentOpen(false);
+              setCommentDefault("");
             }}
           >
             X
@@ -55,7 +57,6 @@ const PopupComment = () => {
               placeholder="*爱评论的人运气都不差～"
               maxlength="300"
               minlength="1"
-              autoFocus="autofocus"
               onChange={(e) => setNumWords(300 - e.target.value.length)}
             >
               {commentDefault}

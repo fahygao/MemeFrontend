@@ -170,7 +170,7 @@ const Storyitem = (props) => {
   };
 
   let getComments = useCallback(async () => {
-    console.log("getcomment is called");
+    // console.log("getcomment is called");
 
     // let url = API_BASE_URL + "/StoryComments?storyID=" + props.items.id + "/";
     let url = API_BASE_URL + "/StoryComments/?storyID=" + props.items.id;
