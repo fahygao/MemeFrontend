@@ -11,7 +11,7 @@ function About() {
           <div className="communityStandards">
             <div className="main_title_about">用户守则</div>
 
-            <div className="content_about">
+            <div className="content_about_left">
               <p>
                 欢迎来到么么！这里是属于留学生的纯文字内容社区。么么旨在支持会表达的人表达，鼓励想表达的人表达，从而让不敢表达的人有机会说几句。
               </p>
@@ -71,7 +71,7 @@ function About() {
               </p>
             </div>
           </section>
-          <section>
+          <section className="point_about">
             <div className="title_about"> 么么 陪大家一起成长。 </div>
           </section>
         </div>
