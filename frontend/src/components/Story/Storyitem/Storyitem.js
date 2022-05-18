@@ -125,6 +125,9 @@ const Storyitem = (props) => {
     let location = props.items.location;
     let date = getDate();
     if (location !== null && location.length > 0) {
+      if (location.includes(",")) {
+        location = location.split(",")[0];
+      }
       ret = ret + location;
       if (date.length > 0) {
         ret = ret + " - " + "🕙 " + date;
@@ -167,7 +170,7 @@ const Storyitem = (props) => {
   };
 
   let getComments = useCallback(async () => {
-    console.log("getcomment is called");
+    // console.log("getcomment is called");
 
     // let url = API_BASE_URL + "/StoryComments?storyID=" + props.items.id + "/";
     let url = API_BASE_URL + "/StoryComments/?storyID=" + props.items.id;
@@ -255,11 +258,12 @@ const Storyitem = (props) => {
           </div>
 
           <div className="reactions">
-            <span className="emoji_nums" onClick={() => clickComment()}>
+            <span className="emoji_comments" onClick={() => clickComment()}>
               <img src={comment} />
+              {comments.length}
             </span>
 
-            <span className="emoji_nums">
+            <span className="emoji_likes">
               {liked ? (
                 <img
                   src={filled_heart}

@@ -82,7 +82,7 @@
 
 .reactions {
   margin-left: 5%;
-  margin-right: 40px;
+  margin-right: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -105,7 +105,7 @@
   margin-bottom: 20px;
 }
 
-.emoji_nums {
+.emoji_comments {
   font-family: "Source Han Sans CN";
   font-style: normal;
   font-weight: 400;
@@ -116,9 +116,19 @@
   color: #9d9d9d;
 }
 
+.emoji_likes {
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  color: #9d9d9d;
+}
+
 .hashtag {
   font-weight: bold;
-  color: #ffb469;
+  color: #57058cb8;
 }
 
 @media only screen and (max-width: 1000px) {

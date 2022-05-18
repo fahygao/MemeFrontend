@@ -7,12 +7,15 @@ import AuthContext from "../../context/AuthContext";
 const PopupComment = () => {
   const [isAnom, setIsAnom] = useState(false);
   const [numWords, setNumWords] = useState(300);
-  const { setPostCommentOpen, postComment } = useContext(AuthContext);
+  const { setPostCommentOpen, postComment, commentDefault, setCommentDefault } =
+    useContext(AuthContext);
 
   let handleOnSubmit = (event) => {
     event.preventDefault();
     postComment(event);
+    setCommentDefault("");
     setPostCommentOpen(false);
+
     // getTopicStorys();
   };
 
@@ -31,6 +34,7 @@ const PopupComment = () => {
           <button
             onClick={() => {
               setPostCommentOpen(false);
+              setCommentDefault("");
             }}
           >
             X
@@ -53,22 +57,21 @@ const PopupComment = () => {
               placeholder="*爱评论的人运气都不差～"
               maxlength="300"
               minlength="1"
-              autoFocus="autofocus"
               onChange={(e) => setNumWords(300 - e.target.value.length)}
-            ></textarea>
+            >
+              {commentDefault}
+            </textarea>
           </div>
           <span class="word-count">{numWords} </span>
           <div className="footer">
-            <div
-              className="form-check  anonymous-logo"
-              onClick={() => {
-                toggle_prof();
-              }}
-            >
+            <div className="form-check  anonymous-logo">
               <input
                 className="form-check-input"
                 type="checkbox"
                 id="anonymous"
+                onClick={() => {
+                  toggle_prof();
+                }}
               />
               <label className="form-check-label" for="gridCheck">
                 匿名

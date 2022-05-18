@@ -7,6 +7,7 @@ import PopupComment from "../../components/Popup/PopupComment";
 import { API_BASE_URL } from "../../utils/constants";
 import profile from "./../../images/profilepics/profile.png";
 import "./TopicPage.css";
+import LeafMap from "../../components/Map/LeafMap";
 
 const TopicPage = () => {
   //   let [userInfo, setUserInfo] = useState([]);
@@ -32,12 +33,12 @@ const TopicPage = () => {
   };
 
   useEffect(() => {
-    let w = document.documentElement.clientWidth || window.innerWidth;
-    if (w <= 750) {
-      document.body.style.overflow = "auto";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
+    // let w = document.documentElement.clientWidth || window.innerWidth;
+    // if (w <= 750) {
+    //   document.body.style.overflow = "auto";
+    // } else {
+    //   document.body.style.overflow = "hidden";
+    // }
     //  document.body.style.overflow = "hidden";
     getTopicStorys();
     getTopicInfo();
@@ -94,6 +95,7 @@ const TopicPage = () => {
             <div className="topicAbstract">
               {decodeNewline(topicInfo.abstract)}
             </div>
+
             <div className="topicOther">
               By MēMē团队 •{" "}
               {getDate(String(topicInfo.create_time).substring(0, 10))}
@@ -114,6 +116,9 @@ const TopicPage = () => {
               >
                 开始回忆
               </button>
+            </div>
+            <div className="leafmap">
+              <LeafMap items={topicStorys} />
             </div>
           </div>
         </div>

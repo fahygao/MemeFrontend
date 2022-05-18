@@ -26,7 +26,7 @@ const Commentlist = (props) => {
       </form>
       <ul className="comment-list">
         {props.items.map((comment) => (
-          <CommentItem key={comment.id} id={comment.id} items={comment} />
+          <CommentItem key={comment.id} items={comment} />
         ))}
       </ul>
     </div>

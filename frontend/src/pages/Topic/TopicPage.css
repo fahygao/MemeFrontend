@@ -15,10 +15,9 @@
 /*Sans default version*/
 
 @font-face {
-	font-family: "XiQuezhaopaiti";
-	src: url(喜鹊招牌体-Regular.ttf) format('truetype');
+  font-family: "XiQuezhaopaiti";
+  src: url(喜鹊招牌体-Regular.ttf) format("truetype");
 }
-
 
 #topic-storys {
   width: 35rem;
@@ -52,7 +51,7 @@
   line-height: 52px;
   text-align: justify;
   margin-bottom: 30px;
-  color: #ffb469;
+  color: #57058cb8;
 }
 
 .topicAbstract {
@@ -62,7 +61,7 @@
   line-height: 24px;
   letter-spacing: 0.025em;
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   color: #666666;
 }
 
@@ -109,8 +108,6 @@
   padding-right: 5%;
   padding-left: 25%;
   padding-top: 8%;
-  display: flex;
-  justify-content: left;
 }
 
 /* right */
@@ -122,6 +119,11 @@
   padding-right: 20%;
   padding-left: 0;
   overflow-y: scroll;
+}
+
+.leafmap {
+  margin-top: 40px;
+  width: 80%;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -140,6 +142,8 @@
     /*     margin-left: 5%; */
     overflow: hidden;
     position: relative;
+    display: flex;
+    justify-content: left;
   }
 
   .right {
@@ -156,6 +160,12 @@
     flex-direction: column;
     /*     padding-right: 100px; */
   }
+  .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-top: 20px;
+}
 }
 
 @media only screen and (max-width: 600px) {
@@ -192,7 +202,9 @@
     flex-direction: column;
     padding-right: 0;
   }
- .buttons {
-  justify-content: center;
- }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
