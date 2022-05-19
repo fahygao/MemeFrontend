@@ -32,6 +32,33 @@ const Storyitem = (props) => {
   const content = props.items.content;
   const maxlen = 200;
 
+  let chiChr = {
+    '0': '零',
+    '1': '一',
+    '2': '二',
+    '3': '三',
+    '4': '四',
+    '5': '五',
+    '6': '六',
+    '7': '七',
+    '8': '八',
+    '9': '九'
+  }
+
+  let chiMonth = {
+    '01': '一',
+    '02': '二',
+    '03': '三',
+    '04': '四',
+    '05': '五',
+    '06': '六',
+    '07': '七',
+    '08': '八',
+    '09': '九',
+    '10': '十',
+    '11': '十一',
+    '12': '十二'
+  }
   let checkLiked = () => {
     for (let i = 0; i < userLikedStorys.length; i++) {
       if (userLikedStorys[i]["story_id"] === props.items.id) {
@@ -113,9 +140,17 @@ const Storyitem = (props) => {
     }
     temp = temp.substring(0, 7);
     temp = temp.split("-");
-    let ret = temp[0] + "年";
+    let ret = ""
+    for (let i = 0; i < 4; i++) {
+      ret = ret + chiChr[temp[0].charAt(i)];
+    }
+    ret = ret + "年";
+
     if (temp[1] != null) {
-      ret = ret + temp[1] + "月";
+      if (temp[1].length == 1) {
+        temp[1] = '0' + temp[1];
+      }
+      ret = ret + chiMonth[temp[1]] + "月";
     }
     return ret;
   };

@@ -163,7 +163,7 @@
         margin-right: 5%;
         padding-right: 0%;
         position: relative;
-        overflow-y: visible;
+        overflow: visible;
     }
 
     .communityStandards_about {
@@ -203,7 +203,7 @@
         padding-top: 0;
         padding-right: 0%;
         position: relative;
-        overflow-y: scroll;
+        overflow: visible;
     }
 
     .communityStandards_about {
