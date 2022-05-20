@@ -7,6 +7,9 @@ import unfilled_heart from "./../../../images/unfilled_heart.svg";
 // import filled_heart from "./../../../images/filled_heart.png";
 import filled_heart from "./../../../images/filled_heart.svg";
 import anymHead from "./../../../images/profilepics/anymHead.png";
+import maleprof from "./../../../images/maleprof.png";
+import femaleprof from "./../../../images/femaleprof.png";
+
 import default_prof from "./../../../images/profilepics/default_prof.png";
 import Commentlist from "../../Comment/CommentList/Commentlist";
 import { API_BASE_URL } from "./../../../utils/constants";
@@ -16,6 +19,7 @@ import { useEffect } from "react";
 
 const Storyitem = (props) => {
   //default set to datebase records
+
   const {
     authTokens,
     userLikedStorys,
@@ -29,36 +33,37 @@ const Storyitem = (props) => {
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
   const [showRest, setShowRest] = useState(false);
+  const [gender, setGender] = useState(true);
   const content = props.items.content;
   const maxlen = 200;
 
   let chiChr = {
-    '0': '零',
-    '1': '一',
-    '2': '二',
-    '3': '三',
-    '4': '四',
-    '5': '五',
-    '6': '六',
-    '7': '七',
-    '8': '八',
-    '9': '九'
-  }
+    0: "零",
+    1: "一",
+    2: "二",
+    3: "三",
+    4: "四",
+    5: "五",
+    6: "六",
+    7: "七",
+    8: "八",
+    9: "九",
+  };
 
   let chiMonth = {
-    '01': '一',
-    '02': '二',
-    '03': '三',
-    '04': '四',
-    '05': '五',
-    '06': '六',
-    '07': '七',
-    '08': '八',
-    '09': '九',
-    '10': '十',
-    '11': '十一',
-    '12': '十二'
-  }
+    "01": "一",
+    "02": "二",
+    "03": "三",
+    "04": "四",
+    "05": "五",
+    "06": "六",
+    "07": "七",
+    "08": "八",
+    "09": "九",
+    10: "十",
+    11: "十一",
+    12: "十二",
+  };
   let checkLiked = () => {
     for (let i = 0; i < userLikedStorys.length; i++) {
       if (userLikedStorys[i]["story_id"] === props.items.id) {
@@ -67,6 +72,20 @@ const Storyitem = (props) => {
       }
     }
   };
+
+  let getGender = async () => {
+    let userInfoUrl = API_BASE_URL + "/userLogin/" + props.items.user_id;
+    let response = await fetch(userInfoUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+    setGender(data.gender);
+  };
+
   let getLikesAPI = async () => {
     let storyUrl =
       API_BASE_URL + "/StoryLikedByStory/?storyID=" + props.items.id;
@@ -140,7 +159,7 @@ const Storyitem = (props) => {
     }
     temp = temp.substring(0, 7);
     temp = temp.split("-");
-    let ret = ""
+    let ret = "";
     for (let i = 0; i < 4; i++) {
       ret = ret + chiChr[temp[0].charAt(i)];
     }
@@ -148,7 +167,7 @@ const Storyitem = (props) => {
 
     if (temp[1] != null) {
       if (temp[1].length == 1) {
-        temp[1] = '0' + temp[1];
+        temp[1] = "0" + temp[1];
       }
       ret = ret + chiMonth[temp[1]] + "月";
     }
@@ -238,6 +257,7 @@ const Storyitem = (props) => {
   useEffect(() => {
     getLikesAPI();
     checkLiked();
+    getGender();
   }, []);
 
   const getSubstring = (x) => {
@@ -258,7 +278,11 @@ const Storyitem = (props) => {
         <div className="story-item">
           <div>
             {props.items.anonymous == 0 ? (
-              <img src={default_prof} className="profile-pic" alt="profile" />
+              <img
+                src={gender ? maleprof : femaleprof}
+                className="profile-pic1"
+                alt="profile"
+              />
             ) : (
               <img src={anymHead} className="profile-pic" alt="profile" />
             )}
