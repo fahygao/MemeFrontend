@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
   );
 
   let [currentTopicId, setCurrentTopicId] = useState(3);
-  let [currentTopicName, setCurrentTopicName] = useState("Null");
+  //   let [currentTopicName, setCurrentTopicName] = useState("Null");
   let [topicStorys, setTopicStorys] = useState([]);
   let [userLikedStorys, setUserLikedStorys] = useState([]);
   let [loading, setLoading] = useState(true);
@@ -45,6 +45,7 @@ export const AuthProvider = ({ children }) => {
       }),
     });
     let data = await response.json();
+
     //we want to set it in our state (and local storage) to be used for private routes later
     if (response.status === 200) {
       setAuthTokens(data);
@@ -239,7 +240,7 @@ export const AuthProvider = ({ children }) => {
   let postStory = async (e) => {
     e.preventDefault();
     let storyUrl = API_BASE_URL + "/Storys/";
-    console.log("values");
+    // console.log("values");
     let content = encodeNewline(e.target.storyContent.value);
 
     let response = await fetch(storyUrl, {

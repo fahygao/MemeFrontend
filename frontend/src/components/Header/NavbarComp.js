@@ -1,17 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import AuthContext from "../../context/AuthContext";
 import "./Navbar.css";
 // import profile from "./../../images/profilepics/#8B0000.png";
 import profile from "./../../images/profilepics/profile.png";
+import maleprof from "./../../images/maleprof.png";
+import femaleprof from "./../../images/femaleprof.png";
 import menu from "./../../images/menu.svg";
+import { useEffect } from "react";
+import { API_BASE_URL } from "./../../utils/constants";
 
 const NavbarComp = () => {
-  let { user, logoutUser } = useContext(AuthContext);
+  let { user, logoutUser, authTokens } = useContext(AuthContext);
   let state = { date: new Date() };
-  const navDropdownTitle = (
-    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-  );
+  let [gender, setGender] = useState(true);
+
+  let getGender = async () => {
+    let userInfoUrl = API_BASE_URL + "/userLogin/" + user.user_id;
+    let response = await fetch(userInfoUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+
+    setGender(data.gender);
+  };
+
+  useEffect(() => {
+    getGender();
+  }, []);
+
   return (
     <Navbar
       expand="lg"
@@ -35,7 +56,12 @@ const NavbarComp = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             <Navbar.Brand href="">
-              <img src={profile} alt="React Bootstrap logo" width="30px" />
+              <img
+                src={gender ? maleprof : femaleprof}
+                alt="React Bootstrap logo"
+                width="30px"
+                className="headerProf"
+              />
             </Navbar.Brand>
             {/* <Nav.Link href="About">About</Nav.Link> */}
             {user ? (

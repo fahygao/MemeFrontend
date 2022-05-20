@@ -83,6 +83,7 @@ const Storyitem = (props) => {
       },
     });
     let data = await response.json();
+
     setGender(data.gender);
   };
 

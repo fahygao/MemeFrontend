@@ -12,13 +12,17 @@
   font-weight: normal;
 }
 
+.headerProf {
+  padding-bottom: 8px;
+}
+
 .navLogo {
   /*   font-size: 50px; */
   font-family: "Roboto";
   font-weight: bold;
   letter-spacing: 0em;
-  margin-left: 2%
-/*   margin-left: -5%; */
+  margin-left: 2%;
+  /*   margin-left: -5%; */
 }
 .navbar-brand {
   font-size: 30px !important;
