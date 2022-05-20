@@ -38,7 +38,7 @@ const Storyitem = (props) => {
   const maxlen = 200;
 
   let chiChr = {
-    0: "零",
+    0: "〇",
     1: "一",
     2: "二",
     3: "三",
