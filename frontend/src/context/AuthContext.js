@@ -28,6 +28,13 @@ export const AuthProvider = ({ children }) => {
   let [currentStoryID, setCurrentStoryID] = useState(-1);
   let [commentDefault, setCommentDefault] = useState("");
 
+  //Change to the one belonging to the particular topic LATER!!
+  const [coordinates, setCoordinates] = useState({
+    lat: 40.7294,
+    lng: -73.9972,
+  });
+  const [zoom, setZoom] = useState(11);
+
   let navigate = useNavigate();
   // -----------------------------------------------------------------------------
   const loginUser = async (e) => {
@@ -308,6 +315,10 @@ export const AuthProvider = ({ children }) => {
     registerUser: registerUser,
     commentDefault: commentDefault,
     setCommentDefault: setCommentDefault,
+    zoom: zoom,
+    setZoom: setZoom,
+    coordinates: coordinates,
+    setCoordinates: setCoordinates,
     // encodeNewline: encodeNewline,
   };
 

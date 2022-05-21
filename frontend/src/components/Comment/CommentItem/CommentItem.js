@@ -1,14 +1,37 @@
 import React from "react";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import anymHead from "./../../../images/profilepics/anymHead.png";
+import maleprof from "./../../../images/maleprof.png";
+import femaleprof from "./../../../images/femaleprof.png";
 import default_prof from "./../../../images/profilepics/default_prof.png";
 import "./CommentItem.css";
 import shareIcon from "../../../images/share.svg";
 import AuthContext from "../../../context/AuthContext";
+import { API_BASE_URL } from "../../../utils/constants";
 
 const CommentItem = (props) => {
   let niming = "匿名";
-  const { setPostCommentOpen, setCommentDefault } = useContext(AuthContext);
+  const { setPostCommentOpen, setCommentDefault, authTokens } =
+    useContext(AuthContext);
+  const [gender, setGender] = useState(true);
+
+  let getGender = async () => {
+    let userInfoUrl = API_BASE_URL + "/userLogin/" + props.items.user_id;
+    let response = await fetch(userInfoUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+
+    setGender(data.gender);
+  };
+  useEffect(() => {
+    getGender();
+  }, []);
+
   const clickPost = () => {
     let shareUser = props.items.anonymous ? niming : props.items.username;
     shareUser = "@" + shareUser;
@@ -22,7 +45,10 @@ const CommentItem = (props) => {
           {props.items.anonymous ? (
             <img src={anymHead} className="comment-prof" />
           ) : (
-            <img src={default_prof} className="comment-prof" />
+            <img
+              src={gender ? maleprof : femaleprof}
+              className="comment-prof"
+            />
           )}
 
           <span className="wrapper">

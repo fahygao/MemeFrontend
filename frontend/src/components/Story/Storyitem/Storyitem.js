@@ -27,6 +27,10 @@ const Storyitem = (props) => {
     setCurrentStoryID,
     postCommentOpen,
     decodeNewline,
+    setCoordinates,
+    setZoom,
+    // coordinates,
+    // zoom,
   } = useContext(AuthContext);
   const [numLikes, setNumLikes] = useState(0);
   const [liked, setLiked] = useState(false);
@@ -261,6 +265,16 @@ const Storyitem = (props) => {
     getGender();
   }, []);
 
+  const findMap = () => {
+    // console.log(zoom);
+    // console.log(coordinates);
+    setCoordinates({
+      lat: props.items.lat,
+      lng: props.items.lon,
+    });
+    setZoom(18);
+  };
+
   const getSubstring = (x) => {
     if (x.length < maxlen) {
       return x;
@@ -296,7 +310,12 @@ const Storyitem = (props) => {
           </div>
 
           <div className="story-content">
-            <div className="story-header">
+            <div
+              className="story-header"
+              onClick={() => {
+                findMap();
+              }}
+            >
               <span>📍</span>
               {renderTitle()}
             </div>
