@@ -2,20 +2,14 @@ import React, { useState, useContext, useCallback } from "react";
 import AuthContext from "../../../context/AuthContext";
 import "./Storyitem.css";
 import comment from "./../../../images/reply.svg";
-// import share from "./../../../images/share.png";
 import unfilled_heart from "./../../../images/unfilled_heart.svg";
-// import filled_heart from "./../../../images/filled_heart.png";
 import filled_heart from "./../../../images/filled_heart.svg";
 import anymHead from "./../../../images/profilepics/anymHead.png";
-import maleprof from "./../../../images/maleprof.png";
-import femaleprof from "./../../../images/femaleprof.png";
-
-import default_prof from "./../../../images/profilepics/default_prof.png";
+import maleprof from "./../../../images/maleprof.svg";
+import femaleprof from "./../../../images/femaleprof.svg";
 import Commentlist from "../../Comment/CommentList/Commentlist";
 import { API_BASE_URL } from "./../../../utils/constants";
 import { useEffect } from "react";
-
-// import darkred from "./../../../images/profilepics/#8B0000.png"
 
 const Storyitem = (props) => {
   //default set to datebase records

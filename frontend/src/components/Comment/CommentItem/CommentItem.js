@@ -1,9 +1,8 @@
 import React from "react";
 import { useEffect, useContext, useState } from "react";
 import anymHead from "./../../../images/profilepics/anymHead.png";
-import maleprof from "./../../../images/maleprof.png";
-import femaleprof from "./../../../images/femaleprof.png";
-import default_prof from "./../../../images/profilepics/default_prof.png";
+import maleprof from "./../../../images/maleprof.svg";
+import femaleprof from "./../../../images/femaleprof.svg";
 import "./CommentItem.css";
 import shareIcon from "../../../images/share.svg";
 import AuthContext from "../../../context/AuthContext";
