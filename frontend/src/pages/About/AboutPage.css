@@ -156,6 +156,11 @@
     width: 100%;
   }
 
+  .vertical {
+    display: none;
+    visibility: hidden;
+  }
+
   .about-page {
     width: 90%;
     display: flex;
@@ -198,6 +203,11 @@
     margin-bottom: 30px;
     margin-left: 20px;
     margin-right: 50px;
+  }
+
+  .vertical {
+    display: none;
+    visibility: hidden;
   }
 
   .about-page {
