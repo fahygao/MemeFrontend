@@ -18,7 +18,9 @@ function About() {
             </div>
           </div>
         </div>
-        {/* <div className="vl_about"></div> */}
+
+        <div class="vertical"></div>
+
         <div className="right_about">
           <section className="point_about">
             <div className="title_about"> 在么么 </div>

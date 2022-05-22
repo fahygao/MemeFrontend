@@ -5,7 +5,6 @@ import "./Signup.css";
 
 const SignupPage = () => {
   let navigate = useNavigate();
-
   let { registerUser } = useContext(AuthContext);
 
   function longestCommonSubsequence(a, b, ratio) {

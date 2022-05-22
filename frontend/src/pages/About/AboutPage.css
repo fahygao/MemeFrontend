@@ -5,10 +5,22 @@
 
 .about-page {
   height: 90%;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 30% 70%;
-  grid-template-rows: 1fr min-content;
+  grid-template-rows: 1fr min-content; */
+  display: flex;
+  flex-direction: row;
   background-color: #fafafa;
+}
+
+.vertical {
+  margin-top: 10px;
+  border-left: 1px solid #191b1f;
+  height: 800px;
+
+  left: 50%;
+  z-index: 1;
+  margin-right: 50px;
 }
 
 .communityStandards {
@@ -92,11 +104,12 @@
   grid-column: 1 /2;
   grid-row: 1 / 2;
   padding-right: 5%;
-  margin-right: 10%;
-  padding-left: 25%;
-  padding-top: 8%;
+  margin-right: 0%;
+  padding-left: 10%;
+  padding-top: 3%;
   display: flex;
   justify-content: left;
+  z-index: 1;
 }
 
 .point_about {

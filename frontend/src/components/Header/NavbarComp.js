@@ -8,11 +8,13 @@ import femaleprof from "./../../images/femaleprof.svg";
 import menu from "./../../images/menu.svg";
 import { useEffect } from "react";
 import { API_BASE_URL } from "./../../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const NavbarComp = () => {
   let { user, logoutUser, authTokens } = useContext(AuthContext);
   let state = { date: new Date() };
   let [gender, setGender] = useState(true);
+  let navigate = useNavigate();
 
   let getGender = async () => {
     let userInfoUrl = API_BASE_URL + "/userLogin/" + user.user_id;
@@ -41,7 +43,12 @@ const NavbarComp = () => {
       className="navbar"
     >
       <Container className="navbar-inner">
-        <Navbar.Brand className="navLogo" href="#">
+        <Navbar.Brand
+          className="navLogo"
+          onClick={() => {
+            navigate("../", { replace: true });
+          }}
+        >
           MĒMĒ
         </Navbar.Brand>
 
@@ -54,7 +61,7 @@ const NavbarComp = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Navbar.Brand href="">
+            <Navbar.Brand>
               <img
                 src={gender ? maleprof : femaleprof}
                 alt="React Bootstrap logo"
@@ -63,10 +70,11 @@ const NavbarComp = () => {
               />
             </Navbar.Brand>
             {/* <Nav.Link href="About">About</Nav.Link> */}
+            <Nav.Link href="about">用户守则</Nav.Link>
             {user ? (
-              <Nav.Link onClick={logoutUser}>Logout</Nav.Link>
+              <Nav.Link onClick={logoutUser}>登出</Nav.Link>
             ) : (
-              <Nav.Link href="#login">Logout</Nav.Link>
+              <Nav.Link href="login">Logout</Nav.Link>
             )}
           </Nav>
         </Navbar.Collapse>
