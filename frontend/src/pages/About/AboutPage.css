@@ -3,6 +3,7 @@
   src: url(喜鹊招牌体-Regular.ttf) format("truetype");
 }
 
+
 .about-page {
   height: 90%;
   /* display: grid;
@@ -44,9 +45,10 @@
 .title_about {
   /* 标题二 */
 
-  font-family: "Source Han Sans CN";
+/*   font-family: "Source Han Sans CN"; */
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 900;
+      margin-bottom: 5%;
   line-height: 27px;
   letter-spacing: 0.2em;
   text-align: left;
@@ -221,7 +223,8 @@
   .left_about {
     padding: 10%;
     padding-top: 5%;
-    padding-bottom: 0%;
+    margin: 5%;
+    padding-bottom: 5%;
     overflow: hidden;
     position: relative;
   }
