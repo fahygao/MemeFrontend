@@ -34,6 +34,63 @@ const NavbarComp = () => {
     getGender();
   }, []);
 
+  let chiChr = {
+    '0': "〇",
+    '1': "一",
+    '2': "二",
+    '3': "三",
+    '4': "四",
+    '5': "五",
+    '6': "六",
+    '7': "七",
+    '8': "八",
+    '9': "九",
+  };
+
+  let chiMonth = {
+    "01": "一",
+    "02": "二",
+    "03": "三",
+    "04": "四",
+    "05": "五",
+    "06": "六",
+    "07": "七",
+    "08": "八",
+    "09": "九",
+    '10': "十",
+    '11': "十一",
+    '12': "十二",
+  };
+
+  const getDate = () => {
+    let year = '' + state.date.getFullYear();
+    let month = '' + (state.date.getMonth() + 1);
+    let date = '' + state.date.getDate();
+    let ret = "";
+    for (let i = 0; i < 4; i++) {
+      ret = ret + chiChr[year[i]];
+    }
+    ret = ret + "年";
+
+
+    if (month.length == 1) {
+      month = "0" + month;
+    }
+    ret = ret + chiMonth[month] + "月";
+
+    if (date.length == 1) {
+      date = "0" + date;
+    }
+    if (date[0] != '0') {
+      ret = ret + chiChr[date[0]] + "十"
+    }
+    if (date[1] != '0') {
+      ret = ret + chiChr[date[1]]
+    }
+    ret = ret + "日"
+    return ret;
+  };
+
   return (
     <Navbar
       expand="lg"
@@ -53,10 +110,9 @@ const NavbarComp = () => {
         </Navbar.Brand>
 
         <div className="date">
-          {`${state.date.getFullYear()}年 ${
-            state.date.getMonth() + 1
-          } 月  ${state.date.getDate()} 日`}
+          {`${getDate()}`}
         </div>
+
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
