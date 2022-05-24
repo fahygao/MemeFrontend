@@ -162,7 +162,7 @@ const Storyitem = (props) => {
     for (let i = 0; i < 4; i++) {
       ret = ret + chiChr[temp[0].charAt(i)];
     }
-    ret = ret + "年";
+    ret = ret + "年 ";
 
     if (temp[1] != null) {
       if (temp[1].length == 1) {

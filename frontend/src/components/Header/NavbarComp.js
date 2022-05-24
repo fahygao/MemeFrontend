@@ -70,7 +70,7 @@ const NavbarComp = () => {
     for (let i = 0; i < 4; i++) {
       ret = ret + chiChr[year[i]];
     }
-    ret = ret + "年";
+    ret = ret + "年 ";
 
 
     if (month.length == 1) {
