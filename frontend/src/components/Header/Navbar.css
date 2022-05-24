@@ -5,6 +5,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 /*Sans default version*/
 @font-face {
   font-family: "Source Han Sans CN";
@@ -24,11 +25,13 @@
   margin-left: 0%;
   /*   margin-left: -5%; */
 }
+
 .navbar-brand {
   font-size: 30px !important;
   padding-top: 0rem !important;
   padding-bottom: 0rem !important;
 }
+
 .date {
   font-size: 15px;
   font-family: "Source Han Sans CN";
@@ -45,6 +48,7 @@
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
 }
+
 .navbar-inner {
   /* background-color: white; */
   z-index: 1000;
@@ -55,12 +59,38 @@
   border-color: rgba(0, 0, 0, 0) !important;
   color: rgba(0, 0, 0, 0) !important;
 }
+
 .navbar-toggler-icon {
   width: 1em !important;
   height: 1em !important;
 }
+
 .navbar-toggler {
   font-size: 1rem;
+}
+
+.manual {
+  font-size: 15px;
+  font-family: "Source Han Sans CN";
+  font-weight: normal;
+  line-height: 30px;
+  color: #333333;
+}
+
+.logout {
+  font-size: 15px;
+  font-family: "Source Han Sans CN";
+  font-weight: normal;
+  line-height: 30px;
+  color: #333333;
+}
+
+.login {
+  font-size: 15px;
+  font-family: "Source Han Sans CN";
+  font-weight: normal;
+  line-height: 30px;
+  color: #333333;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -107,6 +137,7 @@
     margin-left: -30%;
     color: #333333;
   }
+
   .navbar {
     border-bottom: 3px solid #000000;
     padding: 0;

@@ -126,7 +126,7 @@ const NavbarComp = () => {
               />
             </Navbar.Brand>
             {/* <Nav.Link href="About">About</Nav.Link> */}
-            <Nav.Link href="about">用户守则</Nav.Link>
+            <Nav.Link className="rightmost" href="about">用户守则</Nav.Link>
             {user ? (
               <Nav.Link onClick={logoutUser}>登出</Nav.Link>
             ) : (
