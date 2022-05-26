@@ -34,6 +34,7 @@ const Storyitem = (props) => {
   const [gender, setGender] = useState(true);
   const content = props.items.content;
   const maxlen = 200;
+  const maxline = 20;
 
   let chiChr = {
     0: "〇",
@@ -213,12 +214,18 @@ const Storyitem = (props) => {
     }
     let ret = "";
     if (d > 0) {
-      ret = String(d) + "天";
-    }
+    	if (props.items.create_time.includes("-")) {
+        ret = props.items.create_time.split("T")[0]+ " \xa0"
+        + props.items.create_time.split("T")[1].slice(0, 5);
+      	}
+//       ret = String(d) + "天";
+
+    }else{
     if (h > 0) {
       ret = ret + h + "小时";
     }
-    ret = ret + m + "分钟前";
+    ret = ret + m + "分钟前";}
+    
     return ret;
   };
 
