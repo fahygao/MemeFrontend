@@ -96,7 +96,7 @@ const SignupPage = () => {
   return (
     <div id="login-box">
       <div className="main_title_about2">
-        <p>欢迎, 您是第56位来到么么的朋友！</p>
+        <p>欢迎, 您是第 58 位来到么么的朋友！</p>
       </div>
 
       <form onSubmit={formValidation}>
