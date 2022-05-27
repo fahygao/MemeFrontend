@@ -53,7 +53,11 @@ const SignupPage = () => {
 
   const formValidation = (e) => {
     e.preventDefault();
-    if (valid_password(e.target.username.value, e.target.password.value)) {
+    if (!e.target.email.value.endsWith("edu")) {
+      alert("请用 .edu 结尾的邮箱注册");
+    } else if (
+      valid_password(e.target.username.value, e.target.password.value)
+    ) {
       registerUser(e);
     }
   };

@@ -18,6 +18,11 @@ function PopupPost({ setOpenModal }) {
     lng: null,
   });
 
+  const year = new Date().getFullYear();
+  const diff_year = 30;
+  const years = Array.from(new Array(diff_year), (val, index) => year - index);
+  const months = Array.from(new Array(12), (val, index) => index + 1);
+
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
@@ -65,6 +70,31 @@ function PopupPost({ setOpenModal }) {
             ) : (
               <img src={user_prof} className="profile-pic" />
             )}
+
+            <select id="year">
+              {years.map((year, index) => {
+                return (
+                  <option key={`year${index}`} value={year}>
+                    {year}
+                  </option>
+                );
+              })}
+            </select>
+            <span className="date">年</span>
+            <select id="month">
+              {months.map((month, index) => {
+                return (
+                  <option key={`month${index}`} value={month}>
+                    {month}
+                  </option>
+                );
+              })}
+            </select>
+            <span className="date">月</span>
+          </div>
+
+          <div class="form-group form-row2 custom-input margin-left">
+            <span className="date">于</span>
             <PlacesAutocomplete
               value={address}
               onChange={setAddress}
@@ -77,13 +107,10 @@ function PopupPost({ setOpenModal }) {
                 loading,
               }) => (
                 <div>
-                  {/* <p>Latitude: {coordinates.lat}</p>
-                  <p>Longitude: {coordinates.lng}</p> */}
-
                   <input
                     {...getInputProps({
                       placeholder: "* 回忆发生的具体地点",
-                      className: "form-control margin-right",
+                      className: "form-control margin-right autocomplete",
                       id: "location",
                     })}
                   />
@@ -105,30 +132,23 @@ function PopupPost({ setOpenModal }) {
                 </div>
               )}
             </PlacesAutocomplete>
-          </div>
 
-          <div class="form-group form-row2 custom-input margin-left">
-            <input
-              className="form-control"
-              id="DateHappened"
-              placeholder="发生时间 (yyyy-mm)"
-            />
             <select
-              className="form-select form-select"
+              className="form-select form-select exist"
               aria-label=".form-select-sm example"
               id="EXIST"
             >
               <option selected value="EXIST">
-                * 地点仍然存在
+                仍然存在
               </option>
-              <option value="EXISTED">* 地点已消失</option>
+              <option value="EXISTED">已消失</option>
             </select>
           </div>
           <div className="form-group margin-left">
             <textarea
               className="form-control textarea"
               id="storyContent"
-              rows="4"
+              rows="6"
               placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～"
               maxlength="1000"
               minlength="1"

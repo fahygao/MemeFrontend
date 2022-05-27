@@ -253,6 +253,10 @@ export const AuthProvider = ({ children }) => {
     // console.log("values");
     let content = encodeNewline(e.target.storyContent.value);
 
+    let year = e.target.year.value;
+    let month = e.target.month.value;
+    let dateHappen = year + "-" + month;
+
     let response = await fetch(storyUrl, {
       method: "POST",
       headers: {
@@ -265,7 +269,7 @@ export const AuthProvider = ({ children }) => {
         content: content,
         visibility: "1",
         location: e.target.location.value,
-        DateHappened: e.target.DateHappened.value,
+        DateHappened: dateHappen,
         anonymous: e.target.anonymous.checked,
         lat: e.target.lat,
         lon: e.target.lng,

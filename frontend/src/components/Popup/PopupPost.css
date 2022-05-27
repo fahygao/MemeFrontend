@@ -9,6 +9,21 @@
   z-index: 1000;
 }
 
+.exist {
+  width: 150px !important;
+}
+
+.date {
+  margin: 5px;
+  font-size: 15px;
+}
+
+.autocomplete {
+  width: 20s0px !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
 .profile-pic {
   height: 40px;
   width: 40px;
@@ -29,7 +44,7 @@
 
 .modalContainer {
   width: 500px;
-  height: 400px;
+  height: 450px;
   border-style: solid;
   border-color: black;
   background-color: #fafafa;
@@ -117,7 +132,7 @@
 
 .margin-left {
   width: 90%;
-  margin-left: 45px;
+  margin-left: 25px;
 }
 
 .modalContainer .footer button {
@@ -137,7 +152,7 @@
 }
 
 .anonymous-logo {
-  margin-left: 45px;
+  margin-left: 25px;
 }
 .dropdownDiv {
   z-index: 1001;
@@ -193,6 +208,6 @@
   }
   .modalContainer {
     width: 500px;
-    height: 400px;
+    height: 450px;
   }
 }
