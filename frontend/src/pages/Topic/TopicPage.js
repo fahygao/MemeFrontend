@@ -6,6 +6,7 @@ import PopupPost from "../../components/Popup/PopupPost";
 import PopupComment from "../../components/Popup/PopupComment";
 import { API_BASE_URL } from "../../utils/constants";
 import profile from "./../../images/profilepics/profile.png";
+import AlertModal from "../../components/Popup/AlertModal";
 import "./TopicPage.css";
 import LeafMap from "../../components/Map/LeafMap";
 
@@ -21,9 +22,11 @@ const TopicPage = () => {
     getUserLiked,
     postCommentOpen,
     decodeNewline,
+    alertModalOpen,
   } = useContext(AuthContext);
 
   const [postModalOpen, setPostModalOpen] = useState(false);
+
   const [userCount, setUserCount] = useState(0);
 
   const getDate = (date) => {
@@ -85,6 +88,9 @@ const TopicPage = () => {
   return (
     <div>
       {postModalOpen && <PopupPost setOpenModal={setPostModalOpen} />}
+      {alertModalOpen && (
+        <AlertModal message={"用户手帐正在开发中，敬请期待！"} />
+      )}
       {postCommentOpen && <PopupComment />}
       <NavbarComp />
       <section className="main-page">

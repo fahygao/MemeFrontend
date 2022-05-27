@@ -23,6 +23,7 @@ const Storyitem = (props) => {
     decodeNewline,
     setCoordinates,
     setZoom,
+    setAlertModalOpen,
     // coordinates,
     // zoom,
   } = useContext(AuthContext);
@@ -32,9 +33,10 @@ const Storyitem = (props) => {
   const [comments, setComments] = useState([]);
   const [showRest, setShowRest] = useState(false);
   const [gender, setGender] = useState(true);
+  const [firstName, setFirstName] = useState(props.items.username);
+
   const content = props.items.content;
   const maxlen = 200;
-  const maxline = 20;
 
   let chiChr = {
     0: "〇",
@@ -72,7 +74,7 @@ const Storyitem = (props) => {
     }
   };
 
-  let getGender = async () => {
+  let getUserLogin = async () => {
     let userInfoUrl = API_BASE_URL + "/userLogin/" + props.items.user_id;
     let response = await fetch(userInfoUrl, {
       method: "GET",
@@ -84,6 +86,8 @@ const Storyitem = (props) => {
     let data = await response.json();
 
     setGender(data.gender);
+    // setFirstName(data.first_name);
+    // console.log(data);
   };
 
   let getLikesAPI = async () => {
@@ -214,18 +218,20 @@ const Storyitem = (props) => {
     }
     let ret = "";
     if (d > 0) {
-    	if (props.items.create_time.includes("-")) {
-        ret = props.items.create_time.split("T")[0]+ " \xa0"
-        + props.items.create_time.split("T")[1].slice(0, 5);
-      	}
-//       ret = String(d) + "天";
-
-    }else{
-    if (h > 0) {
-      ret = ret + h + "小时";
+      if (props.items.create_time.includes("-")) {
+        ret =
+          props.items.create_time.split("T")[0] +
+          " \xa0" +
+          props.items.create_time.split("T")[1].slice(0, 5);
+      }
+      //       ret = String(d) + "天";
+    } else {
+      if (h > 0) {
+        ret = ret + h + "小时";
+      }
+      ret = ret + m + "分钟前";
     }
-    ret = ret + m + "分钟前";}
-    
+
     return ret;
   };
 
@@ -263,7 +269,7 @@ const Storyitem = (props) => {
   useEffect(() => {
     getLikesAPI();
     checkLiked();
-    getGender();
+    getUserLogin();
   }, []);
 
   const findMap = () => {
@@ -277,7 +283,25 @@ const Storyitem = (props) => {
   };
 
   const getSubstring = (x) => {
+    const xarr = x.split("<nl>");
+
+    if (xarr.length > 6) {
+      let i = 0;
+      let count = 0;
+      let ret = "";
+      while (i < 6 && count < maxlen) {
+        if (ret.length > 0) {
+          ret = ret + "<nl>";
+        }
+        ret = ret + xarr[i];
+
+        i += 1;
+        count += xarr.length;
+      }
+      return ret + "  ...全文";
+    }
     if (x.length < maxlen) {
+      //with less than 6 new lines
       return x;
     }
     const set1 = new Set([",", ".", "。", "<", ">", "n", "l", " "]);
@@ -285,7 +309,7 @@ const Storyitem = (props) => {
     while (set1.has(String(x.charAt(cutoff - 1)))) {
       cutoff = cutoff - 1;
     }
-    return x.substring(0, cutoff);
+    return x.substring(0, cutoff) + "  ...全文";
   };
 
   return (
@@ -298,14 +322,13 @@ const Storyitem = (props) => {
                 src={gender ? maleprof : femaleprof}
                 className="profile-pic1"
                 alt="profile"
+                onClick={() => setAlertModalOpen(true)}
               />
             ) : (
               <img src={anymHead} className="profile-pic" alt="profile" />
             )}
             <span className="username">
-              {props.items.anonymous == 0
-                ? "@" + props.items.username
-                : "@匿名"}
+              {props.items.anonymous == 1 ? "@匿名" : "@" + firstName}
             </span>
             <span className="time">{getTimeBefore()}</span>
           </div>
@@ -321,15 +344,14 @@ const Storyitem = (props) => {
               {renderTitle()}
             </div>
             <div>
-              {content.length < maxlen && decodeNewline(content)}
-              {content.length > maxlen && showRest && (
+              {showRest && (
                 <span onClick={() => setShowRest(!showRest)}>
                   {decodeNewline(content)}
                 </span>
               )}
-              {content.length > maxlen && !showRest && (
+              {!showRest && (
                 <span onClick={() => setShowRest(!showRest)}>
-                  {decodeNewline(getSubstring(content) + "  ...全文")}
+                  {decodeNewline(getSubstring(content))}
                 </span>
               )}
             </div>

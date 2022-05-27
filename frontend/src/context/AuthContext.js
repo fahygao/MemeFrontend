@@ -27,6 +27,7 @@ export const AuthProvider = ({ children }) => {
   let [postCommentOpen, setPostCommentOpen] = useState(false);
   let [currentStoryID, setCurrentStoryID] = useState(-1);
   let [commentDefault, setCommentDefault] = useState("");
+  const [alertModalOpen, setAlertModalOpen] = useState(false);
 
   //Change to the one belonging to the particular topic LATER!!
   const [coordinates, setCoordinates] = useState({
@@ -223,7 +224,9 @@ export const AuthProvider = ({ children }) => {
     return ret;
   };
 
-  let decodeNewline = (txt) => {
+  //if fulltext == true, show all txt
+  //else shows partial text with ...全文
+  let decodeNewline = (txt, fulltext) => {
     let ret = String(txt).split("<nl>");
     let main = ret
       .filter((s) => !s.includes("  ...全文"))
@@ -319,6 +322,8 @@ export const AuthProvider = ({ children }) => {
     setZoom: setZoom,
     coordinates: coordinates,
     setCoordinates: setCoordinates,
+    alertModalOpen: alertModalOpen,
+    setAlertModalOpen: setAlertModalOpen,
     // encodeNewline: encodeNewline,
   };
 

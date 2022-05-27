@@ -1,0 +1,26 @@
+.modalBackground-alert {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200, 0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modalContainer-alert {
+  width: 500px;
+  height: 180px;
+  border-style: solid;
+  border-color: black;
+  background-color: #fafafa;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  padding: 25px;
+}
+
+.message {
+  text-align: center;
+}
