@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -6,10 +6,13 @@ import PlacesAutocomplete, {
 import AuthContext from "../../context/AuthContext";
 import user_prof from "./../../images/profilepics/default_prof.png";
 import anom_prof from "./../../images/profilepics/anymHead.png";
+import maleprof from "./../../images/maleprof.svg";
+import femaleprof from "./../../images/femaleprof.svg";
+import { API_BASE_URL } from "../../utils/constants";
 import "./PopupPost.css";
 
 function PopupPost({ setOpenModal }) {
-  let { postStory, getTopicStorys } = useContext(AuthContext);
+  let { postStory, getTopicStorys, authTokens, user } = useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
   const [numWords, setNumWords] = useState(1000);
   const [address, setAddress] = useState("");
@@ -22,7 +25,7 @@ function PopupPost({ setOpenModal }) {
   const diff_year = 30;
   const years = Array.from(new Array(diff_year), (val, index) => year - index);
   const months = Array.from(new Array(12), (val, index) => index + 1);
-
+  const [gender, setGender] = useState(true);
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
@@ -42,6 +45,24 @@ function PopupPost({ setOpenModal }) {
     setOpenModal(false);
     getTopicStorys();
   };
+
+  let getGender = async () => {
+    let userInfoUrl = API_BASE_URL + "/userLogin/" + user.user_id;
+    let response = await fetch(userInfoUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+
+    setGender(data.gender);
+  };
+
+  useEffect(() => {
+    getGender();
+  }, []);
 
   const toggle_prof = () => {
     if (isAnom) {
@@ -68,7 +89,10 @@ function PopupPost({ setOpenModal }) {
             {isAnom ? (
               <img src={anom_prof} className="profile-pic" />
             ) : (
-              <img src={user_prof} className="profile-pic" />
+              <img
+                src={gender ? maleprof : femaleprof}
+                className="profile-pic"
+              />
             )}
 
             <select id="year">
@@ -131,8 +155,8 @@ function PopupPost({ setOpenModal }) {
                   </div>
                 </div>
               )}
-            </PlacesAutocomplete>，
-
+            </PlacesAutocomplete>
+            ，
             <select
               className="form-select form-select exist"
               aria-label=".form-select-sm example"

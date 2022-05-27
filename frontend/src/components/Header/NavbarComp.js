@@ -11,7 +11,8 @@ import { API_BASE_URL } from "./../../utils/constants";
 import { useNavigate } from "react-router-dom";
 
 const NavbarComp = () => {
-  let { user, logoutUser, authTokens } = useContext(AuthContext);
+  let { user, logoutUser, authTokens, setAlertModalOpen } =
+    useContext(AuthContext);
   let state = { date: new Date() };
   let [gender, setGender] = useState(true);
   let navigate = useNavigate();
@@ -35,16 +36,16 @@ const NavbarComp = () => {
   }, []);
 
   let chiChr = {
-    '0': "〇",
-    '1': "一",
-    '2': "二",
-    '3': "三",
-    '4': "四",
-    '5': "五",
-    '6': "六",
-    '7': "七",
-    '8': "八",
-    '9': "九",
+    0: "〇",
+    1: "一",
+    2: "二",
+    3: "三",
+    4: "四",
+    5: "五",
+    6: "六",
+    7: "七",
+    8: "八",
+    9: "九",
   };
 
   let chiMonth = {
@@ -57,21 +58,20 @@ const NavbarComp = () => {
     "07": "七",
     "08": "八",
     "09": "九",
-    '10': "十",
-    '11': "十一",
-    '12': "十二",
+    10: "十",
+    11: "十一",
+    12: "十二",
   };
 
   const getDate = () => {
-    let year = '' + state.date.getFullYear();
-    let month = '' + (state.date.getMonth() + 1);
-    let date = '' + state.date.getDate();
+    let year = "" + state.date.getFullYear();
+    let month = "" + (state.date.getMonth() + 1);
+    let date = "" + state.date.getDate();
     let ret = "";
     for (let i = 0; i < 4; i++) {
       ret = ret + chiChr[year[i]];
     }
     ret = ret + "年 ";
-
 
     if (month.length == 1) {
       month = "0" + month;
@@ -81,13 +81,13 @@ const NavbarComp = () => {
     if (date.length == 1) {
       date = "0" + date;
     }
-    if (date[0] != '0') {
-      ret = ret + chiChr[date[0]] + "十"
+    if (date[0] != "0") {
+      ret = ret + chiChr[date[0]] + "十";
     }
-    if (date[1] != '0') {
-      ret = ret + chiChr[date[1]]
+    if (date[1] != "0") {
+      ret = ret + chiChr[date[1]];
     }
-    ret = ret + "日"
+    ret = ret + "日";
     return ret;
   };
 
@@ -109,10 +109,7 @@ const NavbarComp = () => {
           MĒMĒ
         </Navbar.Brand>
 
-        <div className="date">
-          {`${getDate()}`}
-        </div>
-
+        <div className="date">{`${getDate()}`}</div>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -123,10 +120,13 @@ const NavbarComp = () => {
                 alt="React Bootstrap logo"
                 width="30px"
                 className="headerProf"
+                onClick={() => setAlertModalOpen(true)}
               />
             </Navbar.Brand>
             {/* <Nav.Link href="About">About</Nav.Link> */}
-            <Nav.Link className="rightmost" href="about">用户守则</Nav.Link>
+            <Nav.Link className="rightmost" href="about">
+              用户守则
+            </Nav.Link>
             {user ? (
               <Nav.Link onClick={logoutUser}>登出</Nav.Link>
             ) : (

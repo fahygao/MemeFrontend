@@ -1,17 +1,39 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../utils/constants";
 import "./Signup.css";
 
-
-
 const SignupPage = () => {
-  let [topicInfo, setTopicInfo] = useState([]);
-  const [postModalOpen, setPostModalOpen] = useState(false);
-  const [userCount, setUserCount] = useState(0);
   let navigate = useNavigate();
-
+  let [numUsers, setNumUsers] = useState(0);
   let { registerUser } = useContext(AuthContext);
+
+  //   let getNumUsers = async () => {
+  //     let url = API_BASE_URL + "/PublicInfo/1";
+  //     let response = await fetch(url, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     let data = await response.json();
+  //     console.log(data);
+  //     if (response.status === 200) {
+  //       setNumUsers(data.num_registered_users);
+  //       //   console.log(data.results);
+  //     } else if (response.statusText === "Unauthorized") {
+  //       alert("user is unauthorized; can't load Storys");
+  //     } else {
+  //       alert("error contact eric");
+  //     }
+  //   };
+
+  //   useEffect(() => {
+  //     console.log("hello");
+  //     getNumUsers();
+  //   }, []);
+
   function longestCommonSubsequence(a, b, ratio) {
     const matrix = Array(a.length + 1)
       .fill()
@@ -73,7 +95,9 @@ const SignupPage = () => {
 
   return (
     <div id="login-box">
-          <div className="main_title_about2"><p>欢迎, 您是第{userCount+1}位来到么么的朋友！</p></div>
+      <div className="main_title_about2">
+        <p>欢迎, 您是第56位来到么么的朋友！</p>
+      </div>
 
       <form onSubmit={formValidation}>
         <div class="mb-3">
@@ -92,7 +116,12 @@ const SignupPage = () => {
 
         <div class="mb-3">
           <label class="form-label">密码*</label>
-          <input type="password" class="form-control" id="password"  placeholder="宝，长可以，别忘了就好"/>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="宝，长可以，别忘了就好"
+          />
           <small id="passwordHelpBlock" class="form-text text-muted">
             您的邮箱不能和您的用户名过于接近. 您的密码必须至少包含 8 个字符。
             您的密码不能是常用密码。 您的密码不能完全数字。
@@ -154,13 +183,12 @@ const SignupPage = () => {
           <br></br>
           <div className="buttons">
             {" "}
-          <button onClick={routeChange} class="btn btn-primary">
+            <button onClick={routeChange} class="btn btn-primary">
               返回
             </button>
             <button type="submit" class="btn btn-primary">
               完成注册
             </button>
-
           </div>
         </div>
       </form>
