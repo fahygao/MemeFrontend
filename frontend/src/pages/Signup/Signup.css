@@ -26,6 +26,18 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.main_title_about2{
+  font-family: "XiQuezhaopaiti";
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 30px;
+  position: relative;
+  text-align: center;
+  left: 0px;
+  top: 0px;
+  margin-bottom: 40px;
+  color: #333333;
+}
 @media only screen and (max-width: 600px) {
   .buttons {
     justify-content: space-between;

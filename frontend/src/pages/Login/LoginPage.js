@@ -11,6 +11,8 @@ const LoginPage = () => {
   };
   return (
     <div id="login-box">
+      <div className="main_title_about1"><p>欢迎来到么么!</p></div>
+       <div className="main_title_about3"><p> 一款属于留学生的纯文字内容社区</p></div>
       <form onSubmit={loginUser}>
         <div class="mb-3">
           <label class="form-label">用户名</label>

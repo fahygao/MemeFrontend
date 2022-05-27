@@ -89,7 +89,7 @@ const TopicPage = () => {
     <div>
       {postModalOpen && <PopupPost setOpenModal={setPostModalOpen} />}
       {alertModalOpen && (
-        <AlertModal message={"用户手帐正在开发中，敬请期待！"} />
+        <AlertModal message={"TA的个人手帐页正在开发中，敬请期待！"} />
       )}
       {postCommentOpen && <PopupComment />}
       <NavbarComp />
@@ -112,7 +112,7 @@ const TopicPage = () => {
               位成员正在回忆纽约往事
             </div>
 
-            <div className="buttons">
+            <div className="buttons1">
               <button
                 type="button"
                 className="btn btn-dark buttonWidth"

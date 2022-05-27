@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
+import React, { useState,useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 
-const SignupPage = () => {
-  let navigate = useNavigate();
-  let { registerUser } = useContext(AuthContext);
 
+
+const SignupPage = () => {
+  let [topicInfo, setTopicInfo] = useState([]);
+  const [postModalOpen, setPostModalOpen] = useState(false);
+  const [userCount, setUserCount] = useState(0);
+  let navigate = useNavigate();
+
+  let { registerUser } = useContext(AuthContext);
   function longestCommonSubsequence(a, b, ratio) {
     const matrix = Array(a.length + 1)
       .fill()
@@ -68,14 +73,17 @@ const SignupPage = () => {
 
   return (
     <div id="login-box">
+          <div className="main_title_about2"><p>欢迎, 您是第{userCount+1}位来到么么的朋友！</p></div>
+
       <form onSubmit={formValidation}>
         <div class="mb-3">
-          <label class="form-label">用户名</label>
+          <label class="form-label">用户名*</label>
           <input
             type="username"
             class="form-control"
             id="username"
             aria-describedby="passwordHelp"
+            placeholder="取个什么好呢"
           />
           <small id="passwordHelpBlock" class="form-text text-muted">
             150 个字符或更少。 仅限字母、数字和@/./+/-/_。
@@ -83,8 +91,8 @@ const SignupPage = () => {
         </div>
 
         <div class="mb-3">
-          <label class="form-label">密码</label>
-          <input type="password" class="form-control" id="password" />
+          <label class="form-label">密码*</label>
+          <input type="password" class="form-control" id="password"  placeholder="宝，长可以，别忘了就好"/>
           <small id="passwordHelpBlock" class="form-text text-muted">
             您的邮箱不能和您的用户名过于接近. 您的密码必须至少包含 8 个字符。
             您的密码不能是常用密码。 您的密码不能完全数字。
@@ -92,12 +100,13 @@ const SignupPage = () => {
         </div>
 
         <div class="mb-3">
-          <label for="exampleInputEmail1">邮箱</label>
+          <label for="exampleInputEmail1">学校邮箱*</label>
           <input
             type="email"
             class="form-control"
             id="email"
             aria-describedby="emailHelp"
+            placeholder="目前仅支持北美学校，谢谢理解！"
           />
           <small id="emailHelp" class="form-text text-muted">
             我们不会将您的邮箱与任何人分享。
@@ -110,11 +119,11 @@ const SignupPage = () => {
             type="text"
             class="form-control"
             id="social_media"
-            placeholder="optional"
+            placeholder="例如：IG：elonMusk"
           />
         </div>
         <div>
-          <label for="validationDefaultUsername">性别 </label>
+          <label for="validationDefaultUsername">性别* </label>
         </div>
         <div class="form-check form-check-inline">
           <input
@@ -145,12 +154,13 @@ const SignupPage = () => {
           <br></br>
           <div className="buttons">
             {" "}
+          <button onClick={routeChange} class="btn btn-primary">
+              返回
+            </button>
             <button type="submit" class="btn btn-primary">
               完成注册
             </button>
-            <button onClick={routeChange} class="btn btn-primary">
-              返回
-            </button>
+
           </div>
         </div>
       </form>

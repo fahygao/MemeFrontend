@@ -109,7 +109,7 @@ function PopupPost({ setOpenModal }) {
                 <div>
                   <input
                     {...getInputProps({
-                      placeholder: "* 回忆发生的具体地点",
+                      placeholder: "* 发生地点",
                       className: "form-control margin-right autocomplete",
                       id: "location",
                     })}
@@ -139,9 +139,9 @@ function PopupPost({ setOpenModal }) {
               id="EXIST"
             >
               <option selected value="EXIST">
-                仍然存在
+                该地仍然存在
               </option>
-              <option value="EXISTED">已消失</option>
+              <option value="EXISTED">该地已消失</option>
             </select>
           </div>
           <div className="form-group margin-left">
@@ -149,7 +149,7 @@ function PopupPost({ setOpenModal }) {
               className="form-control textarea"
               id="storyContent"
               rows="6"
-              placeholder="* 欢迎用任何题材和形式来分享属于你的那份回忆～"
+              placeholder="* 欢迎用任何题材和形式来分享你的回忆"
               maxlength="1000"
               minlength="1"
               onChange={(e) => setNumWords(1000 - e.target.value.length)}
