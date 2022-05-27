@@ -131,7 +131,7 @@ function PopupPost({ setOpenModal }) {
                   </div>
                 </div>
               )}
-            </PlacesAutocomplete>
+            </PlacesAutocomplete>，
 
             <select
               className="form-select form-select exist"
