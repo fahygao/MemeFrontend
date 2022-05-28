@@ -94,7 +94,7 @@ function PopupPost({ setOpenModal }) {
                 className="profile-pic"
               />
             )}
-
+            <span className="date">回忆发生于</span>
             <select id="year">
               {years.map((year, index) => {
                 return (
@@ -118,7 +118,6 @@ function PopupPost({ setOpenModal }) {
           </div>
 
           <div class="form-group form-row2 custom-input margin-left">
-            <span className="date">于</span>
             <PlacesAutocomplete
               value={address}
               onChange={setAddress}

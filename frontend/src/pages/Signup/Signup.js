@@ -123,8 +123,15 @@ const SignupPage = () => {
             placeholder="宝，长可以，别忘了就好"
           />
           <small id="passwordHelpBlock" class="form-text text-muted">
-            您的邮箱不能和您的用户名过于接近. 您的密码必须至少包含 8 个字符。
-            您的密码不能是常用密码。 您的密码不能完全数字。
+            您的密码不能和您的用户名过于接近.
+          </small>
+          <br />
+          <small id="passwordHelpBlock" class="form-text text-muted">
+            您的密码必须至少包含 8 个字符。
+          </small>
+          <br />
+          <small id="passwordHelpBlock" class="form-text text-muted">
+            您的密码不能完全数字。
           </small>
         </div>
 
