@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
   let [currentStoryID, setCurrentStoryID] = useState(-1);
   let [commentDefault, setCommentDefault] = useState("");
   const [alertModalOpen, setAlertModalOpen] = useState(false);
+  let [userGender, setUserGender] = useState(true);
 
   //Change to the one belonging to the particular topic LATER!!
   const [coordinates, setCoordinates] = useState({
@@ -218,6 +219,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  let getUserGender = async () => {
+    let userInfoUrl = API_BASE_URL + "/userLogin/" + user.user_id + "/";
+    let response = await fetch(userInfoUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+
+    setUserGender(data.gender);
+  };
+
   // replace \n with <nl>
   let encodeNewline = (txt) => {
     let ret = txt.split("\n").join("<nl>");
@@ -328,6 +343,9 @@ export const AuthProvider = ({ children }) => {
     setCoordinates: setCoordinates,
     alertModalOpen: alertModalOpen,
     setAlertModalOpen: setAlertModalOpen,
+    getUserGender: getUserGender,
+    userGender: userGender,
+    setUserGender: setUserGender,
     // encodeNewline: encodeNewline,
   };
 

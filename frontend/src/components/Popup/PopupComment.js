@@ -18,6 +18,7 @@ const PopupComment = () => {
     setCommentDefault,
     user,
     authTokens,
+    userGender,
   } = useContext(AuthContext);
   const [gender, setGender] = useState(true);
   let handleOnSubmit = (event) => {
@@ -29,20 +30,6 @@ const PopupComment = () => {
     // getTopicStorys();
   };
 
-  let getGender = async () => {
-    let userInfoUrl = API_BASE_URL + "/userLogin/" + user.user_id;
-    let response = await fetch(userInfoUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + String(authTokens.access),
-      },
-    });
-    let data = await response.json();
-
-    setGender(data.gender);
-  };
-
   const toggle_prof = () => {
     if (isAnom) {
       setIsAnom(false);
@@ -50,10 +37,6 @@ const PopupComment = () => {
       setIsAnom(true);
     }
   };
-
-  useEffect(() => {
-    getGender();
-  }, []);
 
   return (
     <div className="modalBackground">
@@ -74,7 +57,7 @@ const PopupComment = () => {
               <img src={anom_prof} className="profile-pic" />
             ) : (
               <img
-                src={gender ? maleprof : femaleprof}
+                src={userGender ? maleprof : femaleprof}
                 className="profile-pic"
               />
             )}

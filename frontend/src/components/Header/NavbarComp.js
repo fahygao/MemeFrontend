@@ -11,29 +11,10 @@ import { API_BASE_URL } from "./../../utils/constants";
 import { useNavigate } from "react-router-dom";
 
 const NavbarComp = () => {
-  let { user, logoutUser, authTokens, setAlertModalOpen } =
+  let { user, logoutUser, userGender, setAlertModalOpen } =
     useContext(AuthContext);
   let state = { date: new Date() };
-  let [gender, setGender] = useState(true);
   let navigate = useNavigate();
-
-  let getGender = async () => {
-    let userInfoUrl = API_BASE_URL + "/userLogin/" + user.user_id;
-    let response = await fetch(userInfoUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + String(authTokens.access),
-      },
-    });
-    let data = await response.json();
-
-    setGender(data.gender);
-  };
-
-  useEffect(() => {
-    getGender();
-  }, []);
 
   let chiChr = {
     0: "〇",
@@ -116,7 +97,7 @@ const NavbarComp = () => {
           <Nav className="ms-auto">
             <Navbar.Brand>
               <img
-                src={gender ? maleprof : femaleprof}
+                src={userGender ? maleprof : femaleprof}
                 alt="React Bootstrap logo"
                 width="30px"
                 className="headerProf"

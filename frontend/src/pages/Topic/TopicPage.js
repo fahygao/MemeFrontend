@@ -23,6 +23,7 @@ const TopicPage = () => {
     postCommentOpen,
     decodeNewline,
     alertModalOpen,
+    getUserGender,
   } = useContext(AuthContext);
 
   const [postModalOpen, setPostModalOpen] = useState(false);
@@ -47,6 +48,7 @@ const TopicPage = () => {
     getTopicInfo();
     getTotalUser();
     getUserLiked();
+    getUserGender();
   }, []);
 
   let getTotalUser = async () => {
