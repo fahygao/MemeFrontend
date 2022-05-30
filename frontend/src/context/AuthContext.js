@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
   let [currentTopicId, setCurrentTopicId] = useState(3);
   //   let [currentTopicName, setCurrentTopicName] = useState("Null");
   let [topicStorys, setTopicStorys] = useState([]);
+  let [Notifications, setNotifications] = useState([]);
   let [userLikedStorys, setUserLikedStorys] = useState([]);
   let [loading, setLoading] = useState(true);
   let [postCommentOpen, setPostCommentOpen] = useState(false);
@@ -135,6 +136,29 @@ export const AuthProvider = ({ children }) => {
 
     if (loading) {
       setLoading(false);
+    }
+  };
+
+  let getNotifications = async () => {
+    let url = API_BASE_URL + "/Notifications/?userID=" + String(user.user_id);
+    let response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+    let data = await response.json();
+
+    if (response.status === 200) {
+      setNotifications(data.results);
+      //   console.log(data.results);
+    } else if (response.statusText === "Unauthorized") {
+      alert("user is unauthorized; can't load Notifications");
+    } else if (response.status === 404) {
+      console.log("user does not have notifications");
+    } else {
+      console.log("error requesting user notifications");
     }
   };
 
@@ -346,6 +370,8 @@ export const AuthProvider = ({ children }) => {
     getUserGender: getUserGender,
     userGender: userGender,
     setUserGender: setUserGender,
+    getNotifications: getNotifications,
+    Notifications: Notifications,
     // encodeNewline: encodeNewline,
   };
 

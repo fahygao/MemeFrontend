@@ -98,7 +98,11 @@ const TopicPage = () => {
       <section className="main-page">
         <div className="left">
           <div className="topicContainer">
-            <div className="topicName">{topicInfo.topicName}</div>
+            <div className="topicName">
+              {topicInfo.topicName == undefined
+                ? "加载中"
+                : topicInfo.topicName}
+            </div>
 
             <div className="topicAbstract">
               {decodeNewline(topicInfo.abstract)}

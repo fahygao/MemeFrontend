@@ -4,6 +4,7 @@ import { AuthProvider } from "./context/AuthContext";
 import TopicPage from "./pages/Topic/TopicPage";
 import LoginPage from "./pages/Login/LoginPage";
 import AboutPage from "./pages/About/AboutPage";
+import ProfilePage from "./pages/Profile/ProfilePage";
 import PrivateRoute from "./utils/PrivateRoute";
 import SignupPage from "./pages/Signup/Signup";
 import React from "react";
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/" element={<TopicPage />} />
+              <Route exact path="/profile" element={<ProfilePage />} />
             </Route>
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
