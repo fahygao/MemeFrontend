@@ -78,7 +78,7 @@ function PopupPost({ setOpenModal }) {
             )}
 
             <div className="dates-popup">
-              <span className="date">回忆发生于</span>
+              <span className="date-popup">回忆发生于</span>
               <select id="year">
                 {years.map((year, index) => {
                   return (
@@ -88,7 +88,7 @@ function PopupPost({ setOpenModal }) {
                   );
                 })}
               </select>
-              <span className="date">年</span>
+              <span className="date-popup">年</span>
               <select id="month">
                 {months.map((month, index) => {
                   return (
@@ -98,7 +98,7 @@ function PopupPost({ setOpenModal }) {
                   );
                 })}
               </select>
-              <span className="date">月</span>
+              <span className="date-popup">月</span>
             </div>
           </div>
 

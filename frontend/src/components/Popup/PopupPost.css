@@ -16,7 +16,7 @@
   height: 60%;
 }
 
-.date {
+.date-popup {
   margin-left: 10px;
   margin-right: 10px;
 
@@ -259,12 +259,26 @@
   ::placeholder {
     font-size: small;
   }
+
+  .date-popup {
+    margin-left: 0px !important;
+    margin-right: 5px !important;
+    margin: 20px;
+  }
+  #autocomplete-widen {
+    width: 200px;
+  }
+  .submitbutton {
+    margin-right: 20px;
+  }
+  .word-count {
+    margin-right: 20px;
+  }
+
   .form-select {
     font-size: small;
   }
-  .word-count {
-    margin-right: -4%;
-  }
+
   .titleCloseBtn button {
     margin: -5% 0% 0% -5%;
   }
