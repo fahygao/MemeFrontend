@@ -84,7 +84,7 @@ function PopupPost({ setOpenModal }) {
 
             <div className="dates-popup">
               <span className="date-popup">回忆发生于</span>
-              <select id="year">
+              <select id="year" className="border-control">
                 {years.map((year, index) => {
                   return (
                     <option key={`year${index}`} value={year}>
@@ -94,7 +94,7 @@ function PopupPost({ setOpenModal }) {
                 })}
               </select>
               <span className="date-popup"> 年</span>
-              <select id="month">
+              <select id="month" className="border-control">
                 {months.map((month, index) => {
                   return (
                     <option key={`month${index}`} value={month}>
@@ -122,7 +122,7 @@ function PopupPost({ setOpenModal }) {
                 <div id="autocomplete-widen">
                   <input
                     {...getInputProps({
-                      placeholder: "地点*",
+                      placeholder: "* 地点",
                       className: "form-control1 margin-right autocomplete",
                       id: "location",
                     })}
@@ -155,7 +155,7 @@ function PopupPost({ setOpenModal }) {
           </div>
           <div className="form-group margin-left">
             <textarea
-              className="form-control1 textarea"
+              className="form-control textarea"
               id="storyContent"
               rows="6"
               placeholder="* 欢迎用任何题材和形式来分享你的回忆"
