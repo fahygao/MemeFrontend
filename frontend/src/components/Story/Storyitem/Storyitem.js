@@ -361,7 +361,7 @@ const Storyitem = (props) => {
 
           <div className="reactions">
             <span className="emoji_comments" onClick={() => clickComment()}>
-              <img src={comment} />
+              <img src={comment} className ="reply"/>
               {comments.length}
             </span>
 
@@ -377,6 +377,7 @@ const Storyitem = (props) => {
               ) : (
                 <img
                   src={unfilled_heart}
+                  className="like"
                   alt="heart"
                   onClick={() => {
                     likePost();

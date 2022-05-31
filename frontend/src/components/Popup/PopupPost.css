@@ -236,8 +236,26 @@
   font-size: 15px !important;
   background-color: #fafafa !important;
   width: 95% !important;
+  padding:.375rem .375rem .375rem .5rem !important;
 }
-
+.form-control1 {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-clip: padding-box;
+  appearance: none;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  border-left: solid green 0px;
+  border-right: solid green 0px;
+  border-bottom: solid #333333 1px;
+  border-top: solid green 0px;
+  border-radius: 0rem !important;
+  font-size: 15px !important;
+  background-color: #fafafa !important;
+  width: 95% !important;
+}
 .form-check-label {
   font-size: 15px;
 }
@@ -275,7 +293,8 @@
     margin-right: 30px;
   }
   .word-count {
-    margin-right: 30px;
+    margin-right: 45px;
+    margin-top: -40px;
   }
 
   .form-select {

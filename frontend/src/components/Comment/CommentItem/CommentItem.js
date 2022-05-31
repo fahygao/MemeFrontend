@@ -4,7 +4,7 @@ import anymHead from "./../../../images/profilepics/anymHead.png";
 import maleprof from "./../../../images/maleprof.svg";
 import femaleprof from "./../../../images/femaleprof.svg";
 import "./CommentItem.css";
-import shareIcon from "../../../images/share.svg";
+import shareIcon from "../../../images/reply.svg";
 import AuthContext from "../../../context/AuthContext";
 import { API_BASE_URL } from "../../../utils/constants";
 
@@ -62,7 +62,8 @@ const CommentItem = (props) => {
           </span>
         </div>
         <img
-          src={shareIcon}
+          src={shareIcon} 
+          className="reply1"
           onClick={() => {
             clickPost();
           }}

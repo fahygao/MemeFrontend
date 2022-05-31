@@ -13,7 +13,7 @@ const Commentlist = (props) => {
         <div className="form-group margin">
           <input
             type="text"
-            className="form-control"
+            className="form-control1"
             autocomplete="off"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"

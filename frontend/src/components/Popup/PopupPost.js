@@ -93,7 +93,7 @@ function PopupPost({ setOpenModal }) {
                   );
                 })}
               </select>
-              <span className="date-popup">年</span>
+              <span className="date-popup"> 年</span>
               <select id="month">
                 {months.map((month, index) => {
                   return (
@@ -103,7 +103,7 @@ function PopupPost({ setOpenModal }) {
                   );
                 })}
               </select>
-              <span className="date-popup">月</span>
+              <span className="date-popup"> 月</span>
             </div>
           </div>
 
@@ -123,7 +123,7 @@ function PopupPost({ setOpenModal }) {
                   <input
                     {...getInputProps({
                       placeholder: "地点*",
-                      className: "form-control margin-right autocomplete",
+                      className: "form-control1 margin-right autocomplete",
                       id: "location",
                     })}
                   />
