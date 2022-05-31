@@ -74,7 +74,7 @@
 
 .modalContainer {
   width: 500px;
-  height: 500px;
+  height: 480px;
   border-style: solid;
   border-color: black;
   background-color: #fafafa;
@@ -307,7 +307,7 @@
   }
   .modalContainer {
     width: 500px;
-    height: 480px;
+    height: 450px;
   }
   .close-button{
   margin-right:-15px;
