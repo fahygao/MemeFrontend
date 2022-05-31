@@ -69,34 +69,37 @@ function PopupPost({ setOpenModal }) {
         <form onSubmit={handleOnSubmit}>
           <div class="form-group form-row">
             {isAnom ? (
-              <img src={anom_prof} className="profile-pic" />
+              <img src={anom_prof} className="profile-pic-popup" />
             ) : (
               <img
                 src={userGender ? maleprof : femaleprof}
-                className="profile-pic"
+                className="profile-pic-popup"
               />
             )}
-            <span className="date">回忆发生于</span>
-            <select id="year">
-              {years.map((year, index) => {
-                return (
-                  <option key={`year${index}`} value={year}>
-                    {year}
-                  </option>
-                );
-              })}
-            </select>
-            <span className="date">年</span>
-            <select id="month">
-              {months.map((month, index) => {
-                return (
-                  <option key={`month${index}`} value={month}>
-                    {month}
-                  </option>
-                );
-              })}
-            </select>
-            <span className="date">月</span>
+
+            <div className="dates-popup">
+              <span className="date">回忆发生于</span>
+              <select id="year">
+                {years.map((year, index) => {
+                  return (
+                    <option key={`year${index}`} value={year}>
+                      {year}
+                    </option>
+                  );
+                })}
+              </select>
+              <span className="date">年</span>
+              <select id="month">
+                {months.map((month, index) => {
+                  return (
+                    <option key={`month${index}`} value={month}>
+                      {month}
+                    </option>
+                  );
+                })}
+              </select>
+              <span className="date">月</span>
+            </div>
           </div>
 
           <div class="form-group form-row2 custom-input margin-left">
@@ -111,10 +114,10 @@ function PopupPost({ setOpenModal }) {
                 getSuggestionItemProps,
                 loading,
               }) => (
-                <div>
+                <div id="autocomplete-widen">
                   <input
                     {...getInputProps({
-                      placeholder: "* 发生地点",
+                      placeholder: "地点*",
                       className: "form-control margin-right autocomplete",
                       id: "location",
                     })}
@@ -137,17 +140,13 @@ function PopupPost({ setOpenModal }) {
                 </div>
               )}
             </PlacesAutocomplete>
-            ，
-            <select
-              className="form-select form-select exist"
-              aria-label=".form-select-sm example"
-              id="EXIST"
-            >
-              <option selected value="EXIST">
-                该地仍然存在
-              </option>
-              <option value="EXISTED">该地已消失</option>
-            </select>
+
+            <div className="form-check">
+              <input className="form-check-input" type="checkbox" id="exist" />
+              <label className="form-check-label" for="gridCheck">
+                <span className="exist-check">该地已消失</span>
+              </label>
+            </div>
           </div>
           <div className="form-group margin-left">
             <textarea
@@ -171,12 +170,12 @@ function PopupPost({ setOpenModal }) {
                   toggle_prof();
                 }}
               />
-              <label className="form-check-label" for="gridCheck">
+              <label className="form-check-label exist-check" for="gridCheck">
                 匿名
               </label>
             </div>
-            <button type="submit" className="btn btn-secondary">
-              发布
+            <button type="submit" className="btn btn-sm btn-dark submitbutton">
+              <span className="submit-text">提交</span>
             </button>
           </div>
         </form>

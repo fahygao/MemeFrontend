@@ -1,12 +1,9 @@
 import React, { useState, useContext } from "react";
-import "./PopupComment";
+import "./PopupPost.css";
 import anom_prof from "./../../images/profilepics/anymHead.png";
-import user_prof from "./../../images/profilepics/default_prof.png";
 import maleprof from "./../../images/maleprof.svg";
 import femaleprof from "./../../images/femaleprof.svg";
 import AuthContext from "../../context/AuthContext";
-import { useEffect } from "react";
-import { API_BASE_URL } from "../../utils/constants";
 
 const PopupComment = () => {
   const [isAnom, setIsAnom] = useState(false);
@@ -54,18 +51,18 @@ const PopupComment = () => {
         <form onSubmit={handleOnSubmit}>
           <div class="form-group form-row">
             {isAnom ? (
-              <img src={anom_prof} className="profile-pic" />
+              <img src={anom_prof} className="profile-pic-popup" />
             ) : (
               <img
                 src={userGender ? maleprof : femaleprof}
-                className="profile-pic"
+                className="profile-pic-popup"
               />
             )}
           </div>
 
           <div className="form-group margin-left">
             <textarea
-              className="form-control textarea"
+              className="form-control textarea-comment"
               id="commentContent"
               rows="4"
               placeholder="*爱评论的人运气都不差～"
@@ -91,8 +88,8 @@ const PopupComment = () => {
                 匿名
               </label>
             </div>
-            <button type="submit" className="btn btn-secondary">
-              发布
+            <button type="submit" className="btn btn-dark  submitbutton">
+              <span className="submit-text ">发布</span>
             </button>
           </div>
         </form>

@@ -39,7 +39,7 @@ const CommentItem = (props) => {
   };
   return (
     <li className="list">
-      <div className="comment-content">
+      <div className="commentItem-content">
         <div className="leftFlex">
           {props.items.anonymous ? (
             <img src={anymHead} className="comment-prof" />
@@ -66,7 +66,6 @@ const CommentItem = (props) => {
           onClick={() => {
             clickPost();
           }}
-          className="shareIcon"
         ></img>
       </div>
     </li>

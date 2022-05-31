@@ -291,7 +291,7 @@ export const AuthProvider = ({ children }) => {
     let storyUrl = API_BASE_URL + "/Storys/";
     // console.log("values");
     let content = encodeNewline(e.target.storyContent.value);
-
+    let exist_val = e.target.exist.checked ? "EXISTED" : "EXIST";
     let year = e.target.year.value;
     let month = e.target.month.value;
     let dateHappen = year + "-" + month;
@@ -312,7 +312,7 @@ export const AuthProvider = ({ children }) => {
         anonymous: e.target.anonymous.checked,
         lat: e.target.lat,
         lon: e.target.lng,
-        Exist: e.target.EXIST.value,
+        Exist: exist_val,
         username: user.username,
         view_count: 0,
         create_time: null,

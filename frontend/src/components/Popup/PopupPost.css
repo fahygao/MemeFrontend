@@ -9,19 +9,49 @@
   z-index: 1000;
 }
 
-.exist {
-  width: 150px !important;
+#month {
+  height: 60%;
+}
+#year {
+  height: 60%;
 }
 
 .date {
-  margin: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 400;
   font-size: 15px;
+  line-height: 21px;
+  /* or 175% */
+
+  color: #333333;
+}
+
+.exist-check {
+  margin: 0px;
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 21px;
+  /* or 175% */
+
+  color: #333333;
 }
 
 .autocomplete {
-  width: 200px !important;
   margin-right: 0 !important;
   margin-left: 0 !important;
+}
+
+.profile-pic-popup {
+  height: 60px;
+  width: 55px;
+  margin-right: 3%;
+  margin-left: 5%;
 }
 
 .profile-pic {
@@ -44,7 +74,7 @@
 
 .modalContainer {
   width: 500px;
-  height: 450px;
+  height: 500px;
   border-style: solid;
   border-color: black;
   background-color: #fafafa;
@@ -73,6 +103,10 @@
   margin: -5% -5% 5% -5%;
 }
 
+.dates-popup {
+  margin-top: 15px;
+  width: 100%;
+}
 .modalContainer .body {
   flex: 50%;
   display: flex;
@@ -107,8 +141,11 @@
   position: relative;
   flex-direction: row;
   margin-bottom: 20px;
-  justify-content: space-between;
+
   z-index: 10;
+}
+#autocomplete-widen {
+  width: 280px;
 }
 
 .form-select {
@@ -127,13 +164,32 @@
 }
 
 .margin-right {
-  margin-right: 100px;
+  margin-right: 20px;
   width: 100%;
 }
 
 .margin-left {
   width: 90%;
   margin-left: 25px;
+}
+
+.submitbutton {
+  border-radius: 10cm !important;
+  width: 100px !important;
+  margin-right: 40px;
+}
+
+.submit-text {
+  font-weight: 400;
+  font-size: 17px;
+  margin-left: 10px;
+  line-height: 2s0px;
+  letter-spacing: 0.66em;
+  color: #ffffff;
+}
+
+.comment-content {
+  height: 500px;
 }
 
 .modalContainer .footer button {
@@ -151,6 +207,11 @@
   resize: none;
   position: relative;
 }
+.textarea-comment {
+  resize: none;
+  position: relative;
+  height: 200px;
+}
 
 .anonymous-logo {
   margin-left: 25px;
@@ -160,19 +221,18 @@
   position: absolute;
   left: 0;
   width: 68%;
-  margin-left: 16%;
   background-color: rgba(200, 200, 200, 0.5);
 }
 
 .word-count {
   display: flex;
   justify-content: flex-end;
+  margin-right: 40px;
   opacity: 0.5;
 }
 .form-control {
-  border: None !important;
+  border: 1px solid #333333 !important;
   border-radius: 0rem !important;
-  border-bottom: 1px solid #999999 !important;
   font-size: 15px !important;
   background-color: #fafafa !important;
   width: 95% !important;
