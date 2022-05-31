@@ -104,7 +104,7 @@ const SignupPage = () => {
           <label class="form-label">用户名*</label>
           <input
             type="username"
-            class="form-control"
+            class="form-control1"
             id="username"
             aria-describedby="passwordHelp"
             placeholder="取个什么好呢"
@@ -118,20 +118,20 @@ const SignupPage = () => {
           <label class="form-label">密码*</label>
           <input
             type="password"
-            class="form-control"
+            class="form-control1"
             id="password"
             placeholder="宝，长可以，别忘了就好"
           />
           <small id="passwordHelpBlock" class="form-text text-muted">
-            您的密码不能和您的用户名过于接近.
+            · 您的密码不能和用户名过于接近.
           </small>
           <br />
           <small id="passwordHelpBlock" class="form-text text-muted">
-            您的密码必须至少包含 8 个字符。
+            · 您的密码必须至少包含 8 个字符。
           </small>
           <br />
           <small id="passwordHelpBlock" class="form-text text-muted">
-            您的密码不能完全数字。
+            · 您的密码不能完全是数字。
           </small>
         </div>
 
@@ -139,7 +139,7 @@ const SignupPage = () => {
           <label for="exampleInputEmail1">学校邮箱*</label>
           <input
             type="email"
-            class="form-control"
+            class="form-control1"
             id="email"
             aria-describedby="emailHelp"
             placeholder="目前仅支持北美学校，谢谢理解！"
@@ -153,7 +153,7 @@ const SignupPage = () => {
           <label for="form-label">Instagram账号/微信ID</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control1"
             id="social_media"
             placeholder="例如：IG：elonMusk"
           />
