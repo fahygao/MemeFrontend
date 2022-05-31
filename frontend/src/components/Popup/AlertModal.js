@@ -17,7 +17,7 @@ const AlertModal = (props) => {
             X
           </button>
         </div>
-        <div className="message"> {props.message}</div>
+        <div className="message"> 个人手帐页正在开发中，敬请期待！</div>
       </div>
     </div>
   );

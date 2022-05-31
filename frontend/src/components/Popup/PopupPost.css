@@ -200,6 +200,7 @@
   border-top: solid green 0px;
   font-size: 15px;
   background-color: #fafafa;
+  border-radius:0.1px;
 }
 
 .comment-content {
