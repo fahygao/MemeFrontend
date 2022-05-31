@@ -241,6 +241,9 @@
 .form-check-label {
   font-size: 15px;
 }
+.close-button{
+  margin-right:10px;
+}
 @media only screen and (max-width: 1000px) {
   ::placeholder {
     font-size: small;
@@ -284,6 +287,9 @@
   }
   .modalContainer {
     width: 500px;
-    height: 450px;
+    height: 480px;
   }
+  .close-button{
+  margin-right:-10px;
+}
 }

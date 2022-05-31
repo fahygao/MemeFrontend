@@ -8,6 +8,7 @@ import user_prof from "./../../images/profilepics/default_prof.png";
 import anom_prof from "./../../images/profilepics/anymHead.png";
 import maleprof from "./../../images/maleprof.svg";
 import femaleprof from "./../../images/femaleprof.svg";
+import close_button from  "./../../images/close_button.svg";
 import { API_BASE_URL } from "../../utils/constants";
 import "./PopupPost.css";
 
@@ -63,7 +64,11 @@ function PopupPost({ setOpenModal }) {
               setOpenModal(false);
             }}
           >
-            X
+         <img
+                src={close_button}
+                className="close-button" 
+              />
+
           </button>
         </div>
         <form onSubmit={handleOnSubmit}>
