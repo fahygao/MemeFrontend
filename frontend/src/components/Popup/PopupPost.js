@@ -155,7 +155,7 @@ function PopupPost({ setOpenModal }) {
           </div>
           <div className="form-group margin-left">
             <textarea
-              className="form-control textarea"
+              className="form-control1 textarea"
               id="storyContent"
               rows="6"
               placeholder="* 欢迎用任何题材和形式来分享你的回忆"

@@ -62,7 +62,7 @@ const PopupComment = () => {
 
           <div className="form-group margin-left">
             <textarea
-              className="form-control textarea-comment"
+              className="form-control1 textarea-comment"
               id="commentContent"
               rows="4"
               placeholder="*爱评论的人运气都不差～"
