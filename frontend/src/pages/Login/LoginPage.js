@@ -18,14 +18,14 @@ const LoginPage = () => {
           <label class="form-label">用户名</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control1"
             id="username"
             aria-describedby="emailHelp"
           />
         </div>
         <div class="mb-3">
           <label class="form-label">密码</label>
-          <input type="password" class="form-control" id="password" />
+          <input type="password" class="form-control1" id="password" />
         </div>
 
         <div className="buttons">
