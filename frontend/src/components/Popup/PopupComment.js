@@ -3,6 +3,7 @@ import "./PopupPost.css";
 import anom_prof from "./../../images/profilepics/anymHead.png";
 import maleprof from "./../../images/maleprof.svg";
 import femaleprof from "./../../images/femaleprof.svg";
+import close_button from  "./../../images/close_button.svg";
 import AuthContext from "../../context/AuthContext";
 
 const PopupComment = () => {
@@ -45,7 +46,10 @@ const PopupComment = () => {
               setCommentDefault("");
             }}
           >
-            X
+                     <img
+                src={close_button}
+                className="close-button" 
+              />
           </button>
         </div>
         <form onSubmit={handleOnSubmit}>
