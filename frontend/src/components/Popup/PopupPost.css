@@ -193,14 +193,13 @@
 }
 
 .border-control{
-  color: #212529;
   border-left: solid green 0px;
   border-right: solid green 0px;
   border-bottom: solid #333333 1px;
   border-top: solid green 0px;
   font-size: 15px;
   background-color: #fafafa;
-  border-radius:0.1px;
+  border-radius:0.01px;
 }
 
 .comment-content {
