@@ -202,7 +202,7 @@
     display: block;
     position: fixed;
     margin-right: 0;
-    margin-top: 700px;
+    bottom: 20px;
     z-index: 20000;
   }
 
