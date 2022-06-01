@@ -75,7 +75,7 @@ const Storyitem = (props) => {
   };
 
   let getUserLogin = async () => {
-    let userInfoUrl = API_BASE_URL + "/userLogin/" + props.items.user_id;
+    let userInfoUrl = API_BASE_URL + "/userLogin/" + props.items.user_id + "/";
     let response = await fetch(userInfoUrl, {
       method: "GET",
       headers: {
@@ -361,7 +361,7 @@ const Storyitem = (props) => {
 
           <div className="reactions">
             <span className="emoji_comments" onClick={() => clickComment()}>
-              <img src={comment} className ="reply"/>
+              <img src={comment} className="reply" />
               {comments.length}
             </span>
 

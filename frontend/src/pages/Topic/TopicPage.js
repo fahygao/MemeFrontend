@@ -12,6 +12,7 @@ import LeafMap from "../../components/Map/LeafMap";
 import right_arrow from "../../images/right_arrow.svg";
 import mobile_next from "../../images/mobile_next.svg";
 import mobile_post from "../../images/mobile_post.svg";
+import PopupPostDefault from "../../components/Popup/PopupPostDefault";
 
 const TopicPage = () => {
   //   let [userInfo, setUserInfo] = useState([]);
@@ -29,11 +30,15 @@ const TopicPage = () => {
     getUserGender,
     setCurrentTopicId,
     CurrentTopicId,
+    postModalDefaultOpen,
+    setPostModalDefaultOpen,
+    user,
   } = useContext(AuthContext);
 
   const [postModalOpen, setPostModalOpen] = useState(false);
 
   const [userCount, setUserCount] = useState(0);
+  const [creator, setCreator] = useState("loading...");
 
   let [rightTopic, setRightTopic] = useState("味道：一把通往不同时空的钥匙");
 
@@ -41,6 +46,21 @@ const TopicPage = () => {
     date = date.split("-");
     let ret = date[0] + "年" + date[1] + "月" + date[2] + "日";
     return ret;
+  };
+
+  let getCreator = async () => {
+    let creatorId = parseInt(topicInfo.creator.split("/")[-2]);
+    console.log(creatorId);
+    let userInfoUrl = API_BASE_URL + "/userLogin/" + creatorId + "/";
+    let response = await fetch(userInfoUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+    });
+
+    let data = await response.json();
   };
 
   useEffect(() => {
@@ -56,6 +76,7 @@ const TopicPage = () => {
     getTotalUser();
     getUserLiked();
     getUserGender();
+    getCreator();
     window.scrollTo(0, 0);
   }, [currentTopicId]);
 
@@ -79,12 +100,13 @@ const TopicPage = () => {
 
   let changeTopic = () => {
     if (currentTopicId == 3) {
-      setRightTopic("纽约的某地有关于我的回忆");
+      //   setRightTopic("纽约的某地有关于我的回忆");
+      setRightTopic("敬请期待");
       setCurrentTopicId(4);
     }
     if (currentTopicId == 4) {
       setRightTopic("味道：一把通往不同时空的钥匙");
-      setCurrentTopicId(3);
+      //   setCurrentTopicId(3);
     }
   };
 
@@ -109,6 +131,8 @@ const TopicPage = () => {
   return (
     <div>
       {postModalOpen && <PopupPost setOpenModal={setPostModalOpen} />}
+      {postModalDefaultOpen && <PopupPostDefault />}
+
       {alertModalOpen && (
         <AlertModal message={"TA的个人手帐页正在开发中，敬请期待！"} />
       )}
@@ -128,7 +152,7 @@ const TopicPage = () => {
             </div>
 
             <div className="topicOther">
-              By MēMē团队 •{" "}
+              By {topicInfo.id == 4 ? "Jiaozi" : "词堂团队"} •{" "}
               {getDate(String(topicInfo.create_time).substring(0, 10))}
             </div>
 
@@ -142,15 +166,21 @@ const TopicPage = () => {
                 type="button"
                 className="btn btn-dark buttonWidth"
                 onClick={() => {
-                  setPostModalOpen(true);
+                  topicInfo.requires_address
+                    ? setPostModalOpen(true)
+                    : setPostModalDefaultOpen(true);
                 }}
               >
                 {topicInfo.button_prompt}
               </button>
             </div>
-            <div className="leafmap">
-              <LeafMap items={topicStorys} />
-            </div>
+            {topicInfo.requires_address ? (
+              <div className="leafmap">
+                <LeafMap items={topicStorys} />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
 
@@ -168,6 +198,7 @@ const TopicPage = () => {
             #{rightTopic} <img className="arrow" src={right_arrow} />
           </div>
         </div>
+
         <div className="mobile-nextTopic">
           <span className="mobile-post">
             <img

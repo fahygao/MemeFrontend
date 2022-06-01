@@ -28,7 +28,8 @@ export const AuthProvider = ({ children }) => {
   let [postCommentOpen, setPostCommentOpen] = useState(false);
   let [currentStoryID, setCurrentStoryID] = useState(-1);
   let [commentDefault, setCommentDefault] = useState("");
-  const [alertModalOpen, setAlertModalOpen] = useState(false);
+  let [alertModalOpen, setAlertModalOpen] = useState(false);
+  let [postModalDefaultOpen, setPostModalDefaultOpen] = useState(false);
   let [userGender, setUserGender] = useState(true);
 
   //Change to the one belonging to the particular topic LATER!!
@@ -374,6 +375,8 @@ export const AuthProvider = ({ children }) => {
     Notifications: Notifications,
     setCurrentTopicId: setCurrentTopicId,
     currentTopicId: currentTopicId,
+    postModalDefaultOpen: postModalDefaultOpen,
+    setPostModalDefaultOpen: setPostModalDefaultOpen,
     // encodeNewline: encodeNewline,
   };
 

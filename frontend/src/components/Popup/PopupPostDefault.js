@@ -1,28 +1,37 @@
-import React, { useState, useContext } from "react";
-import "./PopupPost.css";
+import React, { useContext, useState, useEffect } from "react";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
+import AuthContext from "../../context/AuthContext";
+import user_prof from "./../../images/profilepics/default_prof.png";
 import anom_prof from "./../../images/profilepics/anymHead.png";
 import maleprof from "./../../images/maleprof.svg";
 import femaleprof from "./../../images/femaleprof.svg";
 import close_button from "./../../images/close_button.svg";
-import AuthContext from "../../context/AuthContext";
+import { API_BASE_URL } from "../../utils/constants";
+import "./PopupPostDefault.css";
 
-const PopupComment = () => {
-  const [isAnom, setIsAnom] = useState(false);
-  const [numWords, setNumWords] = useState(300);
-  const {
-    setPostCommentOpen,
-    postComment,
-    commentDefault,
-    setCommentDefault,
+function PopupPostDefault() {
+  let {
+    postStory,
+    getTopicStorys,
+    authTokens,
     userGender,
+    setPostModalDefaultOpen,
   } = useContext(AuthContext);
-  let handleOnSubmit = (event) => {
-    event.preventDefault();
-    postComment(event);
-    setCommentDefault("");
-    setPostCommentOpen(false);
+  const [isAnom, setIsAnom] = useState(false);
+  const [numWords, setNumWords] = useState(1000);
 
-    // getTopicStorys();
+  const year = new Date().getFullYear();
+  const diff_year = 30;
+
+  let handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    postStory(e);
+    setPostModalDefaultOpen(false);
+    getTopicStorys();
   };
 
   const toggle_prof = () => {
@@ -39,8 +48,7 @@ const PopupComment = () => {
         <div className="titleCloseBtn">
           <button
             onClick={() => {
-              setPostCommentOpen(false);
-              setCommentDefault("");
+              setPostModalDefaultOpen(false);
             }}
           >
             <img src={close_button} className="close-button" />
@@ -58,20 +66,19 @@ const PopupComment = () => {
             )}
           </div>
 
+          <div class="form-group form-row2 custom-input margin-left"></div>
           <div className="form-group margin-left">
             <textarea
-              className="form-control1 textarea-comment"
-              id="commentContent"
-              rows="4"
-              placeholder="*爱评论的人运气都不差～"
-              maxlength="300"
+              className="form-control textarea"
+              id="storyContent"
+              rows="6"
+              placeholder="* 欢迎用任何题材和形式来分享你的回忆"
+              maxlength="1000"
               minlength="1"
-              onChange={(e) => setNumWords(300 - e.target.value.length)}
-            >
-              {commentDefault}
-            </textarea>
+              onChange={(e) => setNumWords(1000 - e.target.value.length)}
+            ></textarea>
           </div>
-          <span class="word-count">{numWords} </span>
+          <span class="word-count"> {numWords} </span>
           <div className="footer">
             <div className="form-check  anonymous-logo">
               <input
@@ -82,18 +89,18 @@ const PopupComment = () => {
                   toggle_prof();
                 }}
               />
-              <label className="form-check-label" for="gridCheck">
+              <label className="form-check-label exist-check" for="gridCheck">
                 匿名
               </label>
             </div>
-            <button type="submit" className="btn btn-dark  submitbutton">
-              <span className="submit-text ">发布</span>
+            <button type="submit" className="btn btn-sm btn-dark submitbutton">
+              <span className="submit-text">提交</span>
             </button>
           </div>
         </form>
       </div>
     </div>
   );
-};
+}
 
-export default PopupComment;
+export default PopupPostDefault;
