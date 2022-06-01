@@ -204,7 +204,9 @@ const TopicPage = () => {
             <img
               src={mobile_post}
               onClick={() => {
-                setPostModalOpen(true);
+                topicInfo.requires_address
+                    ? setPostModalOpen(true)
+                    : setPostModalDefaultOpen(true);
               }}
             />
           </span>
