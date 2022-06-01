@@ -100,13 +100,13 @@ const TopicPage = () => {
 
   let changeTopic = () => {
     if (currentTopicId == 3) {
-      //   setRightTopic("纽约的某地有关于我的回忆");
-      setRightTopic("敬请期待");
+      setRightTopic("纽约的某地有关于我的回忆");
+      //   setRightTopic("敬请期待");
       setCurrentTopicId(4);
     }
     if (currentTopicId == 4) {
       setRightTopic("味道：一把通往不同时空的钥匙");
-      //   setCurrentTopicId(3);
+      setCurrentTopicId(3);
     }
   };
 
