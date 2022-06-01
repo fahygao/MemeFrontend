@@ -9,6 +9,9 @@ import profile from "./../../images/profilepics/profile.png";
 import AlertModal from "../../components/Popup/AlertModal";
 import "./TopicPage.css";
 import LeafMap from "../../components/Map/LeafMap";
+import right_arrow from "../../images/right_arrow.svg";
+import mobile_next from "../../images/mobile_next.svg";
+import mobile_post from "../../images/mobile_post.svg";
 
 const TopicPage = () => {
   //   let [userInfo, setUserInfo] = useState([]);
@@ -24,11 +27,15 @@ const TopicPage = () => {
     decodeNewline,
     alertModalOpen,
     getUserGender,
+    setCurrentTopicId,
+    CurrentTopicId,
   } = useContext(AuthContext);
 
   const [postModalOpen, setPostModalOpen] = useState(false);
 
   const [userCount, setUserCount] = useState(0);
+
+  let [rightTopic, setRightTopic] = useState("味道：一把通往不同时空的钥匙");
 
   const getDate = (date) => {
     date = date.split("-");
@@ -49,7 +56,8 @@ const TopicPage = () => {
     getTotalUser();
     getUserLiked();
     getUserGender();
-  }, []);
+    window.scrollTo(0, 0);
+  }, [currentTopicId]);
 
   let getTotalUser = async () => {
     let url = API_BASE_URL + "/userLogin/";
@@ -66,6 +74,17 @@ const TopicPage = () => {
       setUserCount(data.count);
     } else if (response.statusText === "Unauthorized") {
       alert("cannot get user count");
+    }
+  };
+
+  let changeTopic = () => {
+    if (currentTopicId == 3) {
+      setRightTopic("纽约的某地有关于我的回忆");
+      setCurrentTopicId(4);
+    }
+    if (currentTopicId == 4) {
+      setRightTopic("味道：一把通往不同时空的钥匙");
+      setCurrentTopicId(3);
     }
   };
 
@@ -114,8 +133,8 @@ const TopicPage = () => {
             </div>
 
             <div className="topicOther">
-              已有{topicStorys.length}条 • {userCount}
-              位成员正在回忆纽约往事
+              已有{topicStorys.length}条 • {topicInfo.num_followers}
+              位成员{topicInfo.member_action}
             </div>
 
             <div className="buttons1">
@@ -126,7 +145,7 @@ const TopicPage = () => {
                   setPostModalOpen(true);
                 }}
               >
-                开始回忆
+                {topicInfo.button_prompt}
               </button>
             </div>
             <div className="leafmap">
@@ -139,6 +158,31 @@ const TopicPage = () => {
           <section id="topic-storys">
             <Storylist items={topicStorys} />
           </section>
+
+          <div
+            className="nextTopic"
+            onClick={() => {
+              changeTopic();
+            }}
+          >
+            #{rightTopic} <img className="arrow" src={right_arrow} />
+          </div>
+        </div>
+        <div className="mobile-nextTopic">
+          <span className="mobile-post">
+            <img
+              src={mobile_post}
+              onClick={() => {
+                setPostModalOpen(true);
+              }}
+            />
+          </span>
+          <img
+            src={mobile_next}
+            onClick={() => {
+              changeTopic();
+            }}
+          />
         </div>
       </section>
     </div>

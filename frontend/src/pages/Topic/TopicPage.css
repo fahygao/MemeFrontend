@@ -109,6 +109,9 @@
   padding-left: 25%;
   padding-top: 8%;
 }
+.mobile-nextTopic {
+  display: none;
+}
 
 /* right */
 .right {
@@ -119,6 +122,29 @@
   padding-right: 20%;
   padding-left: 0;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+}
+
+.arrow {
+  margin-left: -5px;
+  margin-bottom: 5px;
+}
+
+.nextTopic {
+  position: fixed;
+  margin-left: 800px;
+  margin-top: 600px;
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height, or 150% */
+
+  letter-spacing: 0.3em;
+
+  color: #333333;
 }
 
 .leafmap {
@@ -161,20 +187,35 @@
     /*     padding-right: 100px; */
   }
   .buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  margin-top: 20px;
-}
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top: 20px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
+  .nextTopic {
+    display: none;
+  }
+  .mobile-nextTopic {
+    display: block;
+    position: fixed;
+    margin-right: 0;
+    margin-top: 700px;
+    z-index: 20000;
+  }
+
   .main-page {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     text-align: left;
     justify-content: center;
+  }
+  .mobile-post {
+    margin-right: 50px;
+    margin-left: 100px;
   }
 
   .left {
@@ -194,7 +235,7 @@
     position: relative;
     overflow-y: visible;
   }
-  
+
   .topicContainer {
     width: 90%;
     margin: 1rem auto;

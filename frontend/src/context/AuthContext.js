@@ -372,6 +372,8 @@ export const AuthProvider = ({ children }) => {
     setUserGender: setUserGender,
     getNotifications: getNotifications,
     Notifications: Notifications,
+    setCurrentTopicId: setCurrentTopicId,
+    currentTopicId: currentTopicId,
     // encodeNewline: encodeNewline,
   };
 
