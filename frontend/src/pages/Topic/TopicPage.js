@@ -48,20 +48,20 @@ const TopicPage = () => {
     return ret;
   };
 
-  let getCreator = async () => {
-    let creatorId = parseInt(topicInfo.creator.split("/")[-2]);
-    console.log(creatorId);
-    let userInfoUrl = API_BASE_URL + "/userLogin/" + creatorId + "/";
-    let response = await fetch(userInfoUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + String(authTokens.access),
-      },
-    });
+  //   let getCreator = async () => {
+  //     // let creatorId = parseInt(topicInfo.creator.split("/")[-2]);
+  //     // console.log(creatorId);
+  //     let userInfoUrl = API_BASE_URL + "/userLogin/" + creatorId + "/";
+  //     let response = await fetch(userInfoUrl, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: "Bearer " + String(authTokens.access),
+  //       },
+  //     });
 
-    let data = await response.json();
-  };
+  //     let data = await response.json();
+  //   };
 
   useEffect(() => {
     // let w = document.documentElement.clientWidth || window.innerWidth;
@@ -76,7 +76,7 @@ const TopicPage = () => {
     getTotalUser();
     getUserLiked();
     getUserGender();
-    getCreator();
+    // getCreator();
     window.scrollTo(0, 0);
   }, [currentTopicId]);
 
@@ -186,7 +186,7 @@ const TopicPage = () => {
 
         <div className="right">
           <section id="topic-storys">
-            <Storylist items={topicStorys} />
+            <Storylist items={topicStorys} topicInfo={topicInfo} />
           </section>
 
           <div

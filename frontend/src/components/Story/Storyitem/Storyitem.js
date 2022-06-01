@@ -340,8 +340,8 @@ const Storyitem = (props) => {
                 findMap();
               }}
             >
-              <span>📍</span>
-              {renderTitle()}
+              {props.topicInfo.requires_address && <span>📍</span>}
+              {props.topicInfo.requires_address && renderTitle()}
             </div>
             <div>
               {showRest && (
@@ -356,7 +356,7 @@ const Storyitem = (props) => {
               )}
             </div>
 
-            <span className="hashtag"> #纽约市的某地有关于我的记忆</span>
+            <span className="hashtag"> #{props.topicInfo.topicName}</span>
           </div>
 
           <div className="reactions">

@@ -286,6 +286,56 @@ export const AuthProvider = ({ children }) => {
     return main;
   };
 
+  let postDefaultStory = async (e) => {
+    e.preventDefault();
+    let storyUrl = API_BASE_URL + "/Storys/";
+    // console.log("values");
+    let content = encodeNewline(e.target.storyContent.value);
+
+    let response = await fetch(storyUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+      body: JSON.stringify({
+        id: null,
+        title: "None",
+        content: content,
+        visibility: "1",
+        location: null,
+        DateHappened: null,
+        anonymous: false,
+        lat: -1,
+        lon: -1,
+        Exist: "EXIST",
+        username: user.username,
+        view_count: 0,
+        create_time: null,
+        parent_id: 7,
+        topic_id: currentTopicId,
+        user_id: user.user_id,
+        num_comments: 0,
+        num_shares: 0,
+        num_likes: 0,
+      }),
+    });
+
+    let data = await response.json();
+
+    //we want to set it in our state (and local storage) to be used for private routes later
+    if (
+      response.status === 200 ||
+      response.status === 202 ||
+      response.status === 201
+    ) {
+      alert("post submitted successfully! ");
+    } else {
+      //   alert("something went wrong");
+      console.log("something went wrong");
+    }
+  };
+
   // -----------------------------------------------------------------------------
   let postStory = async (e) => {
     e.preventDefault();
@@ -377,6 +427,7 @@ export const AuthProvider = ({ children }) => {
     currentTopicId: currentTopicId,
     postModalDefaultOpen: postModalDefaultOpen,
     setPostModalDefaultOpen: setPostModalDefaultOpen,
+    postDefaultStory: postDefaultStory,
     // encodeNewline: encodeNewline,
   };
 

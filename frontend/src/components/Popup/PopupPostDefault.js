@@ -14,22 +14,17 @@ import "./PopupPostDefault.css";
 
 function PopupPostDefault() {
   let {
-    postStory,
+    postDefaultStory,
     getTopicStorys,
-    authTokens,
     userGender,
     setPostModalDefaultOpen,
   } = useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
   const [numWords, setNumWords] = useState(1000);
 
-  const year = new Date().getFullYear();
-  const diff_year = 30;
-
   let handleOnSubmit = (e) => {
     e.preventDefault();
-
-    postStory(e);
+    postDefaultStory(e);
     setPostModalDefaultOpen(false);
     getTopicStorys();
   };
