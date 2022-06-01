@@ -1,18 +1,13 @@
 /* 
+
+/*Sans default version*/
+
 @font-face {
 	font-family: "Source Han Sans CN";
 	src: 
-		url('/../../fonts/CN/SourceHanSansCN-Bold.otf') format('opentype'),
-		url('/../../fonts/CN/SourceHanSansCN-ExtraLight.otf') format('opentype'),
-		url('/../../fonts/CN/SourceHanSansCN-Normal.otf') format('opentype'),
-		url('/../../fonts/CN/SourceHanSansCN-Heavy.otf') format('opentype'),
-		url('/../../fonts/CN/SourceHanSansCN-Light.otf') format('opentype'),
-		url('/../../fonts/CN/SourceHanSansCN-Medium.otf') format('opentype'),
-		url('/../../fonts/CN/SourceHanSansCN-Regular.otf')
-		format('opentype');
-	font-weight: normal;
+		url('SourceHanSansCN-Normal.otf') format('opentype'),
 }
-/*Sans default version*/
+
 
 @font-face {
   font-family: "XiQuezhaopaiti";
@@ -52,6 +47,16 @@
   text-align: justify;
   margin-bottom: 30px;
   color: #57058cb8;
+}
+
+.topicName1 {
+  font-family: "XiQuezhaopaiti";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52px;
+  text-align: justify;
+  margin-bottom: 30px;
+  color: #f67d25;
 }
 
 .topicAbstract {
@@ -133,8 +138,9 @@
 
 .nextTopic {
   position: fixed;
-  margin-left: 800px;
-  margin-top: 600px;
+  margin-right:5%;
+  margin-left: 50%;
+  margin-top: 40%;
   font-family: "Source Han Sans CN";
   font-style: normal;
   font-weight: 700;
