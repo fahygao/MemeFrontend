@@ -76,8 +76,10 @@
 .modalContainer {
   width: 500px;
   height: 480px;
-  border-style: solid;
-  border-color: black;
+  border-left: solid green 0px;
+  border-right: solid green 0px;
+  border-bottom: solid #333333 2px;
+  border-top: solid #333333 2px;
   background-color: #fafafa;
   position: relative;
   display: flex;
