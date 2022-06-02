@@ -19,10 +19,11 @@
 
 .navLogo {
   /*   font-size: 50px; */
+  cursor: pointer;
   font-family: "Roboto";
   font-weight: bold;
-  letter-spacing: 0em;
-  margin-left: 0%;
+  letter-spacing: 0rem;
+  margin-left: -3rem;
   /*   margin-left: -5%; */
 }
 
@@ -36,9 +37,10 @@
   font-size: 15px;
   font-family: "Source Han Sans CN";
   font-weight: normal;
-  line-height: 26.06px;
+  line-height: 21px;
   margin-left: 1%;
   color: #333333;
+/*   border: 1px solid black; */
 }
 
 .navbar {
@@ -115,11 +117,10 @@
 
 @media only screen and (max-width: 600px) {
   .navLogo {
-    font-size: 60px;
     font-family: "Roboto";
     font-weight: bold;
     letter-spacing: 0em;
-    margin-left: 2%;
+    margin-left: 0.5rem;
     /*     padding-left: 5%; */
   }
   .navbar-collapse {
@@ -133,11 +134,11 @@
   }
 
   .date {
-    font-size: 15px;
+    font-size: 14px;
     font-family: "Source Han Sans CN";
     font-weight: normal;
-    line-height: 26.06px;
-    margin-left: -10%;
+    line-height: 21px;
+    margin-left: -5rem;
     color: #333333;
   }
 

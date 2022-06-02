@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import * as ReactDOM from 'react-dom';
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import AuthContext from "../../context/AuthContext";
 import "./Navbar.css";
@@ -43,6 +44,18 @@ const NavbarComp = () => {
     11: "十一",
     12: "十二",
   };
+  function NewlineText(props) {
+  const text = props.text;
+  const newText = text.split('\n').map(str => <p>{str}</p>);
+  
+  return newText;
+}
+// ReactDOM.render(
+//   <div className="App">
+//     <NewlineText text={'Line one\nLine two\nLine three'} />
+//   </div>,
+//   document.getElementById('root')
+// );
 
   const getDate = () => {
     let year = "" + state.date.getFullYear();
@@ -57,7 +70,7 @@ const NavbarComp = () => {
     if (month.length == 1) {
       month = "0" + month;
     }
-    ret = ret + chiMonth[month] + "月";
+      ret = ret + chiMonth[month] + "月";
 
     if (date.length == 1) {
       date = "0" + date;

@@ -124,15 +124,24 @@
 }
 
 .nextTopic {
+/*   border: 1px solid black; */
+  cursor: pointer;
+  z-index:10;
+  border-style: solid;
+  color: black;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 0.15rem;
   position: fixed;
-  margin-right: 5%;
-  margin-left: 50%;
-  margin-top: 40%;
+  margin-right: 4%;
+  margin-left: 80%;
+  margin-top: 3.8rem;
   font-family: "Source Han Sans CN";
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 24px;
   /* identical to box height, or 150% */
 
   letter-spacing: 0.3em;
@@ -156,7 +165,7 @@
 
   .left {
     padding: 15%;
-    padding-top: 10%;
+    padding-top: 5%;
     padding-bottom: 10%;
     /*     margin-left: 5%; */
     overflow: hidden;
@@ -174,7 +183,7 @@
     overflow-y: visible;
   }
   .topicContainer {
-    margin: 1.5rem auto;
+    margin: 1.2rem auto;
     display: flex;
     flex-direction: column;
     /*     padding-right: 100px; */
@@ -189,7 +198,31 @@
 
 @media only screen and (max-width: 600px) {
   .nextTopic {
-    display: none;
+  width:102%;
+  border-style: solid;
+  color: black;
+  text-align:center;
+  padding: 0rem 0rem 0rem 0rem;
+  border-color: black;
+  border-left: solid green 0px;
+  border-right: solid green 0px;
+  border-bottom: solid #333333 1px;
+  border-top: solid green 0px;
+  border-radius: 0rem;
+  position: sticky;
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 0;
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 150% */
+
+  letter-spacing: 0.6em;
+
+  color: #333333;
   }
   .mobile-nextTopic {
     display: block;
