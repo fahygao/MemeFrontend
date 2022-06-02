@@ -87,6 +87,14 @@ const TopicPage = () => {
     // getCreator();
     window.scrollTo(0, 0);
   }, [currentTopicId]);
+  
+//     useEffect(() => {
+//      if (window)
+//     
+//     
+//     
+//     },[]);
+  
 //   useEffect(() => {
 //   const script = document.createElement('script');
 // 
