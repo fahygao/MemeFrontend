@@ -158,7 +158,7 @@ function PopupPost({ setOpenModal }) {
               className="form-control textarea"
               id="storyContent"
               rows="6"
-              placeholder="* 欢迎用任何题材和形式来分享你的回忆"
+              placeholder="发布你的动态～#纽约的某地有关于我的回忆"
               maxlength="1000"
               minlength="1"
               onChange={(e) => setNumWords(1000 - e.target.value.length)}
