@@ -309,8 +309,12 @@
     margin: -5% 0% 0% -5%;
   }
   .modalContainer_default {
-    width: 100%;
+    width: 102%;
     height: 40%;
+    border-left: solid green 0px;
+    border-right: solid green 0px;
+    border-bottom: solid #333333 2px;
+    border-top: solid #333333 2px;
   }
   .margin-left_default {
   width: 100%;

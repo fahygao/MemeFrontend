@@ -164,7 +164,7 @@ function PopupPost({ setOpenModal }) {
               onChange={(e) => setNumWords(1000 - e.target.value.length)}
             ></textarea>
           </div>
-          <span class="word-count"> {numWords} </span>
+          <span class="word-count_memo"> {numWords} </span>
           <div className="footer">
             <div className="form-check  anonymous-logo">
               <input
@@ -179,8 +179,8 @@ function PopupPost({ setOpenModal }) {
                 匿名
               </label>
             </div>
-            <button type="submit" className="btn btn-sm btn-dark submitbutton">
-              <span className="submit-text">提交</span>
+            <button type="submit" className="btn btn-sm btn-dark submitbutton_memo">
+              <span className="submit-text">发布</span>
             </button>
           </div>
         </form>

@@ -238,7 +238,7 @@
   background-color: rgba(200, 200, 200, 0.5);
 }
 
-.word-count {
+.word-count_memo {
   display: flex;
   justify-content: flex-end;
   margin-right: 50px;
@@ -307,11 +307,12 @@
   #autocomplete-widen {
     width: 200px;
   }
-  .submitbutton {
+  .submitbutton_memo {
     margin-right: 30px;
+    border-radius: 10cm !important;
   }
-  .word-count {
-    margin-right: 40px;
+  .word-count_memo {
+    margin-right: 30px;
     margin-top: -25px;
   }
 
