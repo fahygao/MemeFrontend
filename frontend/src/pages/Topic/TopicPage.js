@@ -141,19 +141,11 @@ const TopicPage = () => {
       <section className="main-page">
         <div className="left">
           <div className="topicContainer">
-          	 {topicInfo.requires_address ?(
-            <div className="topicName">
+            <div className="topicName" style={{ color: topicInfo.topic_color }}>
               {topicInfo.topicName == undefined
                 ? "加载中"
                 : topicInfo.topicName}
             </div>
-            ):(
-            <div className="topicName1">
-                {topicInfo.topicName == undefined
-                ? "加载中"
-                : topicInfo.topicName}
-            </div>
-            )}
 
             <div className="topicAbstract">
               {decodeNewline(topicInfo.abstract)}
@@ -213,8 +205,8 @@ const TopicPage = () => {
               src={mobile_post}
               onClick={() => {
                 topicInfo.requires_address
-                    ? setPostModalOpen(true)
-                    : setPostModalDefaultOpen(true);
+                  ? setPostModalOpen(true)
+                  : setPostModalDefaultOpen(true);
               }}
             />
           </span>

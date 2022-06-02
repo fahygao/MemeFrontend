@@ -125,9 +125,9 @@
   /* identical to box height */
   color: #9d9d9d;
 }
-.reply{
- height:70%;
- width:70%;
+.reply {
+  height: 70%;
+  width: 70%;
 }
 /* 
 .like{
@@ -137,11 +137,6 @@
  */
 .hashtag {
   font-weight: bold;
-  color: #57058cb8;
-}
-.hashtag1 {
-  font-weight: bold;
-  color: #f67d25;
 }
 
 @media only screen and (max-width: 1000px) {

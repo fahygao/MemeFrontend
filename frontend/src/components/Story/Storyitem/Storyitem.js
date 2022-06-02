@@ -13,7 +13,7 @@ import { useEffect } from "react";
 
 const Storyitem = (props) => {
   //default set to datebase records
- 
+
   const {
     authTokens,
     userLikedStorys,
@@ -65,7 +65,7 @@ const Storyitem = (props) => {
     11: "十一",
     12: "十二",
   };
-    
+
   let checkLiked = () => {
     for (let i = 0; i < userLikedStorys.length; i++) {
       if (userLikedStorys[i]["story_id"] === props.items.id) {
@@ -356,10 +356,12 @@ const Storyitem = (props) => {
                 </span>
               )}
             </div>
-			{props.topicInfo.requires_address && <span className="hashtag"> #{props.topicInfo.topicName}</span> }
-			{!props.topicInfo.requires_address && <span className="hashtag1"> #{props.topicInfo.topicName}</span> }
-
-           
+            <span
+              className="hashtag"
+              style={{ color: props.topicInfo.topic_color }}
+            >
+              #{props.topicInfo.topicName}
+            </span>
           </div>
 
           <div className="reactions">

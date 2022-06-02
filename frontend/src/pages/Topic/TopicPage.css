@@ -3,11 +3,9 @@
 /*Sans default version*/
 
 @font-face {
-	font-family: "Source Han Sans CN";
-	src: 
-		url('SourceHanSansCN-Normal.otf') format('opentype'),
+  font-family: "Source Han Sans CN";
+  src: url("SourceHanSansCN-Normal.otf") format("opentype");
 }
-
 
 @font-face {
   font-family: "XiQuezhaopaiti";
@@ -46,17 +44,6 @@
   line-height: 52px;
   text-align: justify;
   margin-bottom: 30px;
-  color: #57058cb8;
-}
-
-.topicName1 {
-  font-family: "XiQuezhaopaiti";
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 52px;
-  text-align: justify;
-  margin-bottom: 30px;
-  color: #f67d25;
 }
 
 .topicAbstract {
@@ -138,7 +125,7 @@
 
 .nextTopic {
   position: fixed;
-  margin-right:5%;
+  margin-right: 5%;
   margin-left: 50%;
   margin-top: 40%;
   font-family: "Source Han Sans CN";
