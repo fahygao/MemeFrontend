@@ -278,7 +278,7 @@
 .form-check-label {
   font-size: 15px;
 }
-.close-button {
+.close-button_memo {
   margin-right: 10px;
 }
 
@@ -329,9 +329,9 @@
     width: 500px;
     height: 450px;
   }
-  .close-button {
-    margin-right: -15px;
-    height: 140% !important;
-    width: 140% !important;
+  .close-button_memo {
+    margin-right: -30px;
+    height: 150% !important;
+    width: 150% !important;
   }
 }

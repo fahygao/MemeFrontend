@@ -66,7 +66,7 @@ function PopupPost({ setOpenModal }) {
           >
          <img
                 src={close_button}
-                className="close-button" 
+                className="close-button_memo" 
               />
 
           </button>
