@@ -31,7 +31,7 @@
   width: 50px;
   margin-right: 5%;
   margin-left: 5%;
-  margin-bottom: 3%;
+  margin-bottom: 5%;
 }
 
 .profile-pic {
@@ -52,9 +52,9 @@
   border-color: black;
 }
 
-.modalContainer {
-  width: 500px;
-  height: 480px;
+.modalContainer_default {
+  width: 800px;
+  height: 330px;
   border-style: solid;
   border-color: black;
   background-color: #fafafa;
@@ -80,10 +80,10 @@
   border: none;
   font-size: 30px;
   cursor: pointer;
-  margin: -5% -5% 5% -5%;
+  margin: -5% -5% 0% -5%;
 }
 
-.modalContainer .body {
+.modalContainer_default .body {
   flex: 50%;
   display: flex;
   justify-content: center;
@@ -93,7 +93,7 @@
   position: relative;
 }
 
-.modalContainer .footer {
+.modalContainer_default .footer {
   flex: 20%;
   display: flex;
   justify-content: space-between;
@@ -101,27 +101,30 @@
   margin-top: 20px;
 }
 
-.form-row {
+.form-row_default {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
   justify-content: start;
   position: relative;
-  width: 100%;
+  width: 80%;
+  margin-top:-2%;
+  margin-bottom:5%;
   margin-right: 0;
   padding-right: 0;
 }
 
-.form-row2 {
+.form-row2_default {
   display: flex;
   position: relative;
   flex-direction: row;
   margin-bottom: 20px;
-
+  margin-top: -10%;
   z-index: 10;
 }
 .footer {
   margin-top: 25px !important;
+  margin-left: 12px;
 }
 #autocomplete-widen {
   width: 280px;
@@ -147,15 +150,17 @@
   width: 100%;
 }
 
-.margin-left {
-  width: 90%;
-  margin-left: 25px;
+.margin-left_default {
+  width: 95%;
+  margin-left: 40px;
 }
 
 .submitbutton {
   border-radius: 10cm !important;
+  border: None !important;
+  background-color:#333333 !important;
   width: 100px !important;
-  margin-right: 40px;
+  margin-right: 35px;
 }
 
 .submit-text {
@@ -181,7 +186,7 @@
   height: 500px;
 }
 
-.modalContainer .footer button {
+.modalContainer_default .footer button {
   width: 150px;
   border-radius: 8px;
   font-size: 15px;
@@ -195,6 +200,7 @@
 .textarea {
   resize: none;
   position: relative;
+  
 }
 .textarea-comment {
   resize: none;
@@ -223,7 +229,11 @@
   font-size: 15px;
 }
 .form-control {
-  border: 1px solid rgba(0, 0, 0, 0.5) !important;
+  border-left: solid green 0px!important;
+  border-right: solid green 0px!important;
+  border-bottom: solid #9d9d9d 1px!important;
+  border-top: solid green 0px!important;
+/*   border: 1px solid rgba(0, 0, 0, 0.5) !important; */
   border-radius: 0rem !important;
   font-size: 15px !important;
   background-color: #fafafa !important;
@@ -252,7 +262,8 @@
   font-size: 15px;
 }
 .close-button {
-  margin-right: 10px;
+  margin-right: 20px;
+  margin-top:50%;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -283,11 +294,11 @@
     width: 200px;
   }
   .submitbutton {
-    margin-right: 30px;
+    margin-right: 0px;
   }
   .word-count {
-    margin-right: 40px;
-    margin-top: -25px;
+    margin-right: 0px;
+    margin-top: -30px;
   }
 
   .form-select {
@@ -297,13 +308,22 @@
   .titleCloseBtn button {
     margin: -5% 0% 0% -5%;
   }
-  .modalContainer {
-    width: 500px;
-    height: 450px;
+  .modalContainer_default {
+    width: 100%;
+    height: 40%;
   }
+  .margin-left_default {
+  width: 100%;
+  margin-left: 20px;
+}
+
   .close-button {
     margin-right: -15px;
     height: 120%;
     width: 120%;
+    margin-top:0%;
+  }
+  .footer{
+  margin-left: -5px;
   }
 }

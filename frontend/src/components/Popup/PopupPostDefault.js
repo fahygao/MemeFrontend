@@ -39,7 +39,7 @@ function PopupPostDefault() {
 
   return (
     <div className="modalBackground">
-      <div className="modalContainer">
+      <div className="modalContainer_default">
         <div className="titleCloseBtn">
           <button
             onClick={() => {
@@ -50,7 +50,7 @@ function PopupPostDefault() {
           </button>
         </div>
         <form onSubmit={handleOnSubmit}>
-          <div class="form-group form-row">
+          <div class="form-group form-row_default">
             {isAnom ? (
               <img src={anom_prof} className="profile-pic-popup" />
             ) : (
@@ -61,13 +61,13 @@ function PopupPostDefault() {
             )}
           </div>
 
-          <div class="form-group form-row2 custom-input margin-left"></div>
-          <div className="form-group margin-left">
+          <div class="form-group form-row2_default custom-input margin-left_default"></div>
+          <div className="form-group margin-left_default">
             <textarea
               className="form-control textarea"
               id="storyContent"
               rows="6"
-              placeholder="* 欢迎用任何题材和形式来分享你的回忆"
+              placeholder="发布你的动态～#味道：一把通往不同时空的钥匙"
               maxlength="1000"
               minlength="1"
               onChange={(e) => setNumWords(1000 - e.target.value.length)}
@@ -89,7 +89,7 @@ function PopupPostDefault() {
               </label>
             </div>
             <button type="submit" className="btn btn-sm btn-dark submitbutton">
-              <span className="submit-text">提交</span>
+              <span className="submit-text">发布</span>
             </button>
           </div>
         </form>
