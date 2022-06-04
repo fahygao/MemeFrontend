@@ -57,12 +57,13 @@
 }
 
 /* left */
-.left {
+.left_not {
   grid-column: 1 /2;
   grid-row: 1 / 2;
   padding-right: 5%;
   padding-left: 25%;
   padding-top: 8%;
+  border: 1px soild black;
 }
 
 /* right */
@@ -79,6 +80,15 @@
 .leafmap {
   margin-top: 40px;
   width: 80%;
+}
+.vertical {
+  margin-top: 10px;
+  border-left: 1px solid #191b1f;
+  height: 800px;
+
+  left: 50%;
+  z-index: 1;
+  margin-right: 50px;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -76,10 +76,7 @@
 .modalContainer {
   width: 500px;
   height: 480px;
-  border-left: solid green 0px;
-  border-right: solid green 0px;
-  border-bottom: solid #333333 2px;
-  border-top: solid #333333 2px;
+  border:1px solid Black;
   background-color: #fafafa;
   position: relative;
   display: flex;
@@ -328,6 +325,10 @@
   .modalContainer {
     width: 500px;
     height: 450px;
+    border-left: solid green 0px;
+    border-right: solid green 0px;
+    border-bottom: solid #333333 2px;
+    border-top: solid #333333 2px;
   }
   .close-button_memo {
     margin-right: -20px;

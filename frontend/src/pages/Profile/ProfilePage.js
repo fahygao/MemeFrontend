@@ -35,12 +35,12 @@ const TopicPage = () => {
     <div>
       <NavbarComp />
       <section className="main-page">
-        <div className="left">
+        <div className="left_not">
           <div className="topicContainer">
             <div className="notificationName">消息提示</div>
           </div>
         </div>
-
+//         <div class="vertical"></div>
         <div className="right">
           <NotificationList items={Notifications}></NotificationList>
         </div>
