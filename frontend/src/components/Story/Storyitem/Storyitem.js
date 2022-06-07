@@ -19,6 +19,7 @@ const Storyitem = (props) => {
     userLikedStorys,
     user,
     setCurrentStoryID,
+    setCurrentStoryInfo,
     postCommentOpen,
     decodeNewline,
     setCoordinates,
@@ -261,6 +262,7 @@ const Storyitem = (props) => {
     getComments();
     setShowComments((prevState) => !prevState);
     setCurrentStoryID(props.items.id);
+    setCurrentStoryInfo(props.items);
   };
 
   useEffect(() => {

@@ -45,6 +45,7 @@ const NotificationItem = (props) => {
   return (
     <li>
       <div className="noti-col">
+        {console.log(typeof props.items.Action)}
         <div className="story-content">
           <div className="story-header">
             {props.items.profile_pic == -1 ? (
@@ -52,9 +53,15 @@ const NotificationItem = (props) => {
             ) : (
               <img src={maleprof} className="profile-pic1" alt="profile" />
             )}
-            @{props.items.username} {action_mapper[props.items.Action]}
+            <span>
+              @{props.items.username} {action_mapper[props.items.Action]}
+            </span>
+            <div className="noti-message">
+              {props.items.Action == "COMMENTED" && props.items.message}
+            </div>
           </div>
         </div>
+
         <div className="noti-story">
           {story.content === undefined
             ? "加载中..."

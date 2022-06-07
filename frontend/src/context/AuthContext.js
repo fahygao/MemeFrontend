@@ -27,6 +27,7 @@ export const AuthProvider = ({ children }) => {
   let [loading, setLoading] = useState(true);
   let [postCommentOpen, setPostCommentOpen] = useState(false);
   let [currentStoryID, setCurrentStoryID] = useState(-1);
+  let [currentStoryInfo, setCurrentStoryInfo] = useState(-1);
   let [commentDefault, setCommentDefault] = useState("");
   let [alertModalOpen, setAlertModalOpen] = useState(false);
   let [postModalDefaultOpen, setPostModalDefaultOpen] = useState(false);
@@ -164,6 +165,50 @@ export const AuthProvider = ({ children }) => {
   };
 
   // -----------------------------------------------------------------------------
+
+  let createNotification = async (e) => {
+    e.preventDefault();
+    let notificationUrl = API_BASE_URL + "/Notifications/";
+    let message = "";
+    let profpic = userGender ? 1 : 0; //delete later
+    if (e.target.commentContent) {
+      message = e.target.commentContent.value;
+    }
+
+    let response = await fetch(notificationUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + String(authTokens.access),
+      },
+      body: JSON.stringify({
+        id: null,
+        user_id: e.target.user_id, //person who wrote the story, will recieve notification
+        notifier: user.user_id, //person commenting or liking == logged in user
+        message: message,
+        username: user.username, //logged in user's username
+        Action: "COMMENTED", //NEED TO ADD MANUALLY
+        seen: false,
+        create_time: null,
+        story_id: currentStoryInfo.id,
+        profile_pic: profpic, //NEED TO CHANGE LATER
+      }),
+    });
+
+    let data = await response.json();
+
+    if (
+      response.status === 200 ||
+      response.status === 202 ||
+      response.status === 201
+    ) {
+      alert("notification submitted successfully! ");
+    } else {
+      alert(response.status);
+    }
+  };
+
+  // -----------------------------------------------------------------------------
   let getTopicStorys = async () => {
     let url =
       API_BASE_URL + "/StoryListByTopic/?topicID=" + String(currentTopicId);
@@ -238,7 +283,12 @@ export const AuthProvider = ({ children }) => {
       response.status === 202 ||
       response.status === 201
     ) {
-      console.log("post submitted successfully! ");
+      alert("comment submitted successfully! ");
+
+      //generate notification:
+      e.target["Action"] = "COMMENTED";
+      e.target["user_id"] = currentStoryInfo.user_id;
+      createNotification(e);
     } else {
       console.log("something went wrong");
     }
@@ -428,6 +478,8 @@ export const AuthProvider = ({ children }) => {
     postModalDefaultOpen: postModalDefaultOpen,
     setPostModalDefaultOpen: setPostModalDefaultOpen,
     postDefaultStory: postDefaultStory,
+    currentStoryInfo: currentStoryInfo,
+    setCurrentStoryInfo: setCurrentStoryInfo,
     // encodeNewline: encodeNewline,
   };
 

@@ -35,3 +35,7 @@
   cursor: pointer;
   width: 90%;
 }
+
+.noti-message {
+  margin-left: 10%;
+}

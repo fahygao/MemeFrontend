@@ -58,10 +58,10 @@ const HomePage = () => {
       <NavbarComp />
 
       <section className="main-page">
-        <div className="left">
+        <div className="left-home">
           <div className="logo"> MĒMĒ</div>
         </div>
-        <div className="right">
+        <div className="right-home">
           <section id="recent-feeds">
             <p>Hi {user.username}!, 今天你能来真好！今天发生了什么吗？</p>
             <h3 className="header">最新动态</h3>
