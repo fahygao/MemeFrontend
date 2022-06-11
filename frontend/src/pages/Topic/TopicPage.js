@@ -14,13 +14,10 @@ import mobile_next from "../../images/mobile_next.svg";
 import mobile_post from "../../images/mobile_post.svg";
 import PopupPostDefault from "../../components/Popup/PopupPostDefault";
 <script type="text/javascript" src="crawler.js">
-
-/* Text and/or Image Crawler Script v1.53 (c)2009-2011 John Davenport Scheuer
-   as first seen in http://www.dynamicdrive.com/forums/
-   username: jscheuer1 - This Notice Must Remain for Legal Use
-*/
-
-</script>
+  /* Text and/or Image Crawler Script v1.53 (c)2009-2011 John Davenport Scheuer
+  as first seen in http://www.dynamicdrive.com/forums/ username: jscheuer1 -
+  This Notice Must Remain for Legal Use */
+</script>;
 
 const TopicPage = () => {
   //   let [userInfo, setUserInfo] = useState([]);
@@ -87,28 +84,27 @@ const TopicPage = () => {
     // getCreator();
     window.scrollTo(0, 0);
   }, [currentTopicId]);
-  
-//     useEffect(() => {
-//      if (window)
-//     
-//     
-//     
-//     },[]);
-  
-//   useEffect(() => {
-//   const script = document.createElement('script');
-// 
-//   script.src = "crawler.js";
-//   script.async = true;
-// 
-//   document.body.appendChild(script);
-// 
-//   return () => {
-//     document.body.removeChild(script);
-//   }
-// }, []);
-// 
 
+  //     useEffect(() => {
+  //      if (window)
+  //
+  //
+  //
+  //     },[]);
+
+  //   useEffect(() => {
+  //   const script = document.createElement('script');
+  //
+  //   script.src = "crawler.js";
+  //   script.async = true;
+  //
+  //   document.body.appendChild(script);
+  //
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   }
+  // }, []);
+  //
 
   let getTotalUser = async () => {
     let url = API_BASE_URL + "/userLogin/";
@@ -169,16 +165,14 @@ const TopicPage = () => {
       {postCommentOpen && <PopupComment />}
       <NavbarComp />
       <section className="main-page">
-      		 
-            <div
-            className="nextTopic"
-            onClick={() => {
-              changeTopic();
-            }}
-          >
-            #{rightTopic} <img className="arrow" src={right_arrow} />
-            
-          </div>
+        <div
+          className="nextTopic"
+          onClick={() => {
+            changeTopic();
+          }}
+        >
+          #{rightTopic} <img className="arrow" src={right_arrow} />
+        </div>
         <div className="left">
           <div className="topicContainer">
             <div className="topicName" style={{ color: topicInfo.topic_color }}>
@@ -229,7 +223,7 @@ const TopicPage = () => {
             <Storylist items={topicStorys} topicInfo={topicInfo} />
           </section>
         </div>
-    
+
         <div className="mobile-nextTopic">
           <span className="mobile-post">
             <img

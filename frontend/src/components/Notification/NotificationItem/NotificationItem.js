@@ -12,7 +12,8 @@ import "./NotificationItem.css";
 
 const NotificationItem = (props) => {
   const [story, setStory] = useState("");
-  const { authTokens, decodeNewline } = useContext(AuthContext);
+  const { authTokens, decodeNewline, setPostCommentOpen, setCommentDefault } =
+    useContext(AuthContext);
 
   let action_mapper = {
     LIKED: "赞了你",
@@ -66,6 +67,15 @@ const NotificationItem = (props) => {
           {story.content === undefined
             ? "加载中..."
             : decodeNewline(story.content.substring(0, 200))}
+        </div>
+        <div
+          className="noti-reply"
+          onClick={() => {
+            setPostCommentOpen(true);
+            setCommentDefault("@" + props.items.username);
+          }}
+        >
+          回复
         </div>
       </div>
     </li>

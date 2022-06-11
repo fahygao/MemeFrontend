@@ -39,3 +39,18 @@
 .noti-message {
   margin-left: 10%;
 }
+
+.noti-reply {
+  text-align: center;
+  margin-top: 10px;
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 21px;
+  /* identical to box height, or 175% */
+
+  /* 主色 */
+
+  color: #333333;
+}

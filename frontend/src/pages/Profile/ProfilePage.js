@@ -5,13 +5,19 @@ import NavbarComp from "../../components/Header/NavbarComp";
 import { API_BASE_URL } from "../../utils/constants";
 import profile from "./../../images/profilepics/profile.png";
 import "./ProfilePage.css";
+import PopupComment from "../../components/Popup/PopupComment";
 
 const TopicPage = () => {
   //   let [userInfo, setUserInfo] = useState([]);
 
   let [topicInfo, setTopicInfo] = useState([]);
-  let { decodeNewline, getUserGender, Notifications, getNotifications } =
-    useContext(AuthContext);
+  let {
+    decodeNewline,
+    getUserGender,
+    Notifications,
+    getNotifications,
+    postCommentOpen,
+  } = useContext(AuthContext);
 
   const getDate = (date) => {
     date = date.split("-");
@@ -33,6 +39,7 @@ const TopicPage = () => {
 
   return (
     <div>
+      {postCommentOpen && <PopupComment />}
       <NavbarComp />
       <section className="main-page">
         <div className="left_not">
