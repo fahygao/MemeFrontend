@@ -12,10 +12,10 @@ const CommentItem = (props) => {
   let niming = "匿名";
   const { setPostCommentOpen, setCommentDefault, authTokens } =
     useContext(AuthContext);
-  const [gender, setGender] = useState(true);
+  const [prof, setProf] = useState("");
 
-  let getGender = async () => {
-    let userInfoUrl = API_BASE_URL + "/userLogin/" + props.items.user_id;
+  let getProf = async () => {
+    let userInfoUrl = API_BASE_URL + "/userLogin/" + props.items.user_id + "/";
     let response = await fetch(userInfoUrl, {
       method: "GET",
       headers: {
@@ -24,11 +24,23 @@ const CommentItem = (props) => {
       },
     });
     let data = await response.json();
-
-    setGender(data.gender);
+    console.log(data);
+    setProf(data.profile_pic);
   };
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => {
+      images[item.replace("./", "")] = r(item);
+    });
+    return images;
+  }
+
+  const images = importAll(
+    require.context("./../../../images", false, /\.(png|jpe?g|svg)$/)
+  );
+
   useEffect(() => {
-    getGender();
+    getProf();
   }, []);
 
   const clickPost = () => {
@@ -39,13 +51,14 @@ const CommentItem = (props) => {
   };
   return (
     <li className="list">
+      {console.log(prof)}
       <div className="commentItem-content">
         <div className="leftFlex">
           {props.items.anonymous ? (
             <img src={anymHead} className="comment-prof" />
           ) : (
             <img
-              src={gender ? maleprof : femaleprof}
+              src={prof ? images[prof] : maleprof}
               className="comment-prof"
             />
           )}
@@ -62,7 +75,7 @@ const CommentItem = (props) => {
           </span>
         </div>
         <img
-          src={shareIcon} 
+          src={shareIcon}
           className="reply1"
           onClick={() => {
             clickPost();

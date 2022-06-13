@@ -1,19 +1,11 @@
 import React, { useContext, useState } from "react";
-import * as ReactDOM from "react-dom";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import AuthContext from "../../context/AuthContext";
 import "./Navbar.css";
-// import profile from "./../../images/profilepics/#8B0000.png";
-import maleprof from "./../../images/maleprof.svg";
-import femaleprof from "./../../images/femaleprof.svg";
-import menu from "./../../images/menu.svg";
-import { useEffect } from "react";
-import { API_BASE_URL } from "./../../utils/constants";
 import { useNavigate } from "react-router-dom";
 
 const NavbarComp = () => {
-  let { user, logoutUser, userGender, setAlertModalOpen } =
-    useContext(AuthContext);
+  let { user, logoutUser, userProf } = useContext(AuthContext);
   let state = { date: new Date() };
   let navigate = useNavigate();
 
@@ -44,18 +36,18 @@ const NavbarComp = () => {
     11: "十一",
     12: "十二",
   };
-  function NewlineText(props) {
-    const text = props.text;
-    const newText = text.split("\n").map((str) => <p>{str}</p>);
 
-    return newText;
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => {
+      images[item.replace("./", "")] = r(item);
+    });
+    return images;
   }
-  // ReactDOM.render(
-  //   <div className="App">
-  //     <NewlineText text={'Line one\nLine two\nLine three'} />
-  //   </div>,
-  //   document.getElementById('root')
-  // );
+
+  const images = importAll(
+    require.context("./../../images", false, /\.(png|jpe?g|svg)$/)
+  );
 
   const getDate = () => {
     let year = "" + state.date.getFullYear();
@@ -110,7 +102,7 @@ const NavbarComp = () => {
           <Nav className="ms-auto">
             <Navbar.Brand>
               <img
-                src={userGender ? maleprof : femaleprof}
+                src={userProf ? images[userProf] : images["maleprof.svg"]}
                 alt="React Bootstrap logo"
                 width="30px"
                 className="headerProf"

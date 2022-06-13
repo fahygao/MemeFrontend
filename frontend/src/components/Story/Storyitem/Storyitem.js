@@ -33,7 +33,7 @@ const Storyitem = (props) => {
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
   const [showRest, setShowRest] = useState(false);
-  const [gender, setGender] = useState(true);
+  const [prof, setProf] = useState("");
   const [firstName, setFirstName] = useState(props.items.username);
 
   const content = props.items.content;
@@ -76,6 +76,18 @@ const Storyitem = (props) => {
     }
   };
 
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => {
+      images[item.replace("./", "")] = r(item);
+    });
+    return images;
+  }
+
+  const images = importAll(
+    require.context("./../../../images", false, /\.(png|jpe?g|svg)$/)
+  );
+
   let getUserLogin = async () => {
     let userInfoUrl = API_BASE_URL + "/userLogin/" + props.items.user_id + "/";
     let response = await fetch(userInfoUrl, {
@@ -87,7 +99,7 @@ const Storyitem = (props) => {
     });
     let data = await response.json();
 
-    setGender(data.gender);
+    setProf(data.profile_pic);
     // setFirstName(data.first_name);
     // console.log(data);
   };
@@ -322,7 +334,7 @@ const Storyitem = (props) => {
           <div>
             {props.items.anonymous == 0 ? (
               <img
-                src={gender ? maleprof : femaleprof}
+                src={prof ? images[prof] : maleprof}
                 className="profile-pic1"
                 alt="profile"
                 onClick={() => setAlertModalOpen(true)}

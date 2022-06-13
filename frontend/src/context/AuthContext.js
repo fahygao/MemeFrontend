@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
   let [commentDefault, setCommentDefault] = useState("");
   let [alertModalOpen, setAlertModalOpen] = useState(false);
   let [postModalDefaultOpen, setPostModalDefaultOpen] = useState(false);
-  let [userGender, setUserGender] = useState(true);
+  let [userProf, setProf] = useState(true);
 
   //Change to the one belonging to the particular topic LATER!!
   const [coordinates, setCoordinates] = useState({
@@ -170,7 +170,7 @@ export const AuthProvider = ({ children }) => {
     e.preventDefault();
     let notificationUrl = API_BASE_URL + "/Notifications/";
     let message = "";
-    let profpic = userGender ? 1 : 0; //delete later
+    let profpic = userProf; //delete later
     if (e.target.commentContent) {
       message = e.target.commentContent.value;
     }
@@ -294,7 +294,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  let getUserGender = async () => {
+  let getUserProf = async () => {
     let userInfoUrl = API_BASE_URL + "/userLogin/" + user.user_id + "/";
     let response = await fetch(userInfoUrl, {
       method: "GET",
@@ -305,7 +305,7 @@ export const AuthProvider = ({ children }) => {
     });
     let data = await response.json();
 
-    setUserGender(data.gender);
+    setProf(data.profile_pic);
   };
 
   // replace \n with <nl>
@@ -468,9 +468,8 @@ export const AuthProvider = ({ children }) => {
     setCoordinates: setCoordinates,
     alertModalOpen: alertModalOpen,
     setAlertModalOpen: setAlertModalOpen,
-    getUserGender: getUserGender,
-    userGender: userGender,
-    setUserGender: setUserGender,
+    getUserProf: getUserProf,
+    userProf: userProf,
     getNotifications: getNotifications,
     Notifications: Notifications,
     setCurrentTopicId: setCurrentTopicId,

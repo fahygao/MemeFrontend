@@ -32,7 +32,7 @@ const TopicPage = () => {
     postCommentOpen,
     decodeNewline,
     alertModalOpen,
-    getUserGender,
+    getUserProf,
     setCurrentTopicId,
     CurrentTopicId,
     postModalDefaultOpen,
@@ -53,21 +53,6 @@ const TopicPage = () => {
     return ret;
   };
 
-  //   let getCreator = async () => {
-  //     // let creatorId = parseInt(topicInfo.creator.split("/")[-2]);
-  //     // console.log(creatorId);
-  //     let userInfoUrl = API_BASE_URL + "/userLogin/" + creatorId + "/";
-  //     let response = await fetch(userInfoUrl, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: "Bearer " + String(authTokens.access),
-  //       },
-  //     });
-
-  //     let data = await response.json();
-  //   };
-
   useEffect(() => {
     // let w = document.documentElement.clientWidth || window.innerWidth;
     // if (w <= 750) {
@@ -80,31 +65,9 @@ const TopicPage = () => {
     getTopicInfo();
     getTotalUser();
     getUserLiked();
-    getUserGender();
-    // getCreator();
+    getUserProf();
     window.scrollTo(0, 0);
   }, [currentTopicId]);
-
-  //     useEffect(() => {
-  //      if (window)
-  //
-  //
-  //
-  //     },[]);
-
-  //   useEffect(() => {
-  //   const script = document.createElement('script');
-  //
-  //   script.src = "crawler.js";
-  //   script.async = true;
-  //
-  //   document.body.appendChild(script);
-  //
-  //   return () => {
-  //     document.body.removeChild(script);
-  //   }
-  // }, []);
-  //
 
   let getTotalUser = async () => {
     let url = API_BASE_URL + "/userLogin/";

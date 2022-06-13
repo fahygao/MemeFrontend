@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./PopupPost.css";
 import anom_prof from "./../../images/profilepics/anymHead.png";
-import maleprof from "./../../images/maleprof.svg";
-import femaleprof from "./../../images/femaleprof.svg";
 import close_button from "./../../images/close_button.svg";
 import AuthContext from "../../context/AuthContext";
 
@@ -14,7 +12,7 @@ const PopupComment = () => {
     postComment,
     commentDefault,
     setCommentDefault,
-    userGender,
+    userProf,
   } = useContext(AuthContext);
   let handleOnSubmit = (event) => {
     event.preventDefault();
@@ -32,6 +30,18 @@ const PopupComment = () => {
       setIsAnom(true);
     }
   };
+
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => {
+      images[item.replace("./", "")] = r(item);
+    });
+    return images;
+  }
+
+  const images = importAll(
+    require.context("./../../images", false, /\.(png|jpe?g|svg)$/)
+  );
 
   return (
     <div className="modalBackground">
@@ -52,7 +62,7 @@ const PopupComment = () => {
               <img src={anom_prof} className="profile-pic-popup" />
             ) : (
               <img
-                src={userGender ? maleprof : femaleprof}
+                src={userProf ? images[userProf] : images["maleprof.svg"]}
                 className="profile-pic-popup"
               />
             )}
