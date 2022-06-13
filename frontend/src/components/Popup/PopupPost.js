@@ -77,7 +77,7 @@ function PopupPost({ setOpenModal }) {
               <img src={anom_prof} className="profile-pic-popup" />
             ) : (
               <img
-                src={userGender ? maleprof : femaleprof}
+                src={userGender ? femaleprof : maleprof}
                 className="profile-pic-popup"
               />
             )}
