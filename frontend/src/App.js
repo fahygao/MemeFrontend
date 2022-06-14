@@ -18,6 +18,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/" element={<TopicPage />} />
+              <Route exact path="/topics/:id" element={<TopicPage />} />
               <Route exact path="/profile" element={<ProfilePage />} />
             </Route>
             <Route path="/signup" element={<SignupPage />} />

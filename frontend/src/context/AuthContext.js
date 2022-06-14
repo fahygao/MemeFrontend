@@ -32,6 +32,8 @@ export const AuthProvider = ({ children }) => {
   let [alertModalOpen, setAlertModalOpen] = useState(false);
   let [postModalDefaultOpen, setPostModalDefaultOpen] = useState(false);
   let [userProf, setProf] = useState(true);
+  let topic_arr = [3, 4];
+  let [currTopicIndex, setCurrTopicIndex] = useState(0);
 
   //Change to the one belonging to the particular topic LATER!!
   const [coordinates, setCoordinates] = useState({
@@ -63,7 +65,7 @@ export const AuthProvider = ({ children }) => {
       setAuthTokens(data);
       setUser(jwt_decode(data.access));
       localStorage.setItem("authtokens", JSON.stringify(data));
-      navigate("/");
+      navigate("/topics/" + topic_arr[0]);
     } else {
       alert("something went wrong");
     }
@@ -209,9 +211,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   // -----------------------------------------------------------------------------
-  let getTopicStorys = async () => {
-    let url =
-      API_BASE_URL + "/StoryListByTopic/?topicID=" + String(currentTopicId);
+  let getTopicStorys = async (topicID) => {
+    let url = API_BASE_URL + "/StoryListByTopic/?topicID=" + topicID;
     let response = await fetch(url, {
       method: "GET",
       headers: {
@@ -479,6 +480,9 @@ export const AuthProvider = ({ children }) => {
     postDefaultStory: postDefaultStory,
     currentStoryInfo: currentStoryInfo,
     setCurrentStoryInfo: setCurrentStoryInfo,
+    currTopicIndex: currTopicIndex,
+    setCurrTopicIndex: setCurrTopicIndex,
+    topic_arr: topic_arr,
     // encodeNewline: encodeNewline,
   };
 

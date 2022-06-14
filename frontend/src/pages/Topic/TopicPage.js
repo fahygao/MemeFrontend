@@ -5,47 +5,42 @@ import NavbarComp from "../../components/Header/NavbarComp";
 import PopupPost from "../../components/Popup/PopupPost";
 import PopupComment from "../../components/Popup/PopupComment";
 import { API_BASE_URL } from "../../utils/constants";
-import profile from "./../../images/profilepics/profile.png";
 import AlertModal from "../../components/Popup/AlertModal";
-import "./TopicPage.css";
 import LeafMap from "../../components/Map/LeafMap";
 import right_arrow from "../../images/right_arrow.svg";
 import mobile_next from "../../images/mobile_next.svg";
 import mobile_post from "../../images/mobile_post.svg";
 import PopupPostDefault from "../../components/Popup/PopupPostDefault";
-<script type="text/javascript" src="crawler.js">
-  /* Text and/or Image Crawler Script v1.53 (c)2009-2011 John Davenport Scheuer
-  as first seen in http://www.dynamicdrive.com/forums/ username: jscheuer1 -
-  This Notice Must Remain for Legal Use */
-</script>;
+import { useParams, useNavigate } from "react-router-dom";
+import "./TopicPage.css";
 
 const TopicPage = () => {
   //   let [userInfo, setUserInfo] = useState([]);
-
+  let navigate = useNavigate();
   let [topicInfo, setTopicInfo] = useState([]);
   let {
     authTokens,
     getTopicStorys,
     topicStorys,
-    currentTopicId,
     getUserLiked,
     postCommentOpen,
     decodeNewline,
     alertModalOpen,
     getUserProf,
-    setCurrentTopicId,
-    CurrentTopicId,
+    topic_arr,
+    setCurrTopicIndex,
     postModalDefaultOpen,
     setPostModalDefaultOpen,
     user,
   } = useContext(AuthContext);
 
   const [postModalOpen, setPostModalOpen] = useState(false);
-
+  const { id } = useParams();
   const [userCount, setUserCount] = useState(0);
-  const [creator, setCreator] = useState("loading...");
 
-  let [rightTopic, setRightTopic] = useState("味道：一把打破时空的钥匙");
+  const topicParamIndex = topic_arr.findIndex((element) => {
+    return element == id;
+  });
 
   const getDate = (date) => {
     date = date.split("-");
@@ -61,13 +56,14 @@ const TopicPage = () => {
     //   document.body.style.overflow = "hidden";
     // }
     //  document.body.style.overflow = "hidden";
-    getTopicStorys();
+
+    getTopicStorys(id);
     getTopicInfo();
     getTotalUser();
     getUserLiked();
     getUserProf();
     window.scrollTo(0, 0);
-  }, [currentTopicId]);
+  }, [id]);
 
   let getTotalUser = async () => {
     let url = API_BASE_URL + "/userLogin/";
@@ -88,19 +84,15 @@ const TopicPage = () => {
   };
 
   let changeTopic = () => {
-    if (currentTopicId == 3) {
-      setRightTopic("纽约的某地有关于我的回忆");
-      //   setRightTopic("敬请期待");
-      setCurrentTopicId(4);
-    }
-    if (currentTopicId == 4) {
-      setRightTopic("味道：一把通往不同时空的钥匙");
-      setCurrentTopicId(3);
-    }
+    console.log(topicParamIndex);
+    let nextTopicID = String(
+      topic_arr[(topicParamIndex + 1) % topic_arr.length]
+    );
+    navigate("../topics/" + nextTopicID, { replace: true });
   };
 
   let getTopicInfo = async () => {
-    let url = API_BASE_URL + "/Topics/" + String(currentTopicId) + "/";
+    let url = API_BASE_URL + "/Topics/" + id + "/";
     let response = await fetch(url, {
       method: "GET",
       headers: {
@@ -134,7 +126,7 @@ const TopicPage = () => {
             changeTopic();
           }}
         >
-          #{rightTopic} <img className="arrow" src={right_arrow} />
+          #{"下个话题"} <img className="arrow" src={right_arrow} />
         </div>
         <div className="left">
           <div className="topicContainer">
