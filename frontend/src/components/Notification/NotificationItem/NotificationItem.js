@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import AuthContext from "../../../context/AuthContext";
 import { API_BASE_URL } from "../../../utils/constants";
 import maleprof from "./../../../images/maleprof.svg";
-import femaleprof from "./../../../images/femaleprof.svg";
 import anymHead from "./../../../images/profilepics/anymHead.png";
 import "./NotificationItem.css";
 //   useEffect(()=>{
@@ -12,6 +11,7 @@ import "./NotificationItem.css";
 
 const NotificationItem = (props) => {
   const [story, setStory] = useState("");
+  const [prof, setProf] = useState("");
   const { authTokens, decodeNewline, setPostCommentOpen, setCommentDefault } =
     useContext(AuthContext);
 

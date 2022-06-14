@@ -13,7 +13,7 @@ const TopicPage = () => {
   let [topicInfo, setTopicInfo] = useState([]);
   let {
     decodeNewline,
-    getUserGender,
+    getUserProf,
     Notifications,
     getNotifications,
     postCommentOpen,
@@ -34,7 +34,7 @@ const TopicPage = () => {
     // }
     //  document.body.style.overflow = "hidden";
     getNotifications();
-    getUserGender();
+    getUserProf();
   }, []);
 
   return (

@@ -13,12 +13,8 @@ import { API_BASE_URL } from "../../utils/constants";
 import "./PopupPostDefault.css";
 
 function PopupPostDefault() {
-  let {
-    postDefaultStory,
-    getTopicStorys,
-    userGender,
-    setPostModalDefaultOpen,
-  } = useContext(AuthContext);
+  let { postDefaultStory, getTopicStorys, userProf, setPostModalDefaultOpen } =
+    useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
   const [numWords, setNumWords] = useState(1000);
 
@@ -36,6 +32,18 @@ function PopupPostDefault() {
       setIsAnom(true);
     }
   };
+
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => {
+      images[item.replace("./", "")] = r(item);
+    });
+    return images;
+  }
+
+  const images = importAll(
+    require.context("./../../images", false, /\.(png|jpe?g|svg)$/)
+  );
 
   return (
     <div className="modalBackground">
@@ -55,7 +63,7 @@ function PopupPostDefault() {
               <img src={anom_prof} className="profile-pic-popup" />
             ) : (
               <img
-                src={userGender ? maleprof : femaleprof}
+                src={userProf ? images[userProf] : maleprof}
                 className="profile-pic-popup"
               />
             )}

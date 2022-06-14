@@ -4,17 +4,14 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 import AuthContext from "../../context/AuthContext";
-import user_prof from "./../../images/profilepics/default_prof.png";
 import anom_prof from "./../../images/profilepics/anymHead.png";
 import maleprof from "./../../images/maleprof.svg";
-import femaleprof from "./../../images/femaleprof.svg";
-import close_button from  "./../../images/close_button.svg";
-import { API_BASE_URL } from "../../utils/constants";
+import close_button from "./../../images/close_button.svg";
+// import { API_BASE_URL } from "../../utils/constants";
 import "./PopupPost.css";
 
 function PopupPost({ setOpenModal }) {
-  let { postStory, getTopicStorys, authTokens, userGender } =
-    useContext(AuthContext);
+  let { postStory, getTopicStorys, userProf } = useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
   const [numWords, setNumWords] = useState(1000);
   const [address, setAddress] = useState("");
@@ -33,6 +30,18 @@ function PopupPost({ setOpenModal }) {
     setAddress(value);
     setCoordinates(latLng);
   };
+
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => {
+      images[item.replace("./", "")] = r(item);
+    });
+    return images;
+  }
+
+  const images = importAll(
+    require.context("./../../images", false, /\.(png|jpe?g|svg)$/)
+  );
 
   let handleOnSubmit = (e) => {
     e.preventDefault();
@@ -64,11 +73,7 @@ function PopupPost({ setOpenModal }) {
               setOpenModal(false);
             }}
           >
-         <img
-                src={close_button}
-                className="close-button_memo" 
-              />
-
+            <img src={close_button} className="close-button_memo" />
           </button>
         </div>
         <form onSubmit={handleOnSubmit}>
@@ -77,7 +82,7 @@ function PopupPost({ setOpenModal }) {
               <img src={anom_prof} className="profile-pic-popup" />
             ) : (
               <img
-                src={userGender ? femaleprof : maleprof}
+                src={userProf ? images[userProf] : maleprof}
                 className="profile-pic-popup"
               />
             )}
@@ -179,7 +184,10 @@ function PopupPost({ setOpenModal }) {
                 匿名
               </label>
             </div>
-            <button type="submit" className="btn btn-sm btn-dark submitbutton_memo">
+            <button
+              type="submit"
+              className="btn btn-sm btn-dark submitbutton_memo"
+            >
               <span className="submit-text">发布</span>
             </button>
           </div>
