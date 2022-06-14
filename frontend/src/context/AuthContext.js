@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
       : null
   );
 
-  let [currentTopicId, setCurrentTopicId] = useState(3);
   //   let [currentTopicName, setCurrentTopicName] = useState("Null");
   let [topicStorys, setTopicStorys] = useState([]);
   let [Notifications, setNotifications] = useState([]);
@@ -364,7 +363,7 @@ export const AuthProvider = ({ children }) => {
         view_count: 0,
         create_time: null,
         parent_id: 7,
-        topic_id: currentTopicId,
+        topic_id: topic_arr[currTopicIndex],
         user_id: user.user_id,
         num_comments: 0,
         num_shares: 0,
@@ -419,7 +418,7 @@ export const AuthProvider = ({ children }) => {
         view_count: 0,
         create_time: null,
         parent_id: 7,
-        topic_id: currentTopicId,
+        topic_id: topic_arr[currTopicIndex],
         user_id: user.user_id,
         num_comments: 0,
         num_shares: 0,
@@ -449,7 +448,6 @@ export const AuthProvider = ({ children }) => {
     loginUser: loginUser,
     logoutUser: logoutUser,
     postStory: postStory,
-    currentTopicId: currentTopicId,
     getTopicStorys: getTopicStorys,
     topicStorys: topicStorys,
     userLikedStorys: userLikedStorys,
@@ -473,8 +471,6 @@ export const AuthProvider = ({ children }) => {
     userProf: userProf,
     getNotifications: getNotifications,
     Notifications: Notifications,
-    setCurrentTopicId: setCurrentTopicId,
-    currentTopicId: currentTopicId,
     postModalDefaultOpen: postModalDefaultOpen,
     setPostModalDefaultOpen: setPostModalDefaultOpen,
     postDefaultStory: postDefaultStory,

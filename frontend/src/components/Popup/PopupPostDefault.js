@@ -75,7 +75,10 @@ function PopupPostDefault(props) {
               className="form-control textarea"
               id="storyContent"
               rows="6"
-              placeholder={props.topicInfo.placeholder_txt}
+              placeholder={props.topicInfo.placeholder_txt.replaceAll(
+                "&#10;",
+                "\n"
+              )}
               maxlength="1000"
               minlength="1"
               onChange={(e) => setNumWords(1000 - e.target.value.length)}
