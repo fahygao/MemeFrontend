@@ -285,6 +285,13 @@
     font-size: small;
   }
 
+  .profile-pic-popup {
+   height: 50px;
+   width: 50px;
+   margin-right: 5%;
+   margin-left: 5%;
+   margin-bottom: 10%;
+}
   .date-popup {
     margin-left: 0px !important;
     margin-right: 5px !important;
