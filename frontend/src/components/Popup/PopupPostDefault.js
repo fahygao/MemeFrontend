@@ -76,7 +76,7 @@ function PopupPostDefault(props) {
               id="storyContent"
               rows="6"
               placeholder={props.topicInfo.placeholder_txt.replaceAll(
-                "&#10;",
+                "<nl>",
                 "\n"
               )}
               maxlength="1000"
