@@ -12,7 +12,7 @@ import close_button from "./../../images/close_button.svg";
 import { API_BASE_URL } from "../../utils/constants";
 import "./PopupPostDefault.css";
 
-function PopupPostDefault() {
+function PopupPostDefault(props) {
   let { postDefaultStory, getTopicStorys, userProf, setPostModalDefaultOpen } =
     useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
@@ -75,7 +75,7 @@ function PopupPostDefault() {
               className="form-control textarea"
               id="storyContent"
               rows="6"
-              placeholder="发布你的动态～#味道：一把通往不同时空的钥匙"
+              placeholder={props.topicInfo.placeholder_txt}
               maxlength="1000"
               minlength="1"
               onChange={(e) => setNumWords(1000 - e.target.value.length)}

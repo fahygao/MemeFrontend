@@ -111,8 +111,10 @@ const TopicPage = () => {
 
   return (
     <div>
-      {postModalOpen && <PopupPost setOpenModal={setPostModalOpen} />}
-      {postModalDefaultOpen && <PopupPostDefault />}
+      {postModalOpen && (
+        <PopupPost setOpenModal={setPostModalOpen} topicInfo={topicInfo} />
+      )}
+      {postModalDefaultOpen && <PopupPostDefault topicInfo={topicInfo} />}
 
       {alertModalOpen && (
         <AlertModal message={"TA的个人手帐页正在开发中，敬请期待！"} />

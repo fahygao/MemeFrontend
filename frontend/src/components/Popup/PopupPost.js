@@ -10,7 +10,7 @@ import close_button from "./../../images/close_button.svg";
 // import { API_BASE_URL } from "../../utils/constants";
 import "./PopupPost.css";
 
-function PopupPost({ setOpenModal }) {
+function PopupPost(props) {
   let { postStory, getTopicStorys, userProf } = useContext(AuthContext);
   const [isAnom, setIsAnom] = useState(false);
   const [numWords, setNumWords] = useState(1000);
@@ -52,7 +52,7 @@ function PopupPost({ setOpenModal }) {
       e.target["lng"] = coordinates.lng.toFixed(5);
     }
     postStory(e);
-    setOpenModal(false);
+    props.setOpenModal(false);
     getTopicStorys();
   };
 
@@ -70,7 +70,7 @@ function PopupPost({ setOpenModal }) {
         <div className="titleCloseBtn">
           <button
             onClick={() => {
-              setOpenModal(false);
+              props.setOpenModal(false);
             }}
           >
             <img src={close_button} className="close-button_memo" />
@@ -157,13 +157,14 @@ function PopupPost({ setOpenModal }) {
                 <span className="exist-check">该地已消失</span>
               </label>
             </div>
+            {console.log(props.topicInfo)}
           </div>
           <div className="form-group margin-left">
             <textarea
               className="form-control textarea"
               id="storyContent"
               rows="6"
-              placeholder="发布你的动态～#纽约的某地有关于我的回忆"
+              placeholder={props.topicInfo.placeholder_txt}
               maxlength="1000"
               minlength="1"
               onChange={(e) => setNumWords(1000 - e.target.value.length)}

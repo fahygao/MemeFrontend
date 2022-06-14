@@ -6,6 +6,7 @@ import LoginPage from "./pages/Login/LoginPage";
 import AboutPage from "./pages/About/AboutPage";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import PrivateRoute from "./utils/PrivateRoute";
+import HomePage from "./pages/Home/HomePage";
 import SignupPage from "./pages/Signup/Signup";
 import React from "react";
 
