@@ -38,9 +38,10 @@ const TopicPage = () => {
   const { id } = useParams();
   const [userCount, setUserCount] = useState(0);
 
-  const topicParamIndex = topic_arr.findIndex((element) => {
+  const findIndex = topic_arr.findIndex((element) => {
     return element == id;
   });
+  const topicParamIndex = findIndex > 0 ? findIndex : 0;
 
   const getDate = (date) => {
     date = date.split("-");
@@ -56,8 +57,10 @@ const TopicPage = () => {
     //   document.body.style.overflow = "hidden";
     // }
     //  document.body.style.overflow = "hidden";
+    console.log(topicParamIndex);
+
     setCurrTopicIndex(topicParamIndex);
-    getTopicStorys(id);
+    getTopicStorys(topic_arr[topicParamIndex]);
     getTopicInfo();
     getTotalUser();
     getUserLiked();
@@ -92,7 +95,7 @@ const TopicPage = () => {
   };
 
   let getTopicInfo = async () => {
-    let url = API_BASE_URL + "/Topics/" + id + "/";
+    let url = API_BASE_URL + "/Topics/" + topic_arr[topicParamIndex] + "/";
     let response = await fetch(url, {
       method: "GET",
       headers: {
