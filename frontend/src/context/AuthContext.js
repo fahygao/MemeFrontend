@@ -73,6 +73,8 @@ export const AuthProvider = ({ children }) => {
   const registerUser = async (e) => {
     e.preventDefault();
     console.log("user register form submitted");
+    const prof_str =
+      e.target.male.checked == 1 ? "maleprof.svg" : "femaleprof.svg";
     let url = API_BASE_URL + "/createuser/";
     let response = await fetch(url, {
       method: "POST",
@@ -85,7 +87,7 @@ export const AuthProvider = ({ children }) => {
         email: e.target.email.value,
         gender: e.target.male.checked,
         social_media: e.target.social_media.value,
-        profile_pic: "maleprof.svg",
+        profile_pic: prof_str,
       }),
     });
     let data = await response.json();
