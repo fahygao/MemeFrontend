@@ -142,7 +142,7 @@ const SignupPage = () => {
             class="form-control1"
             id="email"
             aria-describedby="emailHelp"
-            placeholder="目前仅支持北美学校，谢谢理解！"
+            placeholder="目前仅支持@nyu.edu，谢谢理解！"
           />
           <small id="emailHelp" class="form-text text-muted">
             我们不会将您的邮箱与任何人分享。
