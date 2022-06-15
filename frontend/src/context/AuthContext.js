@@ -85,6 +85,7 @@ export const AuthProvider = ({ children }) => {
         email: e.target.email.value,
         gender: e.target.male.checked,
         social_media: e.target.social_media.value,
+        profile_pic: "maleprof.svg",
       }),
     });
     let data = await response.json();
