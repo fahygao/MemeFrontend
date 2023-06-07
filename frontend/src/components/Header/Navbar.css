@@ -1,22 +1,152 @@
+/*Roboto default version*/
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/roboto/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/*Sans default version*/
+@font-face {
+  font-family: "Source Han Sans CN";
+  src: url("../../fonts/CN/SourceHanSansCN-Medium.otf") format("opentype");
+  font-weight: normal;
+}
+
+.headerProf {
+  padding-bottom: 8px;
+}
+
 .navLogo {
-  font-size: 30px;
-  font-family: "Montserrat-light", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0em;
-  text-align: center;
+  /*   font-size: 50px; */
+  cursor: pointer;
+  font-family: "Roboto";
+  font-weight: bold;
+  letter-spacing: 0rem;
+  margin-left: -3rem;
+  /*   margin-left: -5%; */
+}
+
+.navbar-brand {
+  font-size: 30px !important;
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
 }
 
 .date {
   font-size: 15px;
-  font-family: "Montserrat-light", sans-serif;
-  font-weight: 700;
-  line-height: 35px;
-  margin-left: 10px;
+  font-family: "Source Han Sans CN";
+  font-weight: normal;
+  line-height: 21px;
+  margin-left: 1%;
+  color: #333333;
+/*   border: 1px solid black; */
+}
+
+.navbar {
+  border-bottom: 3px solid #000000;
+  padding: 0;
+  background-color: #fafafa;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.navbar-inner {
+  /* background-color: white; */
+  z-index: 1000;
+  padding: 0;
+}
+
+.navbar-light .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0) !important;
+  color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar-toggler-icon {
+  width: 1em !important;
+  height: 1em !important;
+}
+
+.navbar-toggler {
+  font-size: 1rem;
+}
+
+.manual {
+  font-size: 15px;
+  font-family: "Source Han Sans CN";
+  font-weight: normal;
+  line-height: 30px;
   color: #333333;
 }
 
-.border {
-  border-bottom: 5px solid #000000;
-  padding: 0;
-  margin-bottom: 15px;
+.logout {
+  font-size: 15px;
+  font-family: "Source Han Sans CN";
+  font-weight: normal;
+  line-height: 30px;
+  color: #333333;
+}
+
+.login {
+  font-size: 15px;
+  font-family: "Source Han Sans CN";
+  font-weight: normal;
+  line-height: 30px;
+  color: #333333;
+}
+
+@media only screen and (max-width: 1000px) {
+  .navLogo {
+    font-size: 80px;
+    font-family: "Roboto";
+    font-weight: bold;
+    letter-spacing: 0em;
+    padding-left: 4%;
+    margin-left: 0%;
+  }
+
+  .date {
+    font-size: 15px;
+    font-family: "Source Han Sans CN";
+    font-weight: 700;
+    line-height: 26.06px;
+    margin-left: 1%;
+    color: #333333;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navLogo {
+    font-family: "Roboto";
+    font-weight: bold;
+    letter-spacing: 0em;
+    margin-left: 0.5rem;
+    /*     padding-left: 5%; */
+  }
+  .navbar-collapse {
+    margin-left: 5% !important;
+}
+
+  .navbar-inner {
+    /* background-color: white; */
+    z-index: 1000;
+    padding: 0%;
+  }
+
+  .date {
+    font-size: 14px;
+    font-family: "Source Han Sans CN";
+    font-weight: normal;
+    line-height: 21px;
+    margin-left: -3rem;
+    color: #333333;
+  }
+
+  .navbar {
+    border-bottom: 3px solid #000000;
+    padding: 0;
+    background-color: #fafafa;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
 }

@@ -1,0 +1,340 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200, 0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.exist-check {
+  margin: 0px;
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 21px;
+  /* or 175% */
+
+  color: #333333;
+}
+
+.autocomplete {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.profile-pic-popup {
+  height: 50px;
+  width: 50px;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  margin-right: 3%;
+  margin-left: 5%;
+}
+
+#DateHappened {
+  position: relative;
+  z-index: 100;
+}
+
+.border-radius {
+  border-radius: 0.1rem;
+  border-style: solid;
+  border-color: black;
+}
+
+.modalContainer_default {
+  width: 800px;
+  height: 330px;
+  border-style: solid;
+  border-color: black;
+  background-color: #fafafa;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  margin: -5% -5% 0% -5%;
+}
+
+.modalContainer_default .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+  position: relative;
+}
+
+.modalContainer_default .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form-row_default {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  justify-content: start;
+  position: relative;
+  width: 80%;
+  margin-top:-2%;
+  margin-bottom:5%;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.form-row2_default {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  margin-bottom: 20px;
+  margin-top: -10%;
+  z-index: 10;
+}
+.footer {
+  margin-top: 25px !important;
+  margin-left: 12px;
+}
+#autocomplete-widen {
+  width: 280px;
+}
+
+.form-select {
+  font-size: 15px !important;
+  background-color: #fafafa !important;
+  border: None !important;
+  border-radius: 0rem !important;
+  border-bottom: 1px solid #999999 !important;
+  padding: 0.375rem 0.75rem !important;
+}
+.title-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  justify-content: space-around;
+}
+
+.margin-right {
+  margin-right: 20px;
+  width: 100%;
+}
+
+.margin-left_default {
+  width: 95%;
+  margin-left: 40px;
+}
+
+.submitbutton {
+  border-radius: 10cm !important;
+  border: None !important;
+  background-color:#333333 !important;
+  width: 100px !important;
+  margin-right: 35px;
+}
+
+.submit-text {
+  font-weight: 400;
+  font-size: 17px;
+  margin-left: 10px;
+  line-height: 2s0px;
+  letter-spacing: 0.66em;
+  color: #ffffff;
+}
+
+.border-control {
+  border-left: solid green 0px;
+  border-right: solid green 0px;
+  border-bottom: solid #333333 1px;
+  border-top: solid green 0px;
+  font-size: 15px;
+  background-color: #fafafa;
+  border-radius: 0.01px;
+}
+
+.comment-content {
+  height: 500px;
+}
+
+.modalContainer_default .footer button {
+  width: 150px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background-color: crimson;
+}
+
+.textarea {
+  resize: none;
+  position: relative;
+  
+}
+.textarea-comment {
+  resize: none;
+  position: relative;
+  height: 200px;
+}
+
+.anonymous-logo {
+  margin-left: 25px;
+}
+.dropdownDiv {
+  z-index: 1001;
+  position: absolute;
+  left: 0;
+  width: 68%;
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+.word-count {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-top: -30px;
+  opacity: 0.5;
+  font-weight: 400;
+  font-size: 15px;
+}
+.form-control {
+  border-left: solid green 0px!important;
+  border-right: solid green 0px!important;
+  border-bottom: solid #9d9d9d 1px!important;
+  border-top: solid green 0px!important;
+/*   border: 1px solid rgba(0, 0, 0, 0.5) !important; */
+  border-radius: 0rem !important;
+  font-size: 15px !important;
+  background-color: #fafafa !important;
+  width: 95% !important;
+  padding: 0.375rem 0.375rem 0.375rem 0.5rem !important;
+}
+.form-control1 {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-clip: padding-box;
+  appearance: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-left: solid green 0px;
+  border-right: solid green 0px;
+  border-bottom: solid #333333 1px;
+  border-top: solid green 0px;
+  border-radius: 0rem !important;
+  font-size: 15px !important;
+  background-color: #fafafa !important;
+  width: 95% !important;
+}
+.form-check-label {
+  font-size: 15px;
+}
+.close-button {
+  margin-right: 20px;
+  margin-top:50%;
+}
+
+@media only screen and (max-width: 1000px) {
+  ::placeholder {
+    font-size: small;
+  }
+  .form-select {
+    font-size: small;
+  }
+
+  /* .modalContainer {
+    width: 500px;
+    height: 800px;
+  } */
+}
+
+@media only screen and (max-width: 600px) {
+  ::placeholder {
+    font-size: small;
+  }
+
+  .profile-pic-popup {
+   height: 50px;
+   width: 50px;
+   margin-right: 5%;
+   margin-left: 5%;
+   margin-bottom: 10%;
+}
+  .date-popup {
+    margin-left: 0px !important;
+    margin-right: 5px !important;
+    margin: 20px;
+  }
+  #autocomplete-widen {
+    width: 200px;
+  }
+  .submitbutton {
+    margin-right: 0px;
+  }
+  .word-count {
+    margin-right: 0px;
+    margin-top: -30px;
+  }
+
+  .form-select {
+    font-size: small;
+  }
+
+  .titleCloseBtn button {
+    margin: -5% 0% 0% -5%;
+  }
+  .modalContainer_default {
+    width: 500px;
+    height: 380px;
+    border-left: solid green 0px;
+    border-right: solid green 0px;
+    border-bottom: solid #333333 2px;
+    border-top: solid #333333 2px;
+  }
+  .margin-left_default {
+  width: 100%;
+  margin-left: 20px;
+}
+
+  .close-button {
+    margin-right: -20px;
+    height: 150%;
+    width: 150%;
+    margin-top:0%;
+  }
+  .footer{
+  margin-left: -5px;
+  }
+}

@@ -1,0 +1,10 @@
+.leaflet-container {
+  width: 125%;
+  height: 30vh;
+  margin-top: -10px;
+}
+.leaflet-top, .leaflet-bottom {
+    position: absolute;
+    z-index: 700;
+    pointer-events: none;
+}

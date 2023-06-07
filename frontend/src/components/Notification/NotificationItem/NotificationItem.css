@@ -1,0 +1,56 @@
+.noti-story {
+  border-style: solid;
+  color: black;
+  border-width: 1px;
+  padding: 30px;
+  border-color: black;
+  width: 80%;
+  margin-left: 15%;
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+
+  letter-spacing: 0.025em;
+
+  color: #333333;
+}
+
+.noti-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.noti-col {
+  margin: 1rem 0;
+  background: #fafafa;
+  border-style: solid;
+  color: black;
+  padding: 1rem 2rem;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 0.15rem;
+  cursor: pointer;
+  width: 90%;
+}
+
+.noti-message {
+  margin-left: 10%;
+}
+
+.noti-reply {
+  text-align: center;
+  margin-top: 10px;
+  font-family: "Source Han Sans CN";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 21px;
+  /* identical to box height, or 175% */
+
+  /* 主色 */
+
+  color: #333333;
+}

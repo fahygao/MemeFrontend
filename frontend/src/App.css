@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url(./fonts/roboto/Roboto-Regular.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: "Source Han Sans CN";
+  font-weight: 900;
+  src: local("CN"),
+    url(./fonts/CN/SourceHanSansCN-Regular.otf) format("opentype");
+}
